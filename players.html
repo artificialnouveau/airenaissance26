@@ -223,12 +223,6 @@
   <p class="hero-sub">Political leaders, tech CEOs, and financiers in their own words on the future of AI, public AI, and AI sovereignty. Ranked, within each group, by how likely they are to commit to a Large Model Training Consortium: a shared, multi-party effort to build frontier AI together rather than depend on a single superpower.</p>
 </header>
 
-<details class="collapsible roster">
-  <summary class="collapsible-summary">
-    <span class="kicker collapsible-kicker">Show the players</span>
-    <span class="collapsible-chevron" aria-hidden="true"></span>
-  </summary>
-
 <div class="filterbar" role="group" aria-label="Filter speakers by type">
   <button class="filter-btn is-active" data-filter="all" type="button">All</button>
   <button class="filter-btn" data-filter="corp" type="button">Corporate</button>
@@ -242,24 +236,17 @@
   <div id="rail"></div>
 </section>
 
-<div class="section-wrap" style="padding-bottom:0">
-  <p class="kicker">Personas</p>
-  <p class="lead-note">The full roster as trading cards. Click any card to open its dossier: stance, AI-sovereignty position, sources, and clips. The colour strip echoes the spectrum above.</p>
-</div>
-
-<section class="content"><div class="cardgrid" id="people"></div></section>
-</details>
-
-<section class="section-wrap" aria-label="Clustered transcripts">
+<section class="section-wrap" aria-label="Personas">
   <details class="collapsible">
     <summary class="collapsible-summary">
-      <span class="kicker collapsible-kicker">Transcripts, clustered by AI sovereignty stance</span>
+      <span class="kicker collapsible-kicker">Personas</span>
       <span class="collapsible-chevron" aria-hidden="true"></span>
     </summary>
-    <p class="lead-note">The same voices, grouped by where they locate AI sovereignty rather than who they are. Each card carries a representative line, then a connector down to the person who said it. Tap the name to watch the clip it came from. Lines in italics are paraphrased positions; lines in quotation marks are close to verbatim.</p>
-    <div class="clusters" id="clusters"></div>
+    <p class="lead-note">The full roster as trading cards. Click any card to open its dossier: stance, AI-sovereignty position, sources, and clips. The colour strip echoes the spectrum above.</p>
+    <div class="cardgrid" id="people"></div>
   </details>
 </section>
+
 
 <div class="pmodal" id="pmodal" hidden>
   <div class="pmodal-backdrop" data-close></div>
@@ -921,7 +908,6 @@ function buildModal(p){
 function applyFilter(type){
   const list = type === 'all' ? PEOPLE : PEOPLE.filter(p => CAT[p.id] === type);
   renderRail(list);
-  renderClusters(list);
   renderCards(list);
   document.querySelectorAll('.filter-btn').forEach(b =>
     b.classList.toggle('is-active', b.dataset.filter === type));

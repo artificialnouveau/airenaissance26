@@ -158,6 +158,20 @@
   .sim-readout{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);margin:.7rem 0 0;text-align:center;}
   .sim-readout b{color:var(--blue);font-size:1rem;}
   @media (max-width:760px){.sim-wrap{grid-template-columns:1fr;}}
+  .sumdl{border-top:1px solid var(--line);margin-top:3rem;padding-top:2.6rem;max-width:660px;}
+  .sumdl-line{color:var(--muted);margin:0 0 1.1rem;font-size:1.05rem;}
+  .print-summary{display:none;}
+  @media print{
+    body > *{display:none !important;}
+    .print-summary{display:block !important;font-family:'Inter',system-ui,sans-serif;color:#000;font-size:10.5px;line-height:1.42;}
+    .print-summary h1{font-size:19px;margin:0 0 2px;letter-spacing:-.02em;}
+    .print-summary .ps-sub{font-size:10px;color:#444;margin:0 0 11px;}
+    .print-summary .ps-stage{margin:0 0 8px;}
+    .print-summary .ps-stage h3{font-size:11.5px;margin:0 0 2px;color:#0057FF;}
+    .print-summary .ps-stage p{margin:0;}
+    .print-summary .ps-src{font-size:8px;color:#666;margin-top:12px;}
+    @page{margin:1.2cm;}
+  }
 </style>
 </head>
 <body>
@@ -367,6 +381,11 @@
     </div>
   </section>
 
+  <section class="sumdl">
+    <p class="sumdl-line">The whole scenario, stages and live data, on one page.</p>
+    <button class="signon-btn" type="button" id="dlSummary">Download the 1-page summary</button>
+  </section>
+
   <section class="signon" id="signon">
     <p class="signon-eyebrow">Sign on</p>
     <h2>Add your name.</h2>
@@ -379,6 +398,19 @@
 <footer>
   <p><a href="players.html">Meet the players</a> &middot; AI Renaissance 26.</p>
 </footer>
+
+<div class="print-summary">
+  <h1>AI Renaissance 26</h1>
+  <p class="ps-sub">Building a sovereign AI consortium, in stages. One-page summary.</p>
+  <div class="ps-stage"><h3>Stage 0 &mdash; NVIDIA moves first</h3><p>NVIDIA scales the Nemotron Coalition; the entry price its model names is a guaranteed 20% European wafer allocation. Stack control today: ASML EUV ~100%, TSMC fabrication ~90%, NVIDIA GPUs ~90%, US hyperscalers ~70% of EU cloud, US labs ~80% of frontier models. NVIDIA's own risk: data center is 92% of revenue, ~61% from four customers.</p></div>
+  <div class="ps-stage"><h3>Stage 1 &mdash; Public capital and the rules</h3><p>Four or five governments decide yes or no and, if yes, how much capital. The decision sets the rules for the open-model ecosystem.</p></div>
+  <div class="ps-stage"><h3>Stage 1.5 &mdash; Consortium structure</h3><p>Three decisions: who holds sovereign control; how members break ties (weighted voting with precommitted capital blocks bilateral buyouts); geopolitical posture. US chip-export controls, 2022-2026, show access can be cut and restored at will.</p></div>
+  <div class="ps-stage"><h3>Stage 2 &mdash; Private capital</h3><p>General Catalyst's Jeannette zu Furstenberg is the pivotal call. 2024 private AI investment: US $109B vs EU ~$14B; a ten-state coalition pooled reaches ~$18B, about a sixth of US capital but roughly 80% of its training compute.</p></div>
+  <div class="ps-stage"><h3>Stage 2.5 &mdash; The companies commit</h3><p>Minimum capital targets: ~$100B (2026), $300B (2027), $500B (2028). Compute gap: EuroHPC pooled ~2 EF vs a US frontier cluster ~5 EF. Hosts chosen for power: Norway hydro, France nuclear, Iberia solar.</p></div>
+  <div class="ps-stage"><h3>Stage 3 &mdash; Product and business strategy</h3><p>The market is set by commodification and capital intensity: AI as a utility, Brent Crude AI, Specialized AI, Big AI. Europe's strength is Big AI; its weakest case is Specialized AI. NVIDIA wins in all four.</p></div>
+  <div class="ps-stage"><h3>Stage 4 &mdash; The market reacts</h3><p>Adoption is the test, and it is early: in 2024, ~13.5% of EU enterprises used AI (large firms ~41%, small ~11%).</p></div>
+  <p class="ps-src">Sources: Synergy Research; NVIDIA 10-Q, Tom's Hardware, Motley Fool; US Federal Register, BIS, RAND; Stanford AI Index 2025; EuroHPC JU; Eurostat. artificialnouveau.com/airenaissance26</p>
+</div>
 
 <script>
 (function(){
@@ -422,6 +454,7 @@
   function toggle(id){var a=find(id);if(active[id]){active[id]=false;}else{active[id]=true;if(a.cancels&&active[a.cancels])active[a.cancels]=false;}var btns=argbox.querySelectorAll('.sim-arg');for(var i=0;i<btns.length;i++){btns[i].classList.toggle('on',!!active[btns[i].getAttribute('data-id')]);}place();}
   A.forEach(function(a){var b=document.createElement('button');b.type='button';b.className='sim-arg';b.setAttribute('data-id',a.id);b.innerHTML='<div class="sim-arg-label">'+a.label+'</div><div class="sim-arg-sub">'+a.sub+'</div>';b.addEventListener('click',function(){toggle(a.id);});argbox.appendChild(b);});
   place();
+  var dl=document.getElementById('dlSummary'); if(dl){dl.addEventListener('click',function(){window.print();});}
 })();
 </script>
 

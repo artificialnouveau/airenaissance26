@@ -58,11 +58,13 @@
   .topnav-link:hover{color:var(--blue);}
 
   main{max-width:1040px;margin:0 auto;padding:clamp(1.5rem,5vw,3.5rem) clamp(1.1rem,5vw,2rem) 2rem;}
-  /* each stage is two columns: reading text left, its data cards docked in a sticky right rail */
+  /* stages text on the left; all data cards collected into a right-hand dock that stacks as you scroll */
   .hero,.beat>p,.beat>h2,.beat>ol,.closer{max-width:660px;}
-  .beat:has(.beat-figs){display:grid;grid-template-columns:minmax(0,1fr) 340px;column-gap:2.4rem;align-items:start;}
-  .beat:has(.beat-figs) > .beat-eyebrow,.beat:has(.beat-figs) > h2,.beat:has(.beat-figs) > p,.beat:has(.beat-figs) > ol{grid-column:1;}
-  .beat-figs{grid-column:2;grid-row:1 / span 999;position:sticky;top:84px;align-self:start;}
+  .storygrid{display:grid;grid-template-columns:minmax(0,1fr) 360px;column-gap:2.6rem;align-items:stretch;}
+  .story{grid-column:1;min-width:0;}
+  .dock{grid-column:2;min-width:0;}
+  .dock .fig{position:sticky;top:calc(82px + var(--s,0) * 16px);box-shadow:0 -3px 16px rgba(13,17,23,.07);margin:0 0 26vh;}
+  .dock .fig:last-child{margin-bottom:2rem;}
 
   .hero{margin-bottom:2.4rem;}
   h1{font-family:'Inter',system-ui,sans-serif;font-weight:800;letter-spacing:-.027em;font-size:clamp(2.2rem,6.5vw,3.4rem);line-height:1.04;margin:0 0 1.1rem;}
@@ -129,9 +131,9 @@
   .tip:hover .tip-box,.tip:focus .tip-box,.tip:focus-visible .tip-box{visibility:visible;opacity:1;}
   @media (max-width:900px){
     main{max-width:700px;}
-    .beat:has(.beat-figs){display:block;}
-    .beat-figs{position:static;margin:1.6rem 0 0;}
-    .fig{margin:1.4rem 0 0;}
+    .storygrid{display:block;}
+    .dock{margin-top:1.6rem;}
+    .dock .fig{position:static;margin:1.4rem 0 0;box-shadow:none;}
     .hero,.beat>p,.beat>h2,.beat>ol,.closer{max-width:none;}
   }
   .sim{border-top:1px solid var(--line);margin-top:3rem;padding-top:2.6rem;}
@@ -207,38 +209,14 @@
     <p>The scenario runs in stages. Each is a decision held by a different set of players: NVIDIA first, then governments, then private capital, then the companies that build, then the market. The order is fixed, and each choice narrows the next. The aim is a not-lose condition for Europe and the other middle powers, with defense, sovereignty, economic competitiveness, culture, democracy, and rights kept intact.</p>
   </section>
 
+  <div class="storygrid">
+  <div class="story">
+
   <section class="beat">
     <p class="beat-eyebrow">Stage 0</p>
     <h2>NVIDIA Moves First</h2>
     <p>NVIDIA moves before anyone else, at the scale of tens of billions of dollars, by scaling its <a class="tip" href="https://nvidianews.nvidia.com/news/nvidia-launches-nemotron-coalition-of-leading-global-ai-labs-to-advance-open-frontier-models" target="_blank" rel="noopener">Nemotron<span class="tip-box" role="tooltip">In 2026 NVIDIA launched the Nemotron Coalition with Mistral AI, Perplexity, Black Forest Labs, Cursor, LangChain, Reflection AI, Sarvam, and Thinking Machines Lab to build the open frontier models behind its Nemotron family.</span></a> Coalition into a nominally middle-power but largely American open-weight effort. The logic is direct: it sells more GPUs to every country that joins. NVIDIA organizes the supply chain, coordinates data and research groups across members, extends the coalition to more middle powers, and sells GPUs to national telcos on the back of the investment.</p>
     <p>NVIDIA's own risks are not Europe. They are a war over Taiwan, a customer base concentrated in three US companies, and a Chinese competitor its customers might buy instead. That concentration is the clearest point of alignment with middle powers, who fear the same thing. Europe is mostly future demand, a chip market that could one day rival the US.</p>
-
-    <div class="beat-figs">
-    <figure class="fig">
-      <p class="fig-title">Who controls each layer of the AI stack</p>
-      <p class="fig-note">A sovereign stack is assembled from layers no middle power owns. Europe holds one chokepoint, lithography, and rents the rest.</p>
-      <div class="bars">
-        <div><div class="bar-head"><span class="bar-label">Lithography, EUV <span class="bar-who">ASML &middot; NL</span></span><span class="bar-val">~100%</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#0a9d6b"></div></div></div>
-        <div><div class="bar-head"><span class="bar-label">Advanced fabrication <span class="bar-who">TSMC &middot; Taiwan</span></span><span class="bar-val">~90%</span></div><div class="bar-track"><div class="bar-fill" style="width:90%;background:#cf5b43"></div></div></div>
-        <div><div class="bar-head"><span class="bar-label">AI chips, GPUs <span class="bar-who">NVIDIA &middot; US</span></span><span class="bar-val">~90%</span></div><div class="bar-track"><div class="bar-fill" style="width:90%;background:#cf5b43"></div></div></div>
-        <div><div class="bar-head"><span class="bar-label">Cloud, EU spend <span class="bar-who">US hyperscalers</span></span><span class="bar-val">~70%</span></div><div class="bar-track"><div class="bar-fill" style="width:70%;background:#cf5b43"></div></div></div>
-        <div><div class="bar-head"><span class="bar-label">Frontier models <span class="bar-who">US labs</span></span><span class="bar-val">~80%</span></div><div class="bar-track"><div class="bar-fill" style="width:80%;background:#cf5b43"></div></div></div>
-      </div>
-      <p class="fig-legend"><span class="swatch" style="background:#0a9d6b"></span>European-held layer &nbsp; <span class="swatch" style="background:#cf5b43"></span>Controlled outside Europe</p>
-      <p class="fig-src">Source: <a href="https://www.srgresearch.com/" target="_blank" rel="noopener">Synergy Research</a> (EU cloud, 2024); industry market estimates.</p>
-    </figure>
-    <figure class="fig">
-      <p class="fig-title">NVIDIA's concentration risk</p>
-      <p class="fig-note">NVIDIA's own dependence, and its strongest point of alignment with middle powers, who fear the same concentration.</p>
-      <div class="stat">
-        <div class="stat-item"><div class="stat-num">92%</div><div class="stat-cap">of NVIDIA revenue is now its data-center segment (Q3 FY2026)</div></div>
-        <div class="stat-item"><div class="stat-num">~61%</div><div class="stat-cap">of data-center revenue comes from its four largest customers</div></div>
-        <div class="stat-item"><div class="stat-num">3</div><div class="stat-cap">unnamed customers make up over half of data-center sales</div></div>
-      </div>
-      <p class="fig-src">Source: <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001045810&type=10-Q" target="_blank" rel="noopener">NVIDIA 10-Q</a>; <a href="https://www.tomshardware.com/tech-industry/more-than-50-percent-of-nvidias-data-center-revenue-comes-from-three-customers-usd21-9-billion-in-sales-recorded-from-the-unnamed-companies" target="_blank" rel="noopener">Tom's Hardware</a>; <a href="https://www.fool.com/investing/2025/11/27/blackwell-off-charts-nvidia-customer-concentration/" target="_blank" rel="noopener">Motley Fool</a>, Nov 2025.</p>
-    </figure>
-    </div>
-
     <p>The entry price NVIDIA's own model named on the floor: a guaranteed twenty percent allocation of leading-edge wafer capacity, tied to European fabrication. Without it, the line went, you are not building Airbus, you are leasing the airline. Sovereignty begins at the transistor, not the tokenizer.</p>
   </section>
 
@@ -259,9 +237,64 @@
       <li><strong>How members break ties.</strong> Consensus, weighted voting, a lead member, or a rotating chair.</li>
       <li><strong>The geopolitical posture.</strong> Aligned with a bloc, nonaligned, or selective bilateral deals. Posture decides whether the consortium can even buy the chips its product plans assume.</li>
     </ol>
+    <p>The defection risk sits here. Weighted voting with precommitted resources is the main defense against the US buying individual members out one at a time.</p>
+  </section>
 
-    <div class="beat-figs">
-    <figure class="fig">
+  <section class="beat">
+    <p class="beat-eyebrow">Stage 2</p>
+    <h2>Private Capital</h2>
+    <p>Europe's leading venture capital and the central banks decide whether now is the time to fund a frontier consortium. The pivotal call is General Catalyst's <span class="tip" tabindex="0">Jeannette zu Furstenberg<span class="tip-box" role="tooltip">President and Managing Director of General Catalyst and co-founder of La Famiglia. She argues that European sovereignty means backing homegrown AI champions with capital, not just regulating them.</span></span>. If she commits at scale, the rest of the private capital follows. Mistral is already in; if NVIDIA and General Catalyst both say yes, the other European sovereign-AI firms, Aleph Alpha among them, commit too.</p>
+    <p>The table she sits at: Daniel Ek as a proxy for Europe's large angels, SoftBank for big Asian institutions, a Gulf fund, Norway's sovereign wealth fund, the European Investment Bank, Apple, ASML, and the European central banks. European institutional money rarely moves toward innovation without a public signal first, which is why Stage 1 comes before this one.</p>
+  </section>
+
+  <section class="beat">
+    <p class="beat-eyebrow">Stage 2.5</p>
+    <h2>The Companies Commit</h2>
+    <p>The CEOs of the leading AI companies in the participating countries decide how much to commit, and in what form: cash, compute, or in-kind supply-chain capacity. The outputs are concrete. A minimum capital target of roughly 100 billion dollars in 2026, 300 billion in 2027, and 500 billion in 2028, with a share of compute, capital, and in-kind contribution assigned to each country.</p>
+    <p>Compute is the constraint those numbers exist to close. Preferred data-center hosts are chosen for power: Norwegian hydro, French nuclear, Iberian solar. One scenario has a Gulf fund finance and build the data centers while Europe does the research.</p>
+  </section>
+
+  <section class="beat">
+    <p class="beat-eyebrow">Stage 3</p>
+    <h2>Product and Business Strategy</h2>
+    <p>Then the consortium picks a product and business strategy. The core options are mutually exclusive: one open foundation model built Airbus-style, a looser grassroots coalition, several models with fusion, a leapfrog onto world models, or applied AI on top of a Chinese base. Through Stages 1 and 2 the model stays open source.</p>
+    <p>Two forces decide the market it lands in: how commodified frontier models become, and how capital-intensive they stay. The four outcomes are AI as a utility, Brent Crude AI, Specialized AI, and Big AI. Europe's structural strength is Big AI, where scale keeps paying and its industrial base and proprietary data matter. The weakest outcome for Europe is specialized, low-capital AI, the world Europe2031 is built on. NVIDIA wins in all four.</p>
+  </section>
+
+  <section class="beat">
+    <p class="beat-eyebrow">Stage 4</p>
+    <h2>The Market Reacts</h2>
+    <p>Last, the market answers. Governments, the public, and the enterprise buyers, Siemens and Bosch among them, decide what they adopt, across Europe, Asia, and the US. Their uptake is what tells the consortium whether it built something the world wanted, or another subsidized model nobody switched to.</p>
+    <p>In 2024 that uptake was still early and uneven. Across the EU, AI use is concentrated in the largest firms; most small and mid-size companies have not switched anything on yet. That gap is the market the consortium would be selling into.</p>
+  </section>
+
+  </div>
+  <aside class="dock">
+
+    <figure class="fig" style="--s:0">
+      <p class="fig-title">Who controls each layer of the AI stack</p>
+      <p class="fig-note">A sovereign stack is assembled from layers no middle power owns. Europe holds one chokepoint, lithography, and rents the rest.</p>
+      <div class="bars">
+        <div><div class="bar-head"><span class="bar-label">Lithography, EUV <span class="bar-who">ASML &middot; NL</span></span><span class="bar-val">~100%</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#0a9d6b"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">Advanced fabrication <span class="bar-who">TSMC &middot; Taiwan</span></span><span class="bar-val">~90%</span></div><div class="bar-track"><div class="bar-fill" style="width:90%;background:#cf5b43"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">AI chips, GPUs <span class="bar-who">NVIDIA &middot; US</span></span><span class="bar-val">~90%</span></div><div class="bar-track"><div class="bar-fill" style="width:90%;background:#cf5b43"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">Cloud, EU spend <span class="bar-who">US hyperscalers</span></span><span class="bar-val">~70%</span></div><div class="bar-track"><div class="bar-fill" style="width:70%;background:#cf5b43"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">Frontier models <span class="bar-who">US labs</span></span><span class="bar-val">~80%</span></div><div class="bar-track"><div class="bar-fill" style="width:80%;background:#cf5b43"></div></div></div>
+      </div>
+      <p class="fig-legend"><span class="swatch" style="background:#0a9d6b"></span>European-held layer &nbsp; <span class="swatch" style="background:#cf5b43"></span>Controlled outside Europe</p>
+      <p class="fig-src">Source: <a href="https://www.srgresearch.com/" target="_blank" rel="noopener">Synergy Research</a> (EU cloud, 2024); industry market estimates.</p>
+    </figure>
+    <figure class="fig" style="--s:1">
+      <p class="fig-title">NVIDIA's concentration risk</p>
+      <p class="fig-note">NVIDIA's own dependence, and its strongest point of alignment with middle powers, who fear the same concentration.</p>
+      <div class="stat">
+        <div class="stat-item"><div class="stat-num">92%</div><div class="stat-cap">of NVIDIA revenue is now its data-center segment (Q3 FY2026)</div></div>
+        <div class="stat-item"><div class="stat-num">~61%</div><div class="stat-cap">of data-center revenue comes from its four largest customers</div></div>
+        <div class="stat-item"><div class="stat-num">3</div><div class="stat-cap">unnamed customers make up over half of data-center sales</div></div>
+      </div>
+      <p class="fig-src">Source: <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=0001045810&type=10-Q" target="_blank" rel="noopener">NVIDIA 10-Q</a>; <a href="https://www.tomshardware.com/tech-industry/more-than-50-percent-of-nvidias-data-center-revenue-comes-from-three-customers-usd21-9-billion-in-sales-recorded-from-the-unnamed-companies" target="_blank" rel="noopener">Tom's Hardware</a>; <a href="https://www.fool.com/investing/2025/11/27/blackwell-off-charts-nvidia-customer-concentration/" target="_blank" rel="noopener">Motley Fool</a>, Nov 2025.</p>
+    </figure>
+    <figure class="fig" style="--s:2">
       <p class="fig-title">US chip-export controls, 2022 to 2026</p>
       <p class="fig-note">Access has been switched on and off before. The reason a consortium needs a posture, not a handshake.</p>
       <ul class="tl">
@@ -274,18 +307,7 @@
       </ul>
       <p class="fig-src">Source: <a href="https://www.federalregister.gov/" target="_blank" rel="noopener">US Federal Register</a>; <a href="https://www.bis.doc.gov/" target="_blank" rel="noopener">BIS</a>; <a href="https://www.rand.org/pubs/perspectives/PEA3776-1.html" target="_blank" rel="noopener">RAND</a>.</p>
     </figure>
-    </div>
-
-    <p>The defection risk sits here. Weighted voting with precommitted resources is the main defense against the US buying individual members out one at a time.</p>
-  </section>
-
-  <section class="beat">
-    <p class="beat-eyebrow">Stage 2</p>
-    <h2>Private Capital</h2>
-    <p>Europe's leading venture capital and the central banks decide whether now is the time to fund a frontier consortium. The pivotal call is General Catalyst's <span class="tip" tabindex="0">Jeannette zu Furstenberg<span class="tip-box" role="tooltip">President and Managing Director of General Catalyst and co-founder of La Famiglia. She argues that European sovereignty means backing homegrown AI champions with capital, not just regulating them.</span></span>. If she commits at scale, the rest of the private capital follows. Mistral is already in; if NVIDIA and General Catalyst both say yes, the other European sovereign-AI firms, Aleph Alpha among them, commit too.</p>
-
-    <div class="beat-figs">
-    <figure class="fig">
+    <figure class="fig" style="--s:3">
       <p class="fig-title">The money, alone and pooled</p>
       <p class="fig-note">2024 private AI investment. No single member is close to the US; pooled, a coalition reaches about a sixth of US capital.</p>
       <div class="bars">
@@ -297,18 +319,7 @@
       </div>
       <p class="fig-src">Source: <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report" target="_blank" rel="noopener">Stanford AI Index 2025</a> (private investment); pooled estimate from EuroHPC and national figures.</p>
     </figure>
-    </div>
-
-    <p>The table she sits at: Daniel Ek as a proxy for Europe's large angels, SoftBank for big Asian institutions, a Gulf fund, Norway's sovereign wealth fund, the European Investment Bank, Apple, ASML, and the European central banks. European institutional money rarely moves toward innovation without a public signal first, which is why Stage 1 comes before this one.</p>
-  </section>
-
-  <section class="beat">
-    <p class="beat-eyebrow">Stage 2.5</p>
-    <h2>The Companies Commit</h2>
-    <p>The CEOs of the leading AI companies in the participating countries decide how much to commit, and in what form: cash, compute, or in-kind supply-chain capacity. The outputs are concrete. A minimum capital target of roughly 100 billion dollars in 2026, 300 billion in 2027, and 500 billion in 2028, with a share of compute, capital, and in-kind contribution assigned to each country.</p>
-
-    <div class="beat-figs">
-    <figure class="fig">
+    <figure class="fig" style="--s:4">
       <p class="fig-title">The compute gap</p>
       <p class="fig-note">What those commitments exist to close. All of EuroHPC's pooled capacity is smaller than a single US frontier cluster.</p>
       <div class="bars">
@@ -317,19 +328,7 @@
       </div>
       <p class="fig-src">Source: <a href="https://www.eurohpc-ju.europa.eu/" target="_blank" rel="noopener">EuroHPC JU</a>; industry frontier-cluster benchmarks. EF = exaFLOPS.</p>
     </figure>
-    </div>
-
-    <p>Compute is the constraint those numbers exist to close. Preferred data-center hosts are chosen for power: Norwegian hydro, French nuclear, Iberian solar. One scenario has a Gulf fund finance and build the data centers while Europe does the research.</p>
-  </section>
-
-  <section class="beat">
-    <p class="beat-eyebrow">Stage 3</p>
-    <h2>Product and Business Strategy</h2>
-    <p>Then the consortium picks a product and business strategy. The core options are mutually exclusive: one open foundation model built Airbus-style, a looser grassroots coalition, several models with fusion, a leapfrog onto world models, or applied AI on top of a Chinese base. Through Stages 1 and 2 the model stays open source.</p>
-    <p>Two forces decide the market it lands in: how commodified frontier models become, and how capital-intensive they stay. The four outcomes are AI as a utility, Brent Crude AI, Specialized AI, and Big AI. Europe's structural strength is Big AI, where scale keeps paying and its industrial base and proprietary data matter. The weakest outcome for Europe is specialized, low-capital AI, the world Europe2031 is built on. NVIDIA wins in all four.</p>
-
-    <div class="beat-figs">
-    <figure class="fig">
+    <figure class="fig" style="--s:5">
       <p class="fig-title">Four market outcomes</p>
       <p class="fig-note">Two forces set the market the consortium lands in: how commodified frontier models become, and how capital-intensive staying at the frontier is.</p>
       <div class="quad">
@@ -340,17 +339,7 @@
       </div>
       <p class="quad-axis">Columns: capital intensity rises left to right. Rows: less commodified, top to bottom.</p>
     </figure>
-    </div>
-  </section>
-
-  <section class="beat">
-    <p class="beat-eyebrow">Stage 4</p>
-    <h2>The Market Reacts</h2>
-    <p>Last, the market answers. Governments, the public, and the enterprise buyers, Siemens and Bosch among them, decide what they adopt, across Europe, Asia, and the US. Their uptake is what tells the consortium whether it built something the world wanted, or another subsidized model nobody switched to.</p>
-    <p>In 2024 that uptake was still early and uneven. Across the EU, AI use is concentrated in the largest firms; most small and mid-size companies have not switched anything on yet. That gap is the market the consortium would be selling into.</p>
-
-    <div class="beat-figs">
-    <figure class="fig">
+    <figure class="fig" style="--s:6">
       <p class="fig-title">EU enterprise AI adoption, 2024</p>
       <p class="fig-note">Adoption is the real test, and it is concentrated. Large firms have moved; most smaller ones have not.</p>
       <div class="bars">
@@ -361,8 +350,9 @@
       </div>
       <p class="fig-src">Source: <a href="https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20250123-3" target="_blank" rel="noopener">Eurostat</a> (2024 data, released 2025).</p>
     </figure>
-    </div>
-  </section>
+
+  </aside>
+  </div>
 
   <section class="sim" id="simulation">
     <p class="sim-eyebrow">Simulation</p>

@@ -79,6 +79,12 @@
   .declist strong{font-weight:600;}
 
   .closer{border-top:1px solid var(--line);margin-top:3rem;padding-top:2rem;font-size:1.12rem;color:var(--muted);}
+  .signon{border-top:1px solid var(--line);margin-top:3rem;padding-top:2.6rem;max-width:660px;}
+  .signon-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--blue);margin:0 0 .5rem;font-weight:600;}
+  .signon h2{font-family:'Inter',system-ui,sans-serif;font-weight:800;font-size:1.7rem;letter-spacing:-.02em;margin:0 0 .6rem;}
+  .signon p{color:var(--muted);margin:0 0 1.3rem;}
+  .signon-btn{display:inline-block;background:var(--blue);color:#fff;font-family:'Inter',system-ui,sans-serif;font-weight:600;font-size:.95rem;text-decoration:none;padding:.7rem 1.3rem;border-radius:999px;}
+  .signon-btn:hover{background:#0048d6;}
 
   footer{max-width:1040px;margin:0 auto;padding:1rem clamp(1.1rem,5vw,2rem) 4rem;font-family:'Inter',system-ui,sans-serif;font-size:.85rem;color:var(--muted);}
   footer a{color:var(--muted);}
@@ -110,6 +116,13 @@
   .tl-date{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--blue);font-weight:600;letter-spacing:.03em;display:block;margin-bottom:.1rem;}
   .tl-text{font-size:.85rem;color:var(--ink);line-height:1.45;}
   .tl-off{color:#b4341f;font-weight:600;}
+  .quad{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin:.2rem 0 0;}
+  .quad-cell{border:1px solid var(--line);border-radius:8px;padding:.7rem .75rem;background:#f7f8fa;min-height:76px;display:flex;flex-direction:column;justify-content:center;}
+  .quad-name{font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:.86rem;color:var(--ink);letter-spacing:-.01em;}
+  .quad-sub{font-size:.66rem;color:var(--soft);margin-top:.25rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.03em;}
+  .quad-good{background:rgba(10,157,107,.12);border-color:#0a9d6b;}
+  .quad-bad{background:rgba(207,91,67,.09);border-color:#cf5b43;}
+  .quad-axis{font-size:.78rem;color:var(--muted);margin:.7rem 0 0;font-family:'Spectral',Georgia,serif;font-style:italic;line-height:1.4;}
   .tip{position:relative;color:var(--blue);text-decoration:none;border-bottom:1px dotted var(--blue);cursor:help;}
   .tip .tip-box{position:absolute;left:0;bottom:calc(100% + 9px);width:300px;max-width:78vw;background:var(--ink);color:#fff;font-family:'Inter',system-ui,sans-serif;font-size:.8rem;font-style:normal;font-weight:400;letter-spacing:0;line-height:1.45;padding:.7rem .85rem;border-radius:8px;box-shadow:0 8px 26px rgba(0,0,0,.2);visibility:hidden;opacity:0;transition:opacity .15s;z-index:20;}
   .tip .tip-box::after{content:"";position:absolute;top:100%;left:18px;border:6px solid transparent;border-top-color:var(--ink);}
@@ -139,6 +152,7 @@
   <div class="topnav-links">
     <a class="topnav-link" href="index.html" aria-current="page">Story</a>
     <a class="topnav-link" href="players.html" aria-label="The players, their stances, and clips">Players</a>
+    <a class="topnav-link" href="#signon">Sign on</a>
   </div>
 </nav>
 
@@ -275,15 +289,49 @@
     <h2>Product and Business Strategy</h2>
     <p>Then the consortium picks a product and business strategy. The core options are mutually exclusive: one open foundation model built Airbus-style, a looser grassroots coalition, several models with fusion, a leapfrog onto world models, or applied AI on top of a Chinese base. Through Stages 1 and 2 the model stays open source.</p>
     <p>Two forces decide the market it lands in: how commodified frontier models become, and how capital-intensive they stay. The four outcomes are AI as a utility, Brent Crude AI, Specialized AI, and Big AI. Europe's structural strength is Big AI, where scale keeps paying and its industrial base and proprietary data matter. The weakest outcome for Europe is specialized, low-capital AI, the world Europe2031 is built on. NVIDIA wins in all four.</p>
+
+    <div class="beat-figs">
+    <figure class="fig">
+      <p class="fig-title">Four market outcomes</p>
+      <p class="fig-note">Two forces set the market the consortium lands in: how commodified frontier models become, and how capital-intensive staying at the frontier is.</p>
+      <div class="quad">
+        <div class="quad-cell"><span class="quad-name">AI as a utility</span><span class="quad-sub">commodified, low capital</span></div>
+        <div class="quad-cell"><span class="quad-name">Brent Crude AI</span><span class="quad-sub">commodified, high capital</span></div>
+        <div class="quad-cell quad-bad"><span class="quad-name">Specialized AI</span><span class="quad-sub">worst case for Europe</span></div>
+        <div class="quad-cell quad-good"><span class="quad-name">Big AI</span><span class="quad-sub">Europe's sweet spot</span></div>
+      </div>
+      <p class="quad-axis">Columns: capital intensity rises left to right. Rows: less commodified, top to bottom.</p>
+    </figure>
+    </div>
   </section>
 
   <section class="beat">
     <p class="beat-eyebrow">Stage 4</p>
     <h2>The Market Reacts</h2>
     <p>Last, the market answers. Governments, the public, and the enterprise buyers, Siemens and Bosch among them, decide what they adopt, across Europe, Asia, and the US. Their uptake is what tells the consortium whether it built something the world wanted, or another subsidized model nobody switched to.</p>
+    <p>In 2024 that uptake was still early and uneven. Across the EU, AI use is concentrated in the largest firms; most small and mid-size companies have not switched anything on yet. That gap is the market the consortium would be selling into.</p>
+
+    <div class="beat-figs">
+    <figure class="fig">
+      <p class="fig-title">EU enterprise AI adoption, 2024</p>
+      <p class="fig-note">Adoption is the real test, and it is concentrated. Large firms have moved; most smaller ones have not.</p>
+      <div class="bars">
+        <div><div class="bar-head"><span class="bar-label">Large enterprises <span class="bar-who">250+ staff</span></span><span class="bar-val">~41%</span></div><div class="bar-track"><div class="bar-fill" style="width:41%;background:var(--blue)"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">Medium enterprises</span><span class="bar-val">~21%</span></div><div class="bar-track"><div class="bar-fill" style="width:21%;background:#6f8bd6"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">Small enterprises</span><span class="bar-val">~11%</span></div><div class="bar-track"><div class="bar-fill" style="width:11%;background:#9aa4b2"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">All EU enterprises <span class="bar-who">10+ staff</span></span><span class="bar-val">~13.5%</span></div><div class="bar-track"><div class="bar-fill" style="width:13.5%;background:var(--amber)"></div></div></div>
+      </div>
+      <p class="fig-src">Source: <a href="https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20250123-3" target="_blank" rel="noopener">Eurostat</a> (2024 data, released 2025).</p>
+    </figure>
+    </div>
   </section>
 
-  <p class="closer">The stages only force the order. Control before product, product before money, and the market last.</p>
+  <section class="signon" id="signon">
+    <p class="signon-eyebrow">Sign on</p>
+    <h2>Add your name.</h2>
+    <p>If you would back a sovereign AI consortium, in policy, capital, research, or on principle, tell us. We will keep you posted on what comes next.</p>
+    <a class="signon-btn" href="mailto:artificialnouveau@gmail.com?subject=Sign%20on%3A%20AI%20Renaissance%2026&body=Name%3A%20%0AOrganization%3A%20%0AHow%20I%20would%20help%3A%20">Sign on by email</a>
+  </section>
 
 </main>
 

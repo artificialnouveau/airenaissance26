@@ -91,6 +91,36 @@
 
   footer{max-width:720px;margin:0 auto;padding:1rem clamp(1.1rem,5vw,2rem) 4rem;font-family:'Inter',system-ui,sans-serif;font-size:.85rem;color:var(--muted);}
   footer a{color:var(--muted);}
+
+  /* data figures */
+  .fig{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.3rem clamp(1.1rem,3vw,1.6rem);margin:1.9rem 0;font-family:'Inter',system-ui,sans-serif;}
+  .fig-kicker{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin:0 0 .45rem;font-weight:600;}
+  .fig-title{font-weight:700;font-size:1.04rem;color:var(--ink);margin:0 0 .25rem;letter-spacing:-.01em;}
+  .fig-note{font-size:.95rem;color:var(--muted);margin:0 0 1.15rem;font-family:'Spectral',Georgia,serif;font-style:italic;line-height:1.5;}
+  .fig-src{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.05em;color:var(--soft);margin:1.05rem 0 0;text-transform:uppercase;line-height:1.55;}
+  .fig-src a{color:var(--soft);text-decoration:underline;}
+  .bars{display:flex;flex-direction:column;gap:.85rem;}
+  .bar-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.28rem;gap:.6rem;}
+  .bar-label{color:var(--ink);font-weight:600;font-size:.86rem;}
+  .bar-who{color:var(--soft);font-size:.7rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.03em;}
+  .bar-val{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.82rem;color:var(--ink);white-space:nowrap;}
+  .bar-track{height:10px;background:#eef1f5;border-radius:5px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:5px;background:var(--blue);}
+  .fig-legend{font-size:.8rem;color:var(--muted);margin:.95rem 0 0;font-family:'Spectral',Georgia,serif;}
+  .swatch{display:inline-block;width:.7rem;height:.7rem;border-radius:2px;vertical-align:middle;margin-right:.3rem;}
+  .stat{display:flex;gap:1.1rem;flex-wrap:wrap;}
+  .stat-item{flex:1 1 130px;}
+  .stat-num{font-family:'Inter',system-ui,sans-serif;font-weight:800;font-size:1.9rem;letter-spacing:-.02em;line-height:1;color:var(--blue);}
+  .stat-cap{font-size:.8rem;color:var(--muted);margin-top:.35rem;line-height:1.35;}
+  .tl{margin:.2rem 0 0;padding-left:0;list-style:none;border-left:2px solid var(--line);}
+  .tl li{position:relative;padding:0 0 .85rem 1.15rem;}
+  .tl li:last-child{padding-bottom:0;}
+  .tl li::before{content:'';position:absolute;left:-5px;top:.32rem;width:8px;height:8px;border-radius:50%;background:var(--blue);}
+  .tl-date{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--blue);font-weight:600;letter-spacing:.03em;display:block;margin-bottom:.1rem;}
+  .tl-text{font-size:.85rem;color:var(--ink);line-height:1.45;}
+  .tl-off{color:#b4341f;font-weight:600;}
+  .ctx-note{font-size:.95rem;color:var(--muted);background:#f4f6f9;border:1px solid var(--line);border-radius:10px;padding:.9rem 1.15rem;margin:1.4rem 0;line-height:1.55;}
+  .ctx-note a{color:var(--blue);}
 </style>
 </head>
 <body>
@@ -124,22 +154,63 @@
     <p class="beat-eyebrow">The move</p>
     <h2>Jensen Huang puts NVIDIA's coalition on the table</h2>
     <p>Jensen Huang does not arrive empty-handed, and he does not arrive alone. He comes with Nemotron, NVIDIA's open model line, and a coalition already assembled around it. To each leader in the room he makes the same offer: a combined fifty billion dollars in investment, plus NVIDIA chips, to stand up a sovereign AI stack. The promise is in the word sovereign. The catch is in the three words after it. The stack would be sovereign, but built on NVIDIA's coalition.</p>
-    <p>Dario Amodei of Anthropic is also in the room, though nobody invited him. He slipped in as the alternative option, the one the script did not plan for.</p>
-    <p>Huang's pitch carries a frame, and the frame does most of the work: this is a choice between bad and bad. Take NVIDIA, or stay dependent on intelligence piped in from data centers in Abu Dhabi and San Francisco. Several leaders heard that and refused it on the spot. They did not want the least-bad option handed to them. They wanted a genuinely good one, and Huang had not offered that.</p>
-  </section>
 
-  <section class="beat">
-    <p class="beat-eyebrow">His real game</p>
-    <h2>What NVIDIA is actually playing for</h2>
+    <p class="ctx-note">The Nemotron Coalition is not invented for the game. In 2026 NVIDIA launched a real <a href="https://nvidianews.nvidia.com/news/nvidia-launches-nemotron-coalition-of-leading-global-ai-labs-to-advance-open-frontier-models" target="_blank" rel="noopener">Nemotron Coalition</a> with Mistral AI, Perplexity, Black Forest Labs, Cursor, LangChain, Reflection AI, Sarvam, and Thinking Machines Lab to build the open frontier models behind its <a href="https://developer.nvidia.com/topics/ai/nemotron" target="_blank" rel="noopener">Nemotron family</a>.</p>
+
+    <figure class="fig">
+      <p class="fig-kicker">Real-world data</p>
+      <p class="fig-title">Who controls each layer of the AI stack</p>
+      <p class="fig-note">A "sovereign" stack has to be assembled from layers Europe mostly does not own. It holds one chokepoint outright, lithography, and rents the rest.</p>
+      <div class="bars">
+        <div><div class="bar-head"><span class="bar-label">Lithography, EUV <span class="bar-who">ASML &middot; NL</span></span><span class="bar-val">~100%</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#0a9d6b"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">Advanced fabrication <span class="bar-who">TSMC &middot; Taiwan</span></span><span class="bar-val">~90%</span></div><div class="bar-track"><div class="bar-fill" style="width:90%;background:#cf5b43"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">AI chips, GPUs <span class="bar-who">NVIDIA &middot; US</span></span><span class="bar-val">~90%</span></div><div class="bar-track"><div class="bar-fill" style="width:90%;background:#cf5b43"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">Cloud, EU spend <span class="bar-who">US hyperscalers</span></span><span class="bar-val">~70%</span></div><div class="bar-track"><div class="bar-fill" style="width:70%;background:#cf5b43"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">Frontier models <span class="bar-who">US labs</span></span><span class="bar-val">~80%</span></div><div class="bar-track"><div class="bar-fill" style="width:80%;background:#cf5b43"></div></div></div>
+      </div>
+      <p class="fig-legend"><span class="swatch" style="background:#0a9d6b"></span>European-held layer &nbsp; <span class="swatch" style="background:#cf5b43"></span>Controlled outside Europe</p>
+      <p class="fig-src">Source: Synergy Research (EU cloud, 2024); industry market estimates, 2022-2026.</p>
+    </figure>
+
+    <p>Huang's pitch carries a frame, and the frame does most of the work: this is a choice between bad and bad. Take NVIDIA, or stay dependent on intelligence piped in from data centers in Abu Dhabi and San Francisco. Several leaders heard that and refused it on the spot. They did not want the least-bad option handed to them. They wanted a genuinely good one, and Huang had not offered that.</p>
     <p>Strip the language of sovereignty away and the logic underneath is demand generation. The coalition is the equivalent of a platform owner funding the ecosystem that buys its core product. In every branch of the game that follows, NVIDIA wins.</p>
-    <p>Which is why Huang does not actually need to couple himself to anyone. The cleaner move is to train the best open-weight models, work the demand side, partner loosely, promise concessions now, and out-build the subsidized competitors later. He can afford that patience because coordinating dozens of nations is genuinely hard, and because Europe sits only around fifth on NVIDIA's list of real worries, behind a war over Taiwan, a seventy percent revenue concentration in US customers, and the day China ships a true competitor those customers buy instead.</p>
+    <p>Which is why Huang does not actually need to couple himself to anyone. The cleaner move is to train the best open-weight models, work the demand side, partner loosely, promise concessions now, and out-build the subsidized competitors later. He can afford that patience because coordinating dozens of nations is genuinely hard, and because Europe sits only around fifth on NVIDIA's list of real worries, behind a war over Taiwan, a customer base so concentrated that a handful of US buyers account for most of its data-center revenue, and the day China ships a true competitor those customers buy instead.</p>
+
+    <figure class="fig">
+      <p class="fig-kicker">Real-world data</p>
+      <p class="fig-title">NVIDIA's own concentration risk</p>
+      <p class="fig-note">The dependence runs both ways. NVIDIA's revenue now leans on a few giant buyers, which is part of why Europe ranks low on its list of worries.</p>
+      <div class="stat">
+        <div class="stat-item"><div class="stat-num">92%</div><div class="stat-cap">of NVIDIA revenue is now its data-center segment (Q3 FY2026)</div></div>
+        <div class="stat-item"><div class="stat-num">~61%</div><div class="stat-cap">of data-center revenue comes from its four largest customers</div></div>
+        <div class="stat-item"><div class="stat-num">3</div><div class="stat-cap">unnamed customers make up over half of data-center sales</div></div>
+      </div>
+      <p class="fig-src">Source: NVIDIA 10-Q FY2026; Tom's Hardware; Motley Fool, Nov 2025.</p>
+    </figure>
+
     <p class="pull">Europe wants to be coupled. NVIDIA wants to stay free. That asymmetry is the whole negotiation.</p>
   </section>
 
   <section class="beat">
     <p class="beat-eyebrow">The reaction</p>
-    <h2>Why the room flinched</h2>
+    <h2>Sovereignty, distrust, and leverage</h2>
     <p>The anxiety in the room has one name: sovereignty. Dependence on models you do not control, on data you cannot see, on a supply you do not own. And the leaders had fresh reasons not to trust the supplier. The US had already blocked certain NVIDIA chips from reaching China, and revoked access to Claude Fable 5 and Mythos so that only US nationals could use them. If access can be cut once, it can be cut again.</p>
+
+    <figure class="fig">
+      <p class="fig-kicker">Real-world data</p>
+      <p class="fig-title">US chip-export controls, 2022 to 2026</p>
+      <p class="fig-note">The proof the leaders had in front of them. Washington has tightened, loosened, and re-tightened who may buy advanced chips, more than once.</p>
+      <ul class="tl">
+        <li><span class="tl-date">Oct 2022</span><span class="tl-text">First BIS rule caps advanced-chip and supercomputer exports to China.</span></li>
+        <li><span class="tl-date">Oct 2023</span><span class="tl-text">Closes the A800 and H800 workaround chips; pulls in 40-plus countries.</span></li>
+        <li><span class="tl-date">Dec 2024</span><span class="tl-text">Adds high-bandwidth-memory limits and roughly 140 entities.</span></li>
+        <li><span class="tl-date">Jan 2025</span><span class="tl-text">AI Diffusion framework caps chips per country. <span class="tl-off">Rescinded May 2025.</span></span></li>
+        <li><span class="tl-date">Apr 2025</span><span class="tl-text">H20 license rule triggers a $5.5B NVIDIA charge. <span class="tl-off">Rolled back Jul 2025.</span></span></li>
+        <li><span class="tl-date">Jan 2026</span><span class="tl-text">H200 moves to case-by-case licensing; a 25% chip tariff takes effect.</span></li>
+      </ul>
+      <p class="fig-src">Source: US Federal Register; BIS; RAND (PEA3776-1); Tom's Hardware.</p>
+    </figure>
+
     <p>Speaking through the NATO lens, the bind was put bluntly: Europe already leans on the US for security, and already has to flatter Washington in public to keep the alliance intact. Nobody wants to repeat that arrangement with compute. Huang's line that NVIDIA is a global company, not an American one, did not land, because if a Vance administration decided to apply pressure, the company's nationality would stop being a detail.</p>
     <p>So the room reached for leverage, and found one piece worth holding: ASML. Without advanced lithography, no coalition builds frontier chips, and that makes it Europe's single strongest card. The demands followed from there. Binding standards, real testing, real oversight, not hoping for the best. Ideas floated freely: move NVIDIA's headquarters out of the US, fund European chips directly, tie a one-to-one relationship to ASML. The takeaway the table drew for itself was sharp. Nemotron is not a sovereignty solution at all unless it comes paired with a hard push to diversify who makes the chips.</p>
   </section>
@@ -155,6 +226,18 @@
     <p class="beat-eyebrow">The trap</p>
     <h2>Why Europe may have to say yes anyway</h2>
     <p>The hard part is that the fear and the on-ramp are the same road. Talent retention is weak: even when Europe funds the education, the graduates and the startups leave for the US, because to compete at the scale of a Spotify you go to America. Capital and labor markets are seen as too rigid to move fast. And compute is the binding constraint. Europe does not have the infrastructure to train very large frontier models in the next two years, which means near-term frontier training has to happen partly on US soil.</p>
+
+    <figure class="fig">
+      <p class="fig-kicker">Real-world data</p>
+      <p class="fig-title">The compute gap</p>
+      <p class="fig-note">Why frontier training cannot happen in Europe alone yet. All of EuroHPC's pooled public supercomputing is smaller than a single US frontier cluster.</p>
+      <div class="bars">
+        <div><div class="bar-head"><span class="bar-label">US frontier training cluster <span class="bar-who">single site</span></span><span class="bar-val">~5 EF</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#cf5b43"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">EuroHPC, all systems pooled <span class="bar-who">9 supercomputers</span></span><span class="bar-val">~2 EF</span></div><div class="bar-track"><div class="bar-fill" style="width:40%;background:var(--blue)"></div></div></div>
+      </div>
+      <p class="fig-src">Source: EuroHPC JU; industry frontier-cluster benchmarks. EF = exaFLOPS.</p>
+    </figure>
+
     <p>So Europe likely has to go through some version of this deal to have any frontier chance at all soon. The thing they most distrust is, for now, the only door open.</p>
   </section>
 
@@ -168,6 +251,20 @@
     <h2>Where the session left it</h2>
     <p class="turn-sub">Three decisions are unmade. Each one belongs to someone with reasons pulling both ways.</p>
   </div>
+
+  <figure class="fig">
+    <p class="fig-kicker">Real-world data</p>
+    <p class="fig-title">The money, alone and pooled</p>
+    <p class="fig-note">2024 private AI investment. No single European state is close to the US, which is what makes both questions below hard. Pooled, a ten-state coalition still reaches only about a sixth of US capital, though roughly 80% of its training compute.</p>
+    <div class="bars">
+      <div><div class="bar-head"><span class="bar-label">United States</span><span class="bar-val">$109B</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#cf5b43"></div></div></div>
+      <div><div class="bar-head"><span class="bar-label">EU <span class="bar-who">estimate</span></span><span class="bar-val">~$14B</span></div><div class="bar-track"><div class="bar-fill" style="width:13%;background:var(--blue)"></div></div></div>
+      <div><div class="bar-head"><span class="bar-label">China</span><span class="bar-val">$9.3B</span></div><div class="bar-track"><div class="bar-fill" style="width:8.5%;background:#9aa4b2"></div></div></div>
+      <div><div class="bar-head"><span class="bar-label">UK</span><span class="bar-val">$4.5B</span></div><div class="bar-track"><div class="bar-fill" style="width:4.1%;background:#9aa4b2"></div></div></div>
+      <div><div class="bar-head"><span class="bar-label">Ten-state coalition, pooled <span class="bar-who">illustrative</span></span><span class="bar-val">~$18B</span></div><div class="bar-track"><div class="bar-fill" style="width:16.5%;background:var(--amber)"></div></div></div>
+    </div>
+    <p class="fig-src">Source: Stanford AI Index 2025 (private investment); pooled estimate from EuroHPC and national figures.</p>
+  </figure>
 
   <section class="cliff" style="--accent:var(--amber)">
     <p class="cliff-who">Jeannette zu Furstenberg</p>
@@ -193,7 +290,12 @@
     <p class="cliff-who">Brazil</p>
     <p class="cliff-role">The clean-energy wildcard</p>
     <p class="cliff-label">Motivation</p>
-    <p>Brazil is positioning itself as a host for clean-energy data centers, on a grid that is roughly eighty-five percent clean and mostly hydro. Underneath sits an unsettled question about whether hosting foreign data centers actually serves Brazil at all.</p>
+    <p>Brazil is positioning itself as a host for clean-energy data centers, on a grid where renewables supply about 88 percent of electricity and hydro is the single largest source. Underneath sits an unsettled question about whether hosting foreign data centers actually serves Brazil at all.</p>
+    <div class="stat" style="margin-top:1.1rem">
+      <div class="stat-item"><div class="stat-num" style="color:var(--green)">~88%</div><div class="stat-cap">of Brazil's electricity came from renewables in 2024</div></div>
+      <div class="stat-item"><div class="stat-num" style="color:var(--green)">~85%</div><div class="stat-cap">of installed capacity is renewable; hydro the largest source</div></div>
+    </div>
+    <p class="fig-src" style="margin:.75rem 0 0">Source: Ember (2024-2025); Low Carbon Power.</p>
     <p class="cliff-label">The open thread</p>
     <p>Not yet a decisive player, and still arguing with itself. But the energy is real and scarce, and a later round could pull Brazil from the edge of the room to the center of it.</p>
     <p class="cliff-q">Does it host the future, or get hosted by it?</p>

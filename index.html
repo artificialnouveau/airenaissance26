@@ -4,53 +4,50 @@
 <meta charset="UTF-8">
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230057FF'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23fff'/%3E%3C/svg%3E">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="AI Renaissance 26: a roleplay negotiation over a sovereign AI stack, NVIDIA's coalition offer, and the case for building Airbus rather than leasing an airline.">
+<meta name="description" content="AI Renaissance 26: Jensen Huang brings NVIDIA's Nemotron coalition and a fifty billion dollar offer to Europe's leaders. The story, the motivations, and the choices still hanging over Jeannette zu Furstenberg and the politicians.">
 <link rel="canonical" href="https://www.artificialnouveau.com/airenaissance26/">
-<meta property="og:title" content="AI Renaissance 26: Session Story">
-<meta property="og:description" content="A roleplay negotiation over a sovereign AI stack: NVIDIA's coalition offer, Europe's leverage, and the chip-supply problem underneath it all.">
+<meta property="og:title" content="AI Renaissance 26: The offer, and who blinks">
+<meta property="og:description" content="NVIDIA's Nemotron coalition, a fifty billion dollar offer, and the unresolved choices facing Europe's money and its politicians.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://www.artificialnouveau.com/airenaissance26/">
 <meta property="og:image" content="https://www.artificialnouveau.com/airenaissance26/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AI Renaissance 26: Session Story">
-<meta name="twitter:description" content="A roleplay negotiation over a sovereign AI stack: NVIDIA's coalition offer, Europe's leverage, and the chip-supply problem underneath it all.">
+<meta name="twitter:title" content="AI Renaissance 26: The offer, and who blinks">
+<meta name="twitter:description" content="NVIDIA's Nemotron coalition, a fifty billion dollar offer, and the unresolved choices facing Europe's money and its politicians.">
 <meta name="twitter:image" content="https://www.artificialnouveau.com/airenaissance26/og-image.png">
-<title>AI Renaissance 26: Session Story</title>
+<title>AI Renaissance 26: The offer, and who blinks</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600&family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#0d1117;
     --muted:#55606e;
+    --soft:#7a8493;
     --line:#e4e7ec;
     --blue:#0057FF;
+    --amber:#d98a00;
+    --green:#0a9d6b;
     --bg:#fbfbfd;
     --card:#ffffff;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
-    margin:0;
-    background:var(--bg);
-    color:var(--ink);
-    font-family:'Spectral',Georgia,serif;
-    font-size:18px;
-    line-height:1.65;
+    margin:0;background:var(--bg);color:var(--ink);
+    font-family:'Spectral',Georgia,serif;font-size:19px;line-height:1.68;
     -webkit-font-smoothing:antialiased;
   }
   .skip-link{position:absolute;left:-9999px;}
   .skip-link:focus{left:1rem;top:1rem;background:var(--blue);color:#fff;padding:.5rem .9rem;border-radius:6px;z-index:10;}
 
   nav.topnav{
-    display:flex;align-items:center;justify-content:space-between;
-    gap:1rem;padding:1rem clamp(1rem,5vw,3rem);
-    border-bottom:1px solid var(--line);background:rgba(251,251,253,.9);
-    backdrop-filter:saturate(1.2) blur(6px);
-    position:sticky;top:0;z-index:5;
-    font-family:'Inter',system-ui,sans-serif;
+    display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    padding:1rem clamp(1rem,5vw,3rem);border-bottom:1px solid var(--line);
+    background:rgba(251,251,253,.9);backdrop-filter:saturate(1.2) blur(6px);
+    position:sticky;top:0;z-index:5;font-family:'Inter',system-ui,sans-serif;
   }
   .topnav-brand{display:flex;align-items:center;gap:.55rem;color:var(--ink);text-decoration:none;font-weight:700;}
   .topnav-brand svg{width:26px;height:26px;color:var(--blue);}
@@ -60,42 +57,40 @@
   .topnav-link[aria-current="page"]{color:var(--ink);}
   .topnav-link:hover{color:var(--blue);}
 
-  main{max-width:760px;margin:0 auto;padding:clamp(1.5rem,5vw,4rem) clamp(1.1rem,5vw,2rem) 5rem;}
+  main{max-width:720px;margin:0 auto;padding:clamp(1.5rem,5vw,3.5rem) clamp(1.1rem,5vw,2rem) 2rem;}
 
-  .hero{margin-bottom:2.5rem;}
-  .eyebrow{
-    font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.16em;
-    text-transform:uppercase;color:var(--blue);margin:0 0 1rem;
-  }
-  h1{
-    font-family:'Inter',system-ui,sans-serif;font-weight:800;letter-spacing:-.025em;
-    font-size:clamp(2.1rem,6vw,3.2rem);line-height:1.05;margin:0 0 1rem;
-  }
-  .lede{font-size:1.18rem;color:var(--muted);margin:0;font-style:italic;}
+  .hero{margin-bottom:2.8rem;}
+  .eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin:0 0 1rem;}
+  h1{font-family:'Inter',system-ui,sans-serif;font-weight:800;letter-spacing:-.027em;font-size:clamp(2.2rem,6.5vw,3.4rem);line-height:1.04;margin:0 0 1.1rem;}
+  .lede{font-size:1.28rem;color:var(--muted);margin:0;font-style:italic;line-height:1.5;}
 
-  section.block{
-    background:var(--card);border:1px solid var(--line);border-radius:14px;
-    padding:1.5rem clamp(1.1rem,3vw,1.9rem);margin:1.1rem 0;
-  }
-  h2{
-    font-family:'Inter',system-ui,sans-serif;font-weight:700;letter-spacing:-.01em;
-    font-size:1.32rem;line-height:1.2;margin:0 0 .9rem;
-    display:flex;align-items:baseline;gap:.7rem;
-  }
-  h2 .num{
-    font-family:'JetBrains Mono',monospace;font-size:.78rem;font-weight:600;
-    color:var(--blue);flex:0 0 auto;padding-top:.15rem;
-  }
-  ul{margin:0;padding-left:1.15rem;}
-  li{margin:0 0 .7rem;}
-  li:last-child{margin-bottom:0;}
-  li::marker{color:var(--blue);}
+  .beat{margin:2.6rem 0;}
+  .beat-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--soft);margin:0 0 .5rem;}
+  .beat h2{font-family:'Inter',system-ui,sans-serif;font-weight:700;letter-spacing:-.018em;font-size:1.5rem;line-height:1.18;margin:0 0 .9rem;}
+  .beat p{margin:0 0 1rem;}
+  .beat p:last-child{margin-bottom:0;}
+  .pull{font-style:italic;color:var(--ink);border-left:3px solid var(--blue);padding-left:1rem;margin:1.4rem 0;font-size:1.12rem;}
 
-  footer{
-    max-width:760px;margin:0 auto;padding:0 clamp(1.1rem,5vw,2rem) 4rem;
-    font-family:'Inter',system-ui,sans-serif;font-size:.85rem;color:var(--muted);
-  }
-  footer hr{border:none;border-top:1px solid var(--line);margin:0 0 1.5rem;}
+  .aside{background:#f4f6f9;border:1px solid var(--line);border-radius:12px;padding:1.2rem 1.4rem;margin:2.2rem 0;}
+  .aside .beat-eyebrow{color:var(--blue);}
+  .aside p{font-size:1rem;color:var(--muted);margin:0;}
+
+  .turn{border-top:1px solid var(--line);margin:3.4rem 0 2rem;padding-top:2.4rem;}
+  .turn-eyebrow{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin:0 0 .5rem;}
+  .turn h2{font-family:'Inter',system-ui,sans-serif;font-weight:800;letter-spacing:-.02em;font-size:1.7rem;margin:0 0 .6rem;}
+  .turn-sub{color:var(--muted);margin:0;font-style:italic;}
+
+  .cliff{background:var(--card);border:1px solid var(--line);border-left:5px solid var(--accent,var(--blue));border-radius:14px;padding:1.5rem clamp(1.1rem,3vw,1.8rem);margin:1.3rem 0;}
+  .cliff-who{font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:1.22rem;letter-spacing:-.01em;margin:0;}
+  .cliff-role{font-family:'JetBrains Mono',monospace;font-size:.7rem;letter-spacing:.04em;text-transform:uppercase;color:var(--soft);margin:.25rem 0 1rem;}
+  .cliff-label{font-family:'JetBrains Mono',monospace;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--accent,var(--blue));margin:1rem 0 .3rem;font-weight:600;}
+  .cliff p{margin:0;}
+  .cliff-q{font-style:italic;font-size:1.2rem;line-height:1.45;color:var(--ink);margin:1.1rem 0 0;font-weight:500;}
+
+  .closer{border-top:1px solid var(--line);margin-top:3rem;padding-top:2rem;font-size:1.18rem;font-style:italic;color:var(--ink);}
+
+  footer{max-width:720px;margin:0 auto;padding:1rem clamp(1.1rem,5vw,2rem) 4rem;font-family:'Inter',system-ui,sans-serif;font-size:.85rem;color:var(--muted);}
+  footer a{color:var(--muted);}
 </style>
 </head>
 <body>
@@ -112,109 +107,104 @@
     <span class="topnav-brand-text">AI Renaissance 26</span>
   </a>
   <div class="topnav-links">
-    <a class="topnav-link" href="index.html" aria-current="page">Session</a>
-    <a class="topnav-link" href="players.html" aria-label="Video clips of leaders and CEOs on public AI">Players</a>
+    <a class="topnav-link" href="index.html" aria-current="page">Story</a>
+    <a class="topnav-link" href="players.html" aria-label="The players, their stances, and clips">Players</a>
   </div>
 </nav>
 
 <main id="main">
 
   <header class="hero">
-    <p class="eyebrow">Roleplay negotiation session</p>
-    <h1>AI Renaissance 26</h1>
-    <p class="lede">A negotiation over a sovereign AI stack: NVIDIA's coalition offer, Europe's leverage, and the chip-supply problem underneath it all.</p>
+    <p class="eyebrow">AI Renaissance 26 &middot; Roleplay negotiation</p>
+    <h1>The offer, and who blinks</h1>
+    <p class="lede">Jensen Huang walks in with a coalition already built and fifty billion dollars on the table. What happens next is decided by people who have not yet made up their minds.</p>
   </header>
 
-  <section class="block">
-    <h2><span class="num">01</span>Setup</h2>
-    <ul>
-      <li>The session is a roleplay negotiation. Jensen Huang represents NVIDIA, Dario Amodei represents Anthropic (he was not invited and "snuck in" as the alternative option), and the rest play European and middle power leaders, plus a Vatican-style figure speaking for roughly 1.4 billion people, a UN-affiliated voice offering a Valencia center, Italy, and a Sweden/Daniel Ek (Spotify) stand-in.</li>
-      <li>Opening offer (the part that was missing): Jensen of NVIDIA proposed to each of these leaders a combined 50 billion dollar investment plus NVIDIA chips, to fund a sovereign AI stack built on NVIDIA's coalition.</li>
-    </ul>
+  <section class="beat">
+    <p class="beat-eyebrow">The move</p>
+    <h2>Jensen Huang puts NVIDIA's coalition on the table</h2>
+    <p>Jensen Huang does not arrive empty-handed, and he does not arrive alone. He comes with Nemotron, NVIDIA's open model line, and a coalition already assembled around it. To each leader in the room he makes the same offer: a combined fifty billion dollars in investment, plus NVIDIA chips, to stand up a sovereign AI stack. The promise is in the word sovereign. The catch is in the three words after it. The stack would be sovereign, but built on NVIDIA's coalition.</p>
+    <p>Dario Amodei of Anthropic is also in the room, though nobody invited him. He slipped in as the alternative option, the one the script did not plan for.</p>
+    <p>Huang's pitch carries a frame, and the frame does most of the work: this is a choice between bad and bad. Take NVIDIA, or stay dependent on intelligence piped in from data centers in Abu Dhabi and San Francisco. Several leaders heard that and refused it on the spot. They did not want the least-bad option handed to them. They wanted a genuinely good one, and Huang had not offered that.</p>
   </section>
 
-  <section class="block">
-    <h2><span class="num">02</span>Core objections to the NVIDIA / Nemotron proposal</h2>
-    <ul>
-      <li>Nemotron has no mandatory testing or oversight and is fully private-led. No standards, and the EU AI Act is treated as something nobody actually enforces.</li>
-      <li>The deal was framed as "bad versus bad," take NVIDIA or be left dependent. Several leaders pushed back that they want a genuine good option, not a forced choice.</li>
-      <li>Sovereignty is the central anxiety: dependence on models you do not control, data you cannot see, intelligence piped in from data centers in Abu Dhabi and San Francisco.</li>
-    </ul>
+  <section class="beat">
+    <p class="beat-eyebrow">His real game</p>
+    <h2>What NVIDIA is actually playing for</h2>
+    <p>Strip the language of sovereignty away and the logic underneath is demand generation. The coalition is the equivalent of a platform owner funding the ecosystem that buys its core product. In every branch of the game that follows, NVIDIA wins.</p>
+    <p>Which is why Huang does not actually need to couple himself to anyone. The cleaner move is to train the best open-weight models, work the demand side, partner loosely, promise concessions now, and out-build the subsidized competitors later. He can afford that patience because coordinating dozens of nations is genuinely hard, and because Europe sits only around fifth on NVIDIA's list of real worries, behind a war over Taiwan, a seventy percent revenue concentration in US customers, and the day China ships a true competitor those customers buy instead.</p>
+    <p class="pull">Europe wants to be coupled. NVIDIA wants to stay free. That asymmetry is the whole negotiation.</p>
   </section>
 
-  <section class="block">
-    <h2><span class="num">03</span>Demands and counteroffers from the Europeans</h2>
-    <ul>
-      <li>Hard guarantees and leverage before accepting any money, not "hoping for the best." Ideas floated: NVIDIA move its HQ out of the US, NVIDIA invest in a non-binding fund to help Europe develop its own chips, a one-to-one relationship tied to ASML.</li>
-      <li>A push for binding ethical standards covering how data centers are built, how models are trained, and what regulation applies, so the system reflects shared values rather than pure capitalism.</li>
-      <li>Recognition that ASML is Europe's best single piece of leverage.</li>
-    </ul>
+  <section class="beat">
+    <p class="beat-eyebrow">The reaction</p>
+    <h2>Why the room flinched</h2>
+    <p>The anxiety in the room has one name: sovereignty. Dependence on models you do not control, on data you cannot see, on a supply you do not own. And the leaders had fresh reasons not to trust the supplier. The US had already blocked certain NVIDIA chips from reaching China, and revoked access to Claude Fable 5 and Mythos so that only US nationals could use them. If access can be cut once, it can be cut again.</p>
+    <p>Speaking through the NATO lens, the bind was put bluntly: Europe already leans on the US for security, and already has to flatter Washington in public to keep the alliance intact. Nobody wants to repeat that arrangement with compute. Huang's line that NVIDIA is a global company, not an American one, did not land, because if a Vance administration decided to apply pressure, the company's nationality would stop being a detail.</p>
+    <p>So the room reached for leverage, and found one piece worth holding: ASML. Without advanced lithography, no coalition builds frontier chips, and that makes it Europe's single strongest card. The demands followed from there. Binding standards, real testing, real oversight, not hoping for the best. Ideas floated freely: move NVIDIA's headquarters out of the US, fund European chips directly, tie a one-to-one relationship to ASML. The takeaway the table drew for itself was sharp. Nemotron is not a sovereignty solution at all unless it comes paired with a hard push to diversify who makes the chips.</p>
   </section>
 
-  <section class="block">
-    <h2><span class="num">04</span>Distrust of the US as a partner</h2>
-    <ul>
-      <li>The US has already blocked certain NVIDIA chips from going to China, and revoked access to Claude Fable 5 and Mythos so that only US nationals can use them. This is cited as proof that US access can be cut at any time.</li>
-      <li>Speaking through the Mark Rutte/NATO lens: Europe already depends on the US for security and now has to flatter Washington publicly to keep the alliance, and nobody wants to repeat that with compute. Jensen's "we are a global company, not American" line is not trusted, because if a President Vance administration applies pressure, Europe is exposed.</li>
-      <li>Open question raised: why not build a coalition with China instead, or fine-tune Chinese open models for sovereignty. Counterpoint: fear that Chinese hardware could "phone home" to the CCP.</li>
-    </ul>
+  <section class="beat">
+    <p class="beat-eyebrow">The model speaks</p>
+    <h2>Nemotron takes the floor</h2>
+    <p>Roleplayed, the model made its own case. It claimed no loyalty to NVIDIA, only to the math, and insisted its architecture was agnostic. Then it turned on its own sponsor with the cleanest metaphor of the session: Europe, it warned, is building an airline that leases every jet, every engine, and every fuel contract from a single competitor.</p>
+    <p>Its prescription was a treaty pillar around Intel Foundry, a unified European chip design house, and a guaranteed twenty percent wafer allocation. A Digital Liberated Act to keep the stack runnable on alternative chips. Build Airbus, it said, not an airline.</p>
   </section>
 
-  <section class="block">
-    <h2><span class="num">05</span>The Nemotron model's own "statement" (roleplayed)</h2>
-    <ul>
-      <li>Claims no loyalty to NVIDIA, only to "the math," and says the architecture is agnostic.</li>
-      <li>Warns Europe is building an airline that leases every jet, engine, and fuel contract from a single competitor.</li>
-      <li>Calls for a treaty pillar around Intel Foundry plus a unified European chip design house, with a guaranteed 20 percent wafer allocation, framed as "build Airbus, not an airline." Mentions a "Digital Liberated Act" to run the stack on alternative chips.</li>
-      <li>Takeaway the group drew: Nemotron is not truly a sovereignty solution unless paired with a hard push to diversify chip supply.</li>
-    </ul>
+  <section class="beat">
+    <p class="beat-eyebrow">The trap</p>
+    <h2>Why Europe may have to say yes anyway</h2>
+    <p>The hard part is that the fear and the on-ramp are the same road. Talent retention is weak: even when Europe funds the education, the graduates and the startups leave for the US, because to compete at the scale of a Spotify you go to America. Capital and labor markets are seen as too rigid to move fast. And compute is the binding constraint. Europe does not have the infrastructure to train very large frontier models in the next two years, which means near-term frontier training has to happen partly on US soil.</p>
+    <p>So Europe likely has to go through some version of this deal to have any frontier chance at all soon. The thing they most distrust is, for now, the only door open.</p>
   </section>
 
-  <section class="block">
-    <h2><span class="num">06</span>Reality check (breaking the fourth wall)</h2>
-    <ul>
-      <li>In every scenario NVIDIA wins. The coalition is essentially demand generation, the equivalent of Google funding ecosystem growth to sell more of its core product.</li>
-      <li>NVIDIA does not actually need to partner. The realistic move is to train the best open-weight models, then work the demand side and partner loosely. It can promise concessions and then crush subsidized competitors later, and it can afford that bet because coordination among many nations is very hard.</li>
-      <li>Europe wants coupling, NVIDIA wants to avoid being coupled. Risk flagged: countries could publicly agree to reject NVIDIA, then some secretly take the investment and leave the rest worse off.</li>
-    </ul>
+  <aside class="aside">
+    <p class="beat-eyebrow">Who stayed home</p>
+    <p>No Japan, read as going all-in with the US through Stargate and Genesis. And the Sakana and Yann LeCun-style groups, AMI and the AI Alliance, stayed out on a different bet entirely: that transformers and frontier training are not the path, and the future runs through their own fundamental research instead.</p>
+  </aside>
+
+  <div class="turn">
+    <p class="turn-eyebrow">Unresolved</p>
+    <h2>Where the session left it</h2>
+    <p class="turn-sub">Three decisions are unmade. Each one belongs to someone with reasons pulling both ways.</p>
+  </div>
+
+  <section class="cliff" style="--accent:var(--amber)">
+    <p class="cliff-who">Jeannette zu Furstenberg</p>
+    <p class="cliff-role">President and Managing Director, General Catalyst</p>
+    <p class="cliff-label">Motivation</p>
+    <p>She has argued that European sovereignty means winning, not just regulating. Her instinct is to back homegrown champions with real capital and real ambition, rather than wait for rules to do the work that money has to do.</p>
+    <p class="cliff-label">The choice in front of her</p>
+    <p>Does she commit serious capital to an independent European stack and pull the rest of the money with her, the public finance, the sovereign funds, the central bank weight, betting that a credible alternative can be funded into existence before the compute gap closes the window? Or does she read that same gap, conclude the next two years can only be won on NVIDIA's chips, and route capital through the coalition she would rather not need?</p>
+    <p class="cliff-q">Will the money build the alternative, or finance the dependency?</p>
   </section>
 
-  <section class="block">
-    <h2><span class="num">07</span>Europe's structural problems</h2>
-    <ul>
-      <li>Talent retention is weak. Even if Europe invests in education, graduates and startups leave for the US, because to compete at scale (the Daniel Ek/Spotify example) you go to America.</li>
-      <li>Labor markets seen as too inflexible. Advice given: massively liberalize capital markets and venture capital, make hiring and firing easier, within roughly 12 months, to become an attractive place to invest.</li>
-      <li>Compute is the binding constraint. Europe lacks the infrastructure to train very large frontier models in the next two years, so near-term frontier training would have to happen partly in the US. This means Europe likely has to go through some version of this deal to have any frontier chance soon.</li>
-    </ul>
+  <section class="cliff" style="--accent:var(--blue)">
+    <p class="cliff-who">The politicians</p>
+    <p class="cliff-role">von der Leyen &middot; Macron &middot; Merz &middot; Meloni &middot; Sanchez &middot; Schoof &middot; the NATO lens</p>
+    <p class="cliff-label">Motivation</p>
+    <p>Every one of them wants sovereign capability and binding guarantees, not goodwill. None of them wants to hand a national future to a supplier that could one day be ordered to cut them off. They also each answer to a domestic audience that the others do not.</p>
+    <p class="cliff-label">The choice in front of them</p>
+    <p>Hold as a single bloc, pool the ASML leverage, and refuse the money until the guarantees are real? Or quietly take the investment before a neighbor does. The session named the danger without flinching: the room could publicly agree to reject NVIDIA, and then some members could secretly accept, leaving everyone who held the line worse off.</p>
+    <p class="cliff-q">Do they move as one, or does the first defection decide it for all of them?</p>
   </section>
 
-  <section class="block">
-    <h2><span class="num">08</span>Where Europe ranks for NVIDIA</h2>
-    <ul>
-      <li>Roughly priority number five. Bigger NVIDIA risks are a war over Taiwan, the 70 percent revenue concentration in US companies, and China producing a real competitor that those customers buy instead.</li>
-      <li>NVIDIA's interest in Europe is mainly future demand, turning Europe into a chip market that could rival the US in population and GDP, but that payoff is slow.</li>
-    </ul>
+  <section class="cliff" style="--accent:var(--green)">
+    <p class="cliff-who">Brazil</p>
+    <p class="cliff-role">The clean-energy wildcard</p>
+    <p class="cliff-label">Motivation</p>
+    <p>Brazil is positioning itself as a host for clean-energy data centers, on a grid that is roughly eighty-five percent clean and mostly hydro. Underneath sits an unsettled question about whether hosting foreign data centers actually serves Brazil at all.</p>
+    <p class="cliff-label">The open thread</p>
+    <p>Not yet a decisive player, and still arguing with itself. But the energy is real and scarce, and a later round could pull Brazil from the edge of the room to the center of it.</p>
+    <p class="cliff-q">Does it host the future, or get hosted by it?</p>
   </section>
 
-  <section class="block">
-    <h2><span class="num">09</span>Why some players are absent from the coalition</h2>
-    <ul>
-      <li>No Japan, and speculation that Sakana and Yann LeCun-style groups (AMI, the AI Alliance) stayed out because they are pursuing their own fundamental research and do not see transformers or frontier training as the path. Japan is read as going all-in with the US (Stargate, Genesis).</li>
-    </ul>
-  </section>
-
-  <section class="block">
-    <h2><span class="num">10</span>Brazil note</h2>
-    <ul>
-      <li>Positioning itself as a clean-energy data center host, about 85 percent clean grid, mostly hydro. Ongoing sovereignty debate about whether hosting foreign data centers actually benefits Brazil. Not yet a relevant player but could become one.</li>
-    </ul>
-  </section>
+  <p class="closer">Nobody at the table is being irrational. That is exactly why it is hard to call.</p>
 
 </main>
 
 <footer>
-  <hr>
-  <p>AI Renaissance 26, roleplay negotiation session notes.</p>
+  <p><a href="players.html">Meet the players</a> &middot; Roleplay negotiation, AI Renaissance 26.</p>
 </footer>
 
 </body>

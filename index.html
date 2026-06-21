@@ -57,7 +57,11 @@
   .topnav-link[aria-current="page"]{color:var(--ink);}
   .topnav-link:hover{color:var(--blue);}
 
-  main{max-width:720px;margin:0 auto;padding:clamp(1.5rem,5vw,3.5rem) clamp(1.1rem,5vw,2rem) 2rem;}
+  main{max-width:1040px;margin:0 auto;padding:clamp(1.5rem,5vw,3.5rem) clamp(1.1rem,5vw,2rem) 2rem;}
+  /* reading column stays a comfortable measure; data figures break out to the right rail */
+  .hero,.beat>p,.beat>h2,.aside,.turn>p,.turn>h2,.cliff,.closer{max-width:660px;}
+  .beat::after,.turn::after{content:"";display:block;clear:both;}
+  .cliff{clear:both;}
 
   .hero{margin-bottom:2.8rem;}
   .eyebrow{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin:0 0 1rem;}
@@ -89,11 +93,11 @@
 
   .closer{border-top:1px solid var(--line);margin-top:3rem;padding-top:2rem;font-size:1.18rem;font-style:italic;color:var(--ink);}
 
-  footer{max-width:720px;margin:0 auto;padding:1rem clamp(1.1rem,5vw,2rem) 4rem;font-family:'Inter',system-ui,sans-serif;font-size:.85rem;color:var(--muted);}
+  footer{max-width:1040px;margin:0 auto;padding:1rem clamp(1.1rem,5vw,2rem) 4rem;font-family:'Inter',system-ui,sans-serif;font-size:.85rem;color:var(--muted);}
   footer a{color:var(--muted);}
 
   /* data figures */
-  .fig{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.3rem clamp(1.1rem,3vw,1.6rem);margin:1.9rem 0;font-family:'Inter',system-ui,sans-serif;}
+  .fig{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.3rem clamp(1.1rem,3vw,1.6rem);margin:.3rem 0 1.4rem 2.4rem;font-family:'Inter',system-ui,sans-serif;float:right;clear:right;width:340px;}
   .fig-kicker{font-family:'JetBrains Mono',monospace;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin:0 0 .45rem;font-weight:600;}
   .fig-title{font-weight:700;font-size:1.04rem;color:var(--ink);margin:0 0 .25rem;letter-spacing:-.01em;}
   .fig-note{font-size:.95rem;color:var(--muted);margin:0 0 1.15rem;font-family:'Spectral',Georgia,serif;font-style:italic;line-height:1.5;}
@@ -121,6 +125,11 @@
   .tl-off{color:#b4341f;font-weight:600;}
   .ctx-note{font-size:.95rem;color:var(--muted);background:#f4f6f9;border:1px solid var(--line);border-radius:10px;padding:.9rem 1.15rem;margin:1.4rem 0;line-height:1.55;}
   .ctx-note a{color:var(--blue);}
+  @media (max-width:900px){
+    main{max-width:700px;}
+    .fig{float:none;width:auto;margin:1.9rem 0;}
+    .hero,.beat>p,.beat>h2,.aside,.turn>p,.turn>h2,.cliff,.closer{max-width:none;}
+  }
 </style>
 </head>
 <body>
@@ -145,15 +154,14 @@
 <main id="main">
 
   <header class="hero">
-    <p class="eyebrow">Roleplay negotiation session</p>
     <h1>AI Renaissance 26</h1>
-    <p class="lede">Jensen Huang walks in with a coalition already built and fifty billion dollars on the table. What happens next is decided by people who have not yet made up their minds.</p>
+    <p class="lede">Everyone at the table wanted sovereign AI. The fight was over the price, and over whether sovereignty bought on someone else's chips is sovereignty at all.</p>
   </header>
 
   <section class="beat">
     <p class="beat-eyebrow">The move</p>
     <h2>Jensen Huang puts NVIDIA's coalition on the table</h2>
-    <p>Jensen Huang does not arrive empty-handed, and he does not arrive alone. He comes with Nemotron, NVIDIA's open model line, and a coalition already assembled around it. To each leader in the room he makes the same offer: a combined fifty billion dollars in investment, plus NVIDIA chips, to stand up a sovereign AI stack. The promise is in the word sovereign. The catch is in the three words after it. The stack would be sovereign, but built on NVIDIA's coalition.</p>
+    <p>Huang came with the deal already built. Nemotron, NVIDIA's open models, a coalition around them. To every leader the same offer: fifty billion dollars and NVIDIA chips for a sovereign AI stack. Sovereign, and built on NVIDIA's coalition. He did not linger on the second half.</p>
 
     <p class="ctx-note">The Nemotron Coalition is not invented for the game. In 2026 NVIDIA launched a real <a href="https://nvidianews.nvidia.com/news/nvidia-launches-nemotron-coalition-of-leading-global-ai-labs-to-advance-open-frontier-models" target="_blank" rel="noopener">Nemotron Coalition</a> with Mistral AI, Perplexity, Black Forest Labs, Cursor, LangChain, Reflection AI, Sarvam, and Thinking Machines Lab to build the open frontier models behind its <a href="https://developer.nvidia.com/topics/ai/nemotron" target="_blank" rel="noopener">Nemotron family</a>.</p>
 
@@ -172,9 +180,9 @@
       <p class="fig-src">Source: Synergy Research (EU cloud, 2024); industry market estimates, 2022-2026.</p>
     </figure>
 
-    <p>Huang's pitch carries a frame, and the frame does most of the work: this is a choice between bad and bad. Take NVIDIA, or stay dependent on intelligence piped in from data centers in Abu Dhabi and San Francisco. Several leaders heard that and refused it on the spot. They did not want the least-bad option handed to them. They wanted a genuinely good one, and Huang had not offered that.</p>
-    <p>Strip the language of sovereignty away and the logic underneath is demand generation. The coalition is the equivalent of a platform owner funding the ecosystem that buys its core product. In every branch of the game that follows, NVIDIA wins.</p>
-    <p>Which is why Huang does not actually need to couple himself to anyone. The cleaner move is to train the best open-weight models, work the demand side, partner loosely, promise concessions now, and out-build the subsidized competitors later. He can afford that patience because coordinating dozens of nations is genuinely hard, and because Europe sits only around fifth on NVIDIA's list of real worries, behind a war over Taiwan, a customer base so concentrated that a handful of US buyers account for most of its data-center revenue, and the day China ships a true competitor those customers buy instead.</p>
+    <p>He framed it as a choice between bad and bad. Take the chips, or take dependence on data centers in Abu Dhabi and San Francisco. The table did not bite. Nobody had come for the least-bad option.</p>
+    <p>Underneath, the logic was demand. The coalition was a way to sell more of what NVIDIA already sells. Every branch of the game ended in the same place.</p>
+    <p>So Huang did not need any of them. He could train the best open models, work the demand side, partner loosely, and outlast the subsidized competition. Coordinating thirty governments is slow work. Europe sat about fifth on his list of real problems, behind a war over Taiwan, behind a customer base narrowed to a handful of US buyers, behind the day China ships something people buy instead.</p>
 
     <figure class="fig">
       <p class="fig-kicker">Real-world data</p>
@@ -188,13 +196,13 @@
       <p class="fig-src">Source: NVIDIA 10-Q FY2026; Tom's Hardware; Motley Fool, Nov 2025.</p>
     </figure>
 
-    <p class="pull">Europe wants to be coupled. NVIDIA wants to stay free. That asymmetry is the whole negotiation.</p>
+    <p class="pull">Europe wanted to be coupled. NVIDIA did not.</p>
   </section>
 
   <section class="beat">
     <p class="beat-eyebrow">The reaction</p>
     <h2>Sovereignty, distrust, and leverage</h2>
-    <p>The anxiety in the room has one name: sovereignty. Dependence on models you do not control, on data you cannot see, on a supply you do not own. And the leaders had fresh reasons not to trust the supplier. The US had already blocked certain NVIDIA chips from reaching China, and revoked access to Claude Fable 5 and Mythos so that only US nationals could use them. If access can be cut once, it can be cut again.</p>
+    <p>The fear had one name. Sovereignty. Models they could not control, data they could not see, a supply they did not own. And the supplier had a record. Washington had already cut China off from these chips, and pulled Claude Fable 5 and Mythos back to US nationals only. What gets switched on gets switched off.</p>
 
     <figure class="fig">
       <p class="fig-kicker">Real-world data</p>
@@ -211,21 +219,21 @@
       <p class="fig-src">Source: US Federal Register; BIS; RAND (PEA3776-1); Tom's Hardware.</p>
     </figure>
 
-    <p>Speaking through the NATO lens, the bind was put bluntly: Europe already leans on the US for security, and already has to flatter Washington in public to keep the alliance intact. Nobody wants to repeat that arrangement with compute. Huang's line that NVIDIA is a global company, not an American one, did not land, because if a Vance administration decided to apply pressure, the company's nationality would stop being a detail.</p>
-    <p>So the room reached for leverage, and found one piece worth holding: ASML. Without advanced lithography, no coalition builds frontier chips, and that makes it Europe's single strongest card. The demands followed from there. Binding standards, real testing, real oversight, not hoping for the best. Ideas floated freely: move NVIDIA's headquarters out of the US, fund European chips directly, tie a one-to-one relationship to ASML. The takeaway the table drew for itself was sharp. Nemotron is not a sovereignty solution at all unless it comes paired with a hard push to diversify who makes the chips.</p>
+    <p>The NATO point was blunter. Europe already leaned on Washington for security, and already flattered it in public to keep the alliance. Nobody wanted the same arrangement for compute. Huang said NVIDIA was global, not American. Nobody in the room could price what a Vance White House would do to that sentence.</p>
+    <p>They looked for leverage and found one piece. ASML. No lithography, no frontier chips, and the lithography was theirs. The demands came off that. Binding standards. Real testing. Move the headquarters out of the US. Fund European fabs. Tie the deal to ASML, one to one. The table reached the conclusion on its own: Nemotron is not sovereignty until someone breaks NVIDIA's hold on the chips.</p>
   </section>
 
   <section class="beat">
     <p class="beat-eyebrow">The model speaks</p>
     <h2>Nemotron takes the floor</h2>
-    <p>Roleplayed, the model made its own case. It claimed no loyalty to NVIDIA, only to the math, and insisted its architecture was agnostic. Then it turned on its own sponsor with the cleanest metaphor of the session: Europe, it warned, is building an airline that leases every jet, every engine, and every fuel contract from a single competitor.</p>
-    <p>Its prescription was a treaty pillar around Intel Foundry, a unified European chip design house, and a guaranteed twenty percent wafer allocation. A Digital Liberated Act to keep the stack runnable on alternative chips. Build Airbus, it said, not an airline.</p>
+    <p>Then the model spoke, in role. No loyalty to NVIDIA, it said. Only to the math. The architecture was agnostic. Then it turned on the company that built it. Europe was standing up an airline that leased every jet, every engine, every fuel contract from one rival.</p>
+    <p>Its fix: Intel Foundry written into the treaty, one European design house, twenty percent of the wafers guaranteed. A Digital Liberated Act so the stack ran on other chips. Build Airbus, not an airline.</p>
   </section>
 
   <section class="beat">
     <p class="beat-eyebrow">The trap</p>
     <h2>Why Europe may have to say yes anyway</h2>
-    <p>The hard part is that the fear and the on-ramp are the same road. Talent retention is weak: even when Europe funds the education, the graduates and the startups leave for the US, because to compete at the scale of a Spotify you go to America. Capital and labor markets are seen as too rigid to move fast. And compute is the binding constraint. Europe does not have the infrastructure to train very large frontier models in the next two years, which means near-term frontier training has to happen partly on US soil.</p>
+    <p>The fear and the only exit ran on the same road. The talent left. Europe trained it, the US hired it, because the scale was in America. Capital moved slowly. Hiring moved slowly. And the compute was not there. Europe could not train a frontier model at home inside two years, which meant the training happened on US soil or it did not happen.</p>
 
     <figure class="fig">
       <p class="fig-kicker">Real-world data</p>
@@ -238,21 +246,20 @@
       <p class="fig-src">Source: EuroHPC JU; industry frontier-cluster benchmarks. EF = exaFLOPS.</p>
     </figure>
 
-    <p>So Europe likely has to go through some version of this deal to have any frontier chance at all soon. The thing they most distrust is, for now, the only door open.</p>
+    <p>So Europe would take some version of the deal it distrusted. For now it was the only door that opened.</p>
   </section>
 
   <aside class="aside">
     <p class="beat-eyebrow">Who stayed home</p>
-    <p>No Japan, read as going all-in with the US through Stargate and Genesis. And the Sakana and Yann LeCun-style groups, AMI and the AI Alliance, stayed out on a different bet entirely: that transformers and frontier training are not the path, and the future runs through their own fundamental research instead.</p>
+    <p>Japan did not come. It read as all-in with the US, Stargate and Genesis. Sakana and the Yann LeCun groups, AMI and the AI Alliance, stayed out on a different bet: that transformers are a dead end, and the future is somewhere they have not built yet.</p>
   </aside>
 
   <div class="turn">
     <p class="turn-eyebrow">Unresolved</p>
     <h2>Where the session left it</h2>
-    <p class="turn-sub">Three decisions are unmade. Each one belongs to someone with reasons pulling both ways.</p>
-  </div>
+    <p class="turn-sub">Three things were left unsettled. Each one sat with someone who had reasons both ways.</p>
 
-  <figure class="fig">
+    <figure class="fig">
     <p class="fig-kicker">Real-world data</p>
     <p class="fig-title">The money, alone and pooled</p>
     <p class="fig-note">2024 private AI investment. No single European state is close to the US, which is what makes both questions below hard. Pooled, a ten-state coalition still reaches only about a sixth of US capital, though roughly 80% of its training compute.</p>
@@ -264,15 +271,16 @@
       <div><div class="bar-head"><span class="bar-label">Ten-state coalition, pooled <span class="bar-who">illustrative</span></span><span class="bar-val">~$18B</span></div><div class="bar-track"><div class="bar-fill" style="width:16.5%;background:var(--amber)"></div></div></div>
     </div>
     <p class="fig-src">Source: Stanford AI Index 2025 (private investment); pooled estimate from EuroHPC and national figures.</p>
-  </figure>
+    </figure>
+  </div>
 
   <section class="cliff" style="--accent:var(--amber)">
     <p class="cliff-who">Jeannette zu Furstenberg</p>
     <p class="cliff-role">President and Managing Director, General Catalyst</p>
     <p class="cliff-label">Motivation</p>
-    <p>She has argued that European sovereignty means winning, not just regulating. Her instinct is to back homegrown champions with real capital and real ambition, rather than wait for rules to do the work that money has to do.</p>
+    <p>She has said sovereignty means winning, not regulating. Her instinct is capital behind European champions, not rules behind European caution.</p>
     <p class="cliff-label">The choice in front of her</p>
-    <p>Does she commit serious capital to an independent European stack and pull the rest of the money with her, the public finance, the sovereign funds, the central bank weight, betting that a credible alternative can be funded into existence before the compute gap closes the window? Or does she read that same gap, conclude the next two years can only be won on NVIDIA's chips, and route capital through the coalition she would rather not need?</p>
+    <p>She can put General Catalyst's money into an independent stack and pull the rest in behind her, the public banks, the sovereign funds, the ECB, and bet the alternative gets built before the window shuts. Or she can read the same window, decide two years is not enough, and move the money through NVIDIA's coalition after all.</p>
     <p class="cliff-q">Will the money build the alternative, or finance the dependency?</p>
   </section>
 
@@ -280,28 +288,28 @@
     <p class="cliff-who">The politicians</p>
     <p class="cliff-role">von der Leyen &middot; Macron &middot; Merz &middot; Meloni &middot; Sanchez &middot; Schoof &middot; the NATO lens</p>
     <p class="cliff-label">Motivation</p>
-    <p>Every one of them wants sovereign capability and binding guarantees, not goodwill. None of them wants to hand a national future to a supplier that could one day be ordered to cut them off. They also each answer to a domestic audience that the others do not.</p>
+    <p>Each wants sovereign capability and a guarantee in writing. None wants to hand a country's future to a supplier that can be told to cut them off. Each also answers to a different electorate.</p>
     <p class="cliff-label">The choice in front of them</p>
-    <p>Hold as a single bloc, pool the ASML leverage, and refuse the money until the guarantees are real? Or quietly take the investment before a neighbor does. The session named the danger without flinching: the room could publicly agree to reject NVIDIA, and then some members could secretly accept, leaving everyone who held the line worse off.</p>
-    <p class="cliff-q">Do they move as one, or does the first defection decide it for all of them?</p>
+    <p>Hold the line together, pool the ASML leverage, and refuse the money until the terms are real. Or take the investment quietly before the neighbor does. The risk was named in the room: agree in public to reject NVIDIA, accept in private, and strand whoever kept their word.</p>
+    <p class="cliff-q">Do they hold together, or does the first defection settle it?</p>
   </section>
 
   <section class="cliff" style="--accent:var(--green)">
     <p class="cliff-who">Brazil</p>
     <p class="cliff-role">The clean-energy wildcard</p>
     <p class="cliff-label">Motivation</p>
-    <p>Brazil is positioning itself as a host for clean-energy data centers, on a grid where renewables supply about 88 percent of electricity and hydro is the single largest source. Underneath sits an unsettled question about whether hosting foreign data centers actually serves Brazil at all.</p>
+    <p>Brazil is selling clean power. Renewables run about 88 percent of its grid, hydro most of that. The open question is whether hosting other people's data centers does anything for Brazil.</p>
     <div class="stat" style="margin-top:1.1rem">
       <div class="stat-item"><div class="stat-num" style="color:var(--green)">~88%</div><div class="stat-cap">of Brazil's electricity came from renewables in 2024</div></div>
       <div class="stat-item"><div class="stat-num" style="color:var(--green)">~85%</div><div class="stat-cap">of installed capacity is renewable; hydro the largest source</div></div>
     </div>
     <p class="fig-src" style="margin:.75rem 0 0">Source: Ember (2024-2025); Low Carbon Power.</p>
     <p class="cliff-label">The open thread</p>
-    <p>Not yet a decisive player, and still arguing with itself. But the energy is real and scarce, and a later round could pull Brazil from the edge of the room to the center of it.</p>
+    <p>Not a decisive player yet, still arguing with itself. But the power is real and scarce, and the next round could move it from the edge to the middle.</p>
     <p class="cliff-q">Does it host the future, or get hosted by it?</p>
   </section>
 
-  <p class="closer">Nobody at the table is being irrational. That is exactly why it is hard to call.</p>
+  <p class="closer">Nobody at the table was being irrational. That was the hard part.</p>
 
 </main>
 

@@ -18,3 +18,6 @@ Thumbs.db
 
 # Working manuscripts (source docs, not deployed)
 *.docx
+
+# Local-only wargame notes, not published
+story.txt

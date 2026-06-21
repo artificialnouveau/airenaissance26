@@ -195,6 +195,30 @@
     .topnav-brand-text { display: none; }
     .content { padding: 1.5rem 1.1rem 3.5rem; }
   }
+  .sim{max-width:1000px;margin:0 auto;padding:3rem 1.5rem;}
+  .sim-eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem;font-weight:700;text-align:center;}
+  .sim h2{font-family:var(--serif);font-weight:600;font-size:1.6rem;margin:0 0 .6rem;text-align:center;}
+  .sim-intro{color:var(--text-muted);max-width:62ch;margin:0 auto 1.9rem;text-align:center;font-size:.95rem;line-height:1.6;}
+  .sim-wrap{display:grid;grid-template-columns:340px 1fr;gap:2.2rem;align-items:start;max-width:760px;margin:0 auto;}
+  .sim-arena{position:relative;width:320px;height:320px;margin:0 auto;}
+  .sim-ring{position:absolute;border-radius:50%;}
+  .sim-ring.outer{inset:30px;border:1px dashed var(--hairline-strong);}
+  .sim-ring.inner{width:156px;height:156px;left:82px;top:82px;border:1px solid rgba(0,87,255,.35);background:rgba(0,87,255,.06);}
+  .sim-core-label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);text-align:center;line-height:1.3;pointer-events:none;opacity:.85;}
+  .sim-avatar{position:absolute;width:40px;left:160px;top:160px;transform:translate(-50%,-50%);transition:left .7s cubic-bezier(.4,0,.2,1),top .7s cubic-bezier(.4,0,.2,1);text-align:center;z-index:2;}
+  .sim-ava-wrap{position:relative;width:38px;height:38px;margin:0 auto;}
+  .sim-ava-ini{position:absolute;inset:0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:700;font-size:.74rem;color:#fff;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.25);}
+  .sim-ava-img{position:absolute;inset:0;width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.25);background:#dbe2ea;}
+  .sim-ava-name{font-family:var(--font);font-size:.55rem;font-weight:600;color:var(--text);margin-top:2px;line-height:1;white-space:nowrap;}
+  .sim-args{display:flex;flex-direction:column;gap:.6rem;}
+  .sim-arg{text-align:left;background:#fff;border:1px solid var(--hairline-strong);border-radius:10px;padding:.7rem .9rem;cursor:pointer;transition:border-color .15s,background .15s;}
+  .sim-arg:hover{border-color:var(--accent);}
+  .sim-arg.on{border-color:var(--accent);background:var(--accent-dim);}
+  .sim-arg-label{font-family:var(--font);font-weight:600;font-size:.9rem;color:var(--text);}
+  .sim-arg-sub{font-family:var(--font);font-size:.76rem;color:var(--text-muted);margin-top:.15rem;}
+  .sim-readout{font-family:var(--mono);font-size:.7rem;letter-spacing:.05em;text-transform:uppercase;color:var(--text-muted);margin:.8rem 0 0;text-align:center;}
+  .sim-readout b{color:var(--accent);font-size:1rem;}
+  @media (max-width:760px){.sim-wrap{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
@@ -234,6 +258,23 @@
   <p class="kicker">Ranked by readiness to join a Large Model Training Consortium</p>
   <p class="lead-note">A Large Model Training Consortium means many states or firms pooling compute, data, and money to build frontier AI together, instead of depending on the US or China. Each group is ranked on its own scale: left to right runs blue to red, from the most likely to commit to such a consortium to the least, as the end labels describe. Tap any name to open its card.</p>
   <div id="rail"></div>
+</section>
+
+<section class="sim" aria-label="Simulation">
+  <p class="sim-eyebrow">Simulation</p>
+  <h2>Move the Table</h2>
+  <p class="sim-intro">Choose the arguments the consortium puts on the table. Each one pulls players toward the core, where they commit, or pushes them out, where they hold back. Some arguments contradict each other: switch one on and it cancels its opposite.</p>
+  <div class="sim-wrap">
+    <div>
+      <div class="sim-arena" id="simArena">
+        <div class="sim-ring outer"></div>
+        <div class="sim-ring inner"></div>
+        <div class="sim-core-label">Consortium<br>core</div>
+      </div>
+      <p class="sim-readout" id="simReadout"></p>
+    </div>
+    <div class="sim-args" id="simArgs"></div>
+  </div>
 </section>
 
 <section class="section-wrap" aria-label="Personas">
@@ -945,6 +986,51 @@ document.addEventListener('keydown', e => { if(e.key === 'Escape' && !modalEl.hi
 
 applyFilter('all');
 if(location.hash) openModal(location.hash.slice(1));
+</script>
+
+<script>
+(function(){
+  var P=[
+    {id:'huang',name:'Jensen Huang',short:'Huang',tag:'NVIDIA',color:'#76b900',base:0.6,photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Jen-Hsun_Huang_2025.jpg/330px-Jen-Hsun_Huang_2025.jpg'},
+    {id:'fursten',name:'zu Furstenberg',short:'Furstenberg',tag:'General Catalyst',color:'#d98a00',base:0.5,photo:null},
+    {id:'vdl',name:'Ursula von der Leyen',short:'vd Leyen',tag:'EU',color:'#0057FF',base:0.58,photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Prime_Minister_of_Bharat%2C_Shri_Narendra_Damodardas_Modi_greets_the_President_of_the_European_Council%2C_Mr._Ant%C3%B3nio_Costa_and_the_President_of_the_European_Commission%2C_Ms._Ursula_von_der_Leyen_%283x4_cropped%29.jpg/330px-thumbnail.jpg'},
+    {id:'macron',name:'Emmanuel Macron',short:'Macron',tag:'France',color:'#1a4fb0',base:0.62,photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Emmanuel_Macron_2025_%28cropped%29.jpg/330px-Emmanuel_Macron_2025_%28cropped%29.jpg'},
+    {id:'merz',name:'Friedrich Merz',short:'Merz',tag:'Germany',color:'#555',base:0.5,photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/2024-08-21_Friedrich_Merz_in_Erfurt_2024_STP_3041_by_Stepro_%283x4_cropped%29.jpg/330px-2024-08-21_Friedrich_Merz_in_Erfurt_2024_STP_3041_by_Stepro_%283x4_cropped%29.jpg'},
+    {id:'meloni',name:'Giorgia Meloni',short:'Meloni',tag:'Italy',color:'#2e8b57',base:0.4,photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Giorgia_Meloni_Official_2024_%28cropped%29.jpg/330px-Giorgia_Meloni_Official_2024_%28cropped%29.jpg'},
+    {id:'ek',name:'Daniel Ek',short:'Ek',tag:'EU angels',color:'#1db954',base:0.48,photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Daniel_Ek_EC_2025_%28cropped%29.jpg/330px-Daniel_Ek_EC_2025_%28cropped%29.jpg'},
+    {id:'mensch',name:'Arthur Mensch',short:'Mensch',tag:'Mistral',color:'#ff6f3c',base:0.8,photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Arthur_Mensch.png/330px-Arthur_Mensch.png'},
+    {id:'andrulis',name:'Jonas Andrulis',short:'Andrulis',tag:'Aleph Alpha',color:'#7a3fb0',base:0.55,photo:'https://commons.wikimedia.org/wiki/Special:FilePath/Andrulis%20DLD.jpg?width=400'},
+    {id:'tangen',name:'Nicolai Tangen',short:'Tangen',tag:'Norway fund',color:'#0a7d8c',base:0.4,photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/9/97/NicolaiTangen.jpg/330px-NicolaiTangen.jpg'},
+    {id:'lagarde',name:'Christine Lagarde',short:'Lagarde',tag:'ECB',color:'#b0306f',base:0.45,photo:'https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Lagarde_ECB_Portrait_2019.jpg/330px-Lagarde_ECB_Portrait_2019.jpg'}
+  ];
+  var A=[
+    {id:'wafer',label:'Guarantee a 20% European wafer allocation',sub:'Chip sovereignty written into the treaty',cancels:'nvterms',d:{vdl:0.22,macron:0.22,merz:0.2,meloni:0.16,andrulis:0.16,mensch:0.1,fursten:0.14,ek:0.08,huang:-0.15}},
+    {id:'nvterms',label:"Keep the stack on NVIDIA's terms",sub:'Fast access, no European chip guarantee',cancels:'wafer',d:{vdl:-0.2,macron:-0.2,merz:-0.16,meloni:-0.16,andrulis:-0.16,mensch:-0.1,fursten:-0.08,huang:0.22}},
+    {id:'weighted',label:'Weighted voting with precommitted capital',sub:'Locks members in; blocks bilateral buyouts',cancels:'consensus',d:{fursten:0.2,vdl:0.15,macron:0.1,merz:0.15,tangen:0.16,ek:0.12,lagarde:0.12,meloni:0.08}},
+    {id:'consensus',label:'Consensus, any member can veto',sub:'Maximum legitimacy, risk of gridlock',cancels:'weighted',d:{fursten:-0.16,vdl:-0.1,macron:-0.1,merz:-0.1,tangen:-0.16,ek:-0.1,lagarde:-0.08,meloni:0.06}},
+    {id:'anchor',label:'Anchor the fund with the ECB and sovereign funds',sub:'Patient, public-backed capital',cancels:'publiconly',d:{fursten:0.2,ek:0.2,tangen:0.24,lagarde:0.2,andrulis:0.1,mensch:0.08}},
+    {id:'publiconly',label:'Public money only, free at the point of use',sub:'No commercial returns',cancels:'anchor',d:{fursten:-0.22,ek:-0.2,tangen:-0.2,lagarde:-0.05,huang:-0.1,vdl:0.1,meloni:0.08}},
+    {id:'opensource',label:'Open-source the foundation model',sub:'Ecosystem over control',cancels:null,d:{mensch:0.2,andrulis:0.18,vdl:0.1,macron:0.08,ek:0.1,huang:0.05}}
+  ];
+  var active={}, C=160, OUT=130, INNER=44, CORE=78;
+  var arena=document.getElementById('simArena'), readout=document.getElementById('simReadout'), argbox=document.getElementById('simArgs');
+  if(!arena) return;
+  function ini(n){var w=n.split(' ');return (w[0].charAt(0)+w[w.length-1].charAt(0)).toUpperCase();}
+  function find(id){for(var i=0;i<A.length;i++){if(A[i].id===id)return A[i];}return null;}
+  P.forEach(function(p,i){
+    p.angle=(-90+i*360/P.length)*Math.PI/180;
+    var el=document.createElement('div'); el.className='sim-avatar'; el.id='sav-'+p.id; el.title=p.name+' - '+p.tag;
+    var iniDiv='<div class="sim-ava-ini" style="background:'+p.color+'">'+ini(p.name)+'</div>';
+    var img=p.photo?'<img class="sim-ava-img" src="'+p.photo+'" alt="'+p.name+'" loading="lazy" onerror="this.remove()">':'';
+    el.innerHTML='<div class="sim-ava-wrap">'+iniDiv+img+'</div><div class="sim-ava-name">'+p.short+'</div>';
+    arena.appendChild(el);
+  });
+  function score(p){var s=p.base;for(var k in active){if(!active[k])continue;var a=find(k);if(a&&typeof a.d[p.id]==='number')s+=a.d[p.id];}return Math.max(0.05,Math.min(1,s));}
+  function place(){var core=0;P.forEach(function(p){var s=score(p),d=OUT-s*(OUT-INNER);var el=document.getElementById('sav-'+p.id);el.style.left=(C+d*Math.cos(p.angle))+'px';el.style.top=(C+d*Math.sin(p.angle))+'px';if(d<=CORE)core++;});readout.innerHTML='<b>'+core+'</b> of '+P.length+' in the consortium core';}
+  function toggle(id){var a=find(id);if(active[id]){active[id]=false;}else{active[id]=true;if(a.cancels&&active[a.cancels])active[a.cancels]=false;}var btns=argbox.querySelectorAll('.sim-arg');for(var i=0;i<btns.length;i++){btns[i].classList.toggle('on',!!active[btns[i].getAttribute('data-id')]);}place();}
+  A.forEach(function(a){var b=document.createElement('button');b.type='button';b.className='sim-arg';b.setAttribute('data-id',a.id);b.innerHTML='<div class="sim-arg-label">'+a.label+'</div><div class="sim-arg-sub">'+a.sub+'</div>';b.addEventListener('click',function(){toggle(a.id);});argbox.appendChild(b);});
+  place();
+})();
 </script>
 
 </body>

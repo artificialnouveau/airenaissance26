@@ -50,9 +50,19 @@ window.AIRGlobe = function(svg, opts){
   function applyLit(){countryData.forEach(function(c){c.el.classList.toggle('is-lit', !!lit[c.id]);});}
   function highlight(ids){lit={};(ids||[]).forEach(function(id){lit[String(id)]=true;});applyLit();}
 
-  var spinning=false;
-  function step(){if(!spinning)return;viewLng+=speed;if(viewLng>180)viewLng-=360;redraw();requestAnimationFrame(step);}
+  var spinning=false, dragging=false;
+  function step(){if(!spinning)return;if(!dragging){viewLng+=speed;if(viewLng>180)viewLng-=360;redraw();}requestAnimationFrame(step);}
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // drag to rotate
+  var lastX=0, lastY=0;
+  svg.style.cursor='grab'; svg.style.touchAction='none';
+  function onDown(e){dragging=true;svg.style.cursor='grabbing';lastX=(e.touches?e.touches[0].clientX:e.clientX);lastY=(e.touches?e.touches[0].clientY:e.clientY);if(svg.setPointerCapture&&e.pointerId!=null){try{svg.setPointerCapture(e.pointerId);}catch(_){}}}
+  function onMove(e){if(!dragging)return;var cx=(e.touches?e.touches[0].clientX:e.clientX),cy=(e.touches?e.touches[0].clientY:e.clientY);var dx=cx-lastX,dy=cy-lastY;lastX=cx;lastY=cy;viewLng-=dx*0.5;viewLat=Math.max(-85,Math.min(85,viewLat+dy*0.5));redraw();if(e.cancelable)e.preventDefault();}
+  function onUp(){if(dragging){dragging=false;svg.style.cursor='grab';}}
+  svg.addEventListener('pointerdown',onDown);
+  window.addEventListener('pointermove',onMove);
+  window.addEventListener('pointerup',onUp);
 
   fetch(ATLAS).then(function(r){return r.json();}).then(function(topo){
     var arcs=decode(topo);

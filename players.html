@@ -74,26 +74,19 @@
         <div class="sim-ring inner"></div>
         <div class="sim-core-label">Consortium<br>core</div>
         <div class="sim-globe" aria-label="Countries in the consortium; a country lights up when one of its players reaches the core">
-          <svg id="simGlobe" viewBox="0 0 360 320" role="img" aria-label="Rotating globe of involved countries">
-            <defs>
-              <clipPath id="globeClip"><circle cx="180" cy="160" r="140"/></clipPath>
-              <radialGradient id="globeGrad" cx="36%" cy="30%" r="72%">
-                <stop offset="0%" stop-color="#f4f7fd"/><stop offset="60%" stop-color="#d3def0"/><stop offset="100%" stop-color="#9fb2d0"/>
-              </radialGradient>
-              <radialGradient id="globeShade" cx="50%" cy="50%" r="50%">
-                <stop offset="66%" stop-color="#141e3c" stop-opacity="0"/><stop offset="100%" stop-color="#141e3c" stop-opacity="0.28"/>
-              </radialGradient>
-            </defs>
-            <circle cx="180" cy="160" r="140" fill="url(#globeGrad)" stroke="var(--hairline-strong)" stroke-width="1.5"/>
-            <g clip-path="url(#globeClip)" stroke="rgba(40,60,100,0.16)" stroke-width="1" fill="none">
-              <ellipse cx="180" cy="160" rx="46" ry="140"/>
-              <ellipse cx="180" cy="160" rx="92" ry="140"/>
-              <ellipse cx="180" cy="160" rx="140" ry="15"/>
-              <ellipse cx="180" cy="108" rx="130" ry="12"/>
-              <ellipse cx="180" cy="212" rx="130" ry="12"/>
+          <svg id="simGlobe" viewBox="0 0 200 200" role="img" aria-label="Rotating globe of involved countries; drag to spin">
+            <defs><clipPath id="simGlobeClip"><circle cx="100" cy="100" r="78"/></clipPath></defs>
+            <circle class="cm-ocean" cx="100" cy="100" r="78"/>
+            <g class="cm-graticule" clip-path="url(#simGlobeClip)" fill="none">
+              <ellipse cx="100" cy="100" rx="78" ry="20"/>
+              <ellipse cx="100" cy="100" rx="78" ry="40"/>
+              <ellipse cx="100" cy="100" rx="78" ry="60"/>
+              <ellipse cx="100" cy="100" rx="20" ry="78"/>
+              <ellipse cx="100" cy="100" rx="40" ry="78"/>
+              <ellipse cx="100" cy="100" rx="60" ry="78"/>
             </g>
-            <circle cx="180" cy="160" r="140" fill="url(#globeShade)"/>
-            <g class="cm-countries" clip-path="url(#globeClip)"></g>
+            <g class="cm-countries" clip-path="url(#simGlobeClip)"></g>
+            <circle class="cm-rim" cx="100" cy="100" r="78"/>
           </svg>
           <span class="sim-globe-count"><b id="simGlobeCount">0</b> countries</span>
         </div>

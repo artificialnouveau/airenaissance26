@@ -55,32 +55,6 @@
     <p>Given <a class="tip" href="https://europe2031.ai/" target="_blank" rel="noopener">Europe2031<span class="tip-box" role="tooltip">The scenario this story plays against: a Europe that bets on specialized, lower-capital AI rather than the hyperscale frontier. See europe2031.ai.</span></a>, a near-future in which Europe has bet on specialized, lower-capital AI, this story is a theoretical next step. Call it Europe++: how Europe and the other middle powers might push past that and build frontier AI they actually own, stage by stage. The aim is a <em><strong>not-lose</strong></em> condition for them, with defense, sovereignty, economic competitiveness, culture, democracy, and rights kept intact.</p>
   </section>
 
-  <section class="story-globe" aria-label="Where the consortium reaches">
-    <div class="story-globe-head">Where the consortium reaches</div>
-    <svg id="storyGlobe" viewBox="0 0 360 320" role="img" aria-label="Rotating globe of the consortium's countries">
-      <defs>
-        <clipPath id="sgClip"><circle cx="180" cy="160" r="140"/></clipPath>
-        <radialGradient id="sgGrad" cx="36%" cy="30%" r="72%">
-          <stop offset="0%" stop-color="#f4f7fd"/><stop offset="60%" stop-color="#d3def0"/><stop offset="100%" stop-color="#9fb2d0"/>
-        </radialGradient>
-        <radialGradient id="sgShade" cx="50%" cy="50%" r="50%">
-          <stop offset="66%" stop-color="#141e3c" stop-opacity="0"/><stop offset="100%" stop-color="#141e3c" stop-opacity="0.26"/>
-        </radialGradient>
-      </defs>
-      <circle cx="180" cy="160" r="140" fill="url(#sgGrad)" stroke="var(--hair-strong)" stroke-width="1.2"/>
-      <g clip-path="url(#sgClip)" stroke="rgba(40,60,100,0.16)" stroke-width="1" fill="none">
-        <ellipse cx="180" cy="160" rx="46" ry="140"/>
-        <ellipse cx="180" cy="160" rx="92" ry="140"/>
-        <ellipse cx="180" cy="160" rx="140" ry="15"/>
-        <ellipse cx="180" cy="108" rx="130" ry="12"/>
-        <ellipse cx="180" cy="212" rx="130" ry="12"/>
-      </g>
-      <circle cx="180" cy="160" r="140" fill="url(#sgShade)"/>
-      <g class="cm-countries" clip-path="url(#sgClip)"></g>
-    </svg>
-    <p class="story-globe-note">The consortium's footprint: NVIDIA in the United States, with European states and their middle-power peers pooling behind a sovereign stack. The faint nodes are the powers watching from outside.</p>
-  </section>
-
   <div class="storygrid">
   <div class="story">
 
@@ -143,6 +117,25 @@
 
   </div>
   <aside class="dock">
+
+    <div class="story-globe" aria-label="Where the consortium reaches">
+      <div class="story-globe-head">Where the consortium reaches</div>
+      <svg id="storyGlobe" viewBox="0 0 200 200" role="img" aria-label="Rotating globe of the consortium's countries; drag to spin">
+        <defs><clipPath id="sgClip"><circle cx="100" cy="100" r="78"/></clipPath></defs>
+        <circle class="cm-ocean" cx="100" cy="100" r="78"/>
+        <g class="cm-graticule" clip-path="url(#sgClip)" fill="none">
+          <ellipse cx="100" cy="100" rx="78" ry="20"/>
+          <ellipse cx="100" cy="100" rx="78" ry="40"/>
+          <ellipse cx="100" cy="100" rx="78" ry="60"/>
+          <ellipse cx="100" cy="100" rx="20" ry="78"/>
+          <ellipse cx="100" cy="100" rx="40" ry="78"/>
+          <ellipse cx="100" cy="100" rx="60" ry="78"/>
+        </g>
+        <g class="cm-countries" clip-path="url(#sgClip)"></g>
+        <circle class="cm-rim" cx="100" cy="100" r="78"/>
+      </svg>
+      <p class="story-globe-note">The consortium's footprint: NVIDIA in the United States, with European states and their middle-power peers pooling behind a sovereign stack. Drag to spin the globe.</p>
+    </div>
 
     <figure class="fig" style="--s:0">
       <p class="fig-title">Who controls each layer of the AI stack</p>

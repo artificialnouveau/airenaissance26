@@ -124,7 +124,7 @@
   var globeCount=document.getElementById('simGlobeCount'), simGlobeObj=null;
   function buildGlobe(){
     var svg=document.getElementById('simGlobe');
-    if(svg&&window.AIRGlobe)simGlobeObj=window.AIRGlobe(svg,{spin:true,speed:0.08,lng:-12,lat:32});
+    if(svg&&window.AIRGlobe)simGlobeObj=window.AIRGlobe(svg,{spin:true,speed:0.08,lng:-12,lat:32,radius:78,cx:100,cy:100});
   }
   function updateGlobe(){
     var set={},n=0;

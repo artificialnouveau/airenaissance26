@@ -4,7 +4,7 @@
 (function(){
   var svg=document.getElementById('storyGlobe');
   if(svg&&window.AIRGlobe){
-    window.AIRGlobe(svg,{spin:true,speed:0.07,lng:-12,lat:34,lit:['840','250','276','380','724','528','826','578','752','56']});
+    window.AIRGlobe(svg,{spin:true,speed:0.07,lng:-12,lat:34,radius:78,cx:100,cy:100,lit:['840','250','276','380','724','528','826','578','752','56']});
   }
 })();
 
@@ -25,8 +25,10 @@
     if(!desktop())return;
     var sum=0;
     figs.forEach(function(f){sum+=f.offsetHeight;});
+    var globeEl=dock.querySelector('.story-globe');
+    var gh=globeEl?globeEl.offsetHeight:0;
     var min=Math.round(window.innerHeight*0.05);
-    var gap=Math.round((story.offsetHeight-sum)/figs.length);
+    var gap=Math.round((story.offsetHeight-sum-gh)/figs.length);
     if(gap<min)gap=min;
     figs.forEach(function(f){f.style.marginBottom=gap+'px';});
   }

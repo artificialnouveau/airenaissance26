@@ -28,10 +28,18 @@
     --soft:#7a8493;
     --line:#e4e7ec;
     --blue:#0057FF;
+    --accent:#0057FF;
     --amber:#d98a00;
     --green:#0a9d6b;
+    --coral:#FF6F59;
+    --gold:#FFC23C;
+    --red:#b8002e;
     --bg:#fbfbfd;
     --card:#ffffff;
+    --paper:#F5F2EC;
+    --paper-2:#ECE8E0;
+    --hair:rgba(10,10,10,0.12);
+    --hair-strong:rgba(10,10,10,0.22);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -92,39 +100,34 @@
   footer a{color:var(--muted);}
 
   /* data figures */
-  .fig{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:1.3rem clamp(1.1rem,3vw,1.6rem);margin:0 0 1.2rem;font-family:'Inter',system-ui,sans-serif;}
+  .fig{background:var(--paper);border:1px solid var(--hair);border-radius:10px;padding:1.4rem clamp(1.1rem,3vw,1.6rem);margin:0 0 1.2rem;font-family:'Inter',system-ui,sans-serif;}
   .beat-figs .fig:last-child{margin-bottom:0;}
-  .fig-title{font-weight:700;font-size:1.04rem;color:var(--ink);margin:0 0 .25rem;letter-spacing:-.01em;}
-  .fig-note{font-size:.95rem;color:var(--muted);margin:0 0 1.15rem;font-family:'Spectral',Georgia,serif;font-style:italic;line-height:1.5;}
-  .fig-src{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.05em;color:var(--soft);margin:1.05rem 0 0;text-transform:uppercase;line-height:1.55;}
-  .fig-src a{color:var(--soft);text-decoration:underline;}
-  .bars{display:flex;flex-direction:column;gap:.85rem;}
-  .bar-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.28rem;gap:.6rem;}
-  .bar-label{color:var(--ink);font-weight:600;font-size:.86rem;}
-  .bar-who{color:var(--soft);font-size:.7rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.03em;}
-  .bar-val{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.82rem;color:var(--ink);white-space:nowrap;}
-  .bar-track{height:10px;background:#eef1f5;border-radius:5px;overflow:hidden;}
-  .bar-fill{height:100%;border-radius:5px;background:var(--blue);}
-  .fig-legend{font-size:.8rem;color:var(--muted);margin:.95rem 0 0;font-family:'Spectral',Georgia,serif;}
-  .swatch{display:inline-block;width:.7rem;height:.7rem;border-radius:2px;vertical-align:middle;margin-right:.3rem;}
+  .fig-title{font-family:'Spectral',Georgia,serif;font-weight:600;font-size:1.2rem;color:var(--ink);margin:0 0 .3rem;letter-spacing:-.005em;line-height:1.2;}
+  .fig-note{font-size:.92rem;color:var(--muted);margin:0 0 1.2rem;font-family:'Spectral',Georgia,serif;font-style:italic;line-height:1.5;}
+  .fig-src{font-family:'JetBrains Mono',monospace;font-size:.58rem;letter-spacing:.07em;color:var(--soft);margin:1.1rem 0 0;text-transform:uppercase;line-height:1.6;}
+  .fig-src a{color:var(--soft);text-decoration:underline;text-underline-offset:2px;}
+  .bars{display:flex;flex-direction:column;gap:.9rem;}
+  .bar-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.34rem;gap:.6rem;}
+  .bar-label{color:var(--ink);font-weight:600;font-size:.85rem;}
+  .bar-who{color:var(--soft);font-size:.62rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.06em;}
+  .bar-val{font-family:'JetBrains Mono',monospace;font-weight:600;font-size:.8rem;color:var(--ink);white-space:nowrap;}
+  .bar-track{height:9px;background:var(--paper-2);border:1px solid var(--hair);border-radius:2px;overflow:hidden;}
+  .bar-fill{height:100%;border-radius:0;background:var(--blue);}
+  .fig-legend{font-family:'JetBrains Mono',monospace;font-size:.6rem;letter-spacing:.05em;text-transform:uppercase;color:var(--soft);margin:1rem 0 0;line-height:1.7;}
+  .swatch{display:inline-block;width:.62rem;height:.62rem;border-radius:1px;vertical-align:middle;margin-right:.32rem;}
   .stat{display:flex;gap:1.1rem;flex-wrap:wrap;}
   .stat-item{flex:1 1 130px;}
-  .stat-num{font-family:'Inter',system-ui,sans-serif;font-weight:800;font-size:1.9rem;letter-spacing:-.02em;line-height:1;color:var(--blue);}
-  .stat-cap{font-size:.8rem;color:var(--muted);margin-top:.35rem;line-height:1.35;}
-  .tl{margin:.2rem 0 0;padding-left:0;list-style:none;border-left:2px solid var(--line);}
-  .tl li{position:relative;padding:0 0 .85rem 1.15rem;}
-  .tl li:last-child{padding-bottom:0;}
-  .tl li::before{content:'';position:absolute;left:-5px;top:.32rem;width:8px;height:8px;border-radius:50%;background:var(--blue);}
-  .tl-date{font-family:'JetBrains Mono',monospace;font-size:.64rem;color:var(--blue);font-weight:600;letter-spacing:.03em;display:block;margin-bottom:.1rem;}
-  .tl-text{font-size:.85rem;color:var(--ink);line-height:1.45;}
-  .tl-off{color:#b4341f;font-weight:600;}
+  .stat-num{font-family:'JetBrains Mono',monospace;font-weight:700;font-size:1.7rem;letter-spacing:-.01em;line-height:1;color:var(--accent);}
+  .stat-cap{font-size:.8rem;color:var(--muted);margin-top:.4rem;line-height:1.4;}
   .quad{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin:.2rem 0 0;}
-  .quad-cell{border:1px solid var(--line);border-radius:8px;padding:.7rem .75rem;background:#f7f8fa;min-height:76px;display:flex;flex-direction:column;justify-content:center;}
-  .quad-name{font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:.86rem;color:var(--ink);letter-spacing:-.01em;}
-  .quad-sub{font-size:.66rem;color:var(--soft);margin-top:.25rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.03em;}
+  .quad-cell{border:1px solid var(--hair);border-radius:6px;padding:.7rem .75rem;background:var(--paper-2);min-height:76px;display:flex;flex-direction:column;justify-content:center;}
+  .quad-name{font-family:'Spectral',Georgia,serif;font-weight:600;font-size:.98rem;color:var(--ink);letter-spacing:-.005em;}
+  .quad-sub{font-size:.6rem;color:var(--soft);margin-top:.3rem;font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:.05em;}
   .quad-good{background:rgba(10,157,107,.12);border-color:#0a9d6b;}
-  .quad-bad{background:rgba(207,91,67,.09);border-color:#cf5b43;}
+  .quad-bad{background:rgba(255,111,89,.13);border-color:var(--coral);}
   .quad-axis{font-size:.78rem;color:var(--muted);margin:.7rem 0 0;font-family:'Spectral',Georgia,serif;font-style:italic;line-height:1.4;}
+  .tlplot{width:100%;height:auto;display:block;margin:.5rem 0 .1rem;}
+  .tlplot circle{cursor:help;}
   .tip{position:relative;color:var(--blue);text-decoration:none;border-bottom:1px dotted var(--blue);cursor:help;}
   .tip .tip-box{position:absolute;left:0;bottom:calc(100% + 9px);width:300px;max-width:78vw;background:var(--ink);color:#fff;font-family:'Inter',system-ui,sans-serif;font-size:.8rem;font-style:normal;font-weight:400;letter-spacing:0;line-height:1.45;padding:.7rem .85rem;border-radius:8px;box-shadow:0 8px 26px rgba(0,0,0,.2);visibility:hidden;opacity:0;transition:opacity .15s;z-index:20;}
   .tip .tip-box::after{content:"";position:absolute;top:100%;left:18px;border:6px solid transparent;border-top-color:var(--ink);}
@@ -275,12 +278,12 @@
       <p class="fig-note">A sovereign stack is assembled from layers no middle power owns. Europe holds one chokepoint, lithography, and rents the rest.</p>
       <div class="bars">
         <div><div class="bar-head"><span class="bar-label">Lithography, EUV <span class="bar-who">ASML &middot; NL</span></span><span class="bar-val">~100%</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#0a9d6b"></div></div></div>
-        <div><div class="bar-head"><span class="bar-label">Advanced fabrication <span class="bar-who">TSMC &middot; Taiwan</span></span><span class="bar-val">~90%</span></div><div class="bar-track"><div class="bar-fill" style="width:90%;background:#cf5b43"></div></div></div>
-        <div><div class="bar-head"><span class="bar-label">AI chips, GPUs <span class="bar-who">NVIDIA &middot; US</span></span><span class="bar-val">~90%</span></div><div class="bar-track"><div class="bar-fill" style="width:90%;background:#cf5b43"></div></div></div>
-        <div><div class="bar-head"><span class="bar-label">Cloud, EU spend <span class="bar-who">US hyperscalers</span></span><span class="bar-val">~70%</span></div><div class="bar-track"><div class="bar-fill" style="width:70%;background:#cf5b43"></div></div></div>
-        <div><div class="bar-head"><span class="bar-label">Frontier models <span class="bar-who">US labs</span></span><span class="bar-val">~80%</span></div><div class="bar-track"><div class="bar-fill" style="width:80%;background:#cf5b43"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">Advanced fabrication <span class="bar-who">TSMC &middot; Taiwan</span></span><span class="bar-val">~90%</span></div><div class="bar-track"><div class="bar-fill" style="width:90%;background:#FF6F59"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">AI chips, GPUs <span class="bar-who">NVIDIA &middot; US</span></span><span class="bar-val">~90%</span></div><div class="bar-track"><div class="bar-fill" style="width:90%;background:#FF6F59"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">Cloud, EU spend <span class="bar-who">US hyperscalers</span></span><span class="bar-val">~70%</span></div><div class="bar-track"><div class="bar-fill" style="width:70%;background:#FF6F59"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">Frontier models <span class="bar-who">US labs</span></span><span class="bar-val">~80%</span></div><div class="bar-track"><div class="bar-fill" style="width:80%;background:#FF6F59"></div></div></div>
       </div>
-      <p class="fig-legend"><span class="swatch" style="background:#0a9d6b"></span>European-held layer &nbsp; <span class="swatch" style="background:#cf5b43"></span>Controlled outside Europe</p>
+      <p class="fig-legend"><span class="swatch" style="background:#0a9d6b"></span>European-held layer &nbsp; <span class="swatch" style="background:#FF6F59"></span>Controlled outside Europe</p>
       <p class="fig-src">Source: <a href="https://www.srgresearch.com/" target="_blank" rel="noopener">Synergy Research</a> (EU cloud, 2024); industry market estimates.</p>
     </figure>
     <figure class="fig" style="--s:1">
@@ -295,22 +298,44 @@
     </figure>
     <figure class="fig" style="--s:2">
       <p class="fig-title">US chip-export controls, 2022 to 2026</p>
-      <p class="fig-note">Access has been switched on and off before. The reason a consortium needs a posture, not a handshake.</p>
-      <ul class="tl">
-        <li><span class="tl-date">Oct 2022</span><span class="tl-text">The US Commerce Department's Bureau of Industry and Security ("BIS"), the agency that licenses exports, issues its first rule blocking advanced AI chips and chipmaking tools from reaching China.</span></li>
-        <li><span class="tl-date">Oct 2023</span><span class="tl-text">Closes the loophole: bans the cut-down A800 and H800 chips NVIDIA had designed to sit just under the 2022 limits, and extends the rules to 40-plus more countries.</span></li>
-        <li><span class="tl-date">Dec 2024</span><span class="tl-text">Adds limits on high-bandwidth memory, the stacked memory frontier chips depend on, and blacklists about 140 more Chinese chip-tool firms.</span></li>
-        <li><span class="tl-date">Jan 2025</span><span class="tl-text">The AI Diffusion framework sorts countries into tiers and caps how many chips each can buy. <span class="tl-off">Rescinded May 2025, before it took effect.</span></span></li>
-        <li><span class="tl-date">Apr 2025</span><span class="tl-text">A new license requirement on the China-market H20 chip forces NVIDIA to write off $5.5B of now-unsellable inventory. <span class="tl-off">Rolled back July 2025.</span></span></li>
-        <li><span class="tl-date">Jan 2026</span><span class="tl-text">The next-generation H200 moves to case-by-case licensing, and a 25% tariff on imported chips takes effect.</span></li>
-      </ul>
+      <p class="fig-note">Restriction on advanced AI chips: tightened repeatedly since 2022, then twice rolled back in 2025. Why a consortium needs a posture, not a handshake. Hover any point for the event.</p>
+      <svg class="tlplot" viewBox="0 0 340 200" role="img" aria-label="US AI chip-export restriction level, rising from 2022 to 2026 with two rollbacks in 2025.">
+        <g stroke="var(--hair)" stroke-width="1" stroke-dasharray="1 3">
+          <line x1="28" y1="32" x2="328" y2="32"/>
+          <line x1="28" y1="64" x2="328" y2="64"/>
+          <line x1="28" y1="96" x2="328" y2="96"/>
+          <line x1="28" y1="128" x2="328" y2="128"/>
+        </g>
+        <line x1="28" y1="160" x2="328" y2="160" stroke="var(--hair-strong)" stroke-width="1"/>
+        <g font-family="'JetBrains Mono',monospace" font-size="8.5" fill="var(--soft)" text-anchor="middle">
+          <text x="28" y="174">2022</text>
+          <text x="103" y="174">2023</text>
+          <text x="178" y="174">2024</text>
+          <text x="253" y="174">2025</text>
+          <text x="328" y="174">2026</text>
+        </g>
+        <text x="9" y="95" transform="rotate(-90 9 95)" font-family="'JetBrains Mono',monospace" font-size="8" fill="var(--soft)" text-anchor="middle">More restrictive &#8594;</text>
+        <path d="M28,160 H87 V128 H162 V96 H250 V64 H253 V32 H281 V64 H294 V96 H328 V64 L328,160 Z" fill="rgba(255,111,89,.08)" stroke="none"/>
+        <path d="M28,160 H87 V128 H162 V96 H250 V64 H253 V32 H281 V64 H294 V96 H328 V64" fill="none" stroke="#FF6F59" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+        <g stroke="#fff" stroke-width="1.5">
+          <circle cx="87" cy="128" r="4.5" fill="#FF6F59"><title>Oct 2022: BIS, the US export-licensing agency, issues its first rule blocking advanced AI chips and chipmaking tools from reaching China.</title></circle>
+          <circle cx="162" cy="96" r="4.5" fill="#FF6F59"><title>Oct 2023: Closes the loophole, bans the cut-down A800 and H800 chips, and extends the rules to 40-plus more countries.</title></circle>
+          <circle cx="250" cy="64" r="4.5" fill="#FF6F59"><title>Dec 2024: Adds limits on high-bandwidth memory and blacklists about 140 more Chinese chip-tool firms.</title></circle>
+          <circle cx="253" cy="32" r="4.5" fill="#FF6F59"><title>Jan 2025: The AI Diffusion framework sorts countries into tiers and caps how many chips each can buy.</title></circle>
+          <circle cx="275" cy="32" r="4.5" fill="#FF6F59"><title>Apr 2025: A new license on the China-market H20 chip forces NVIDIA to write off $5.5B of now-unsellable inventory.</title></circle>
+          <circle cx="281" cy="64" r="4.5" fill="#0a9d6b"><title>May 2025: AI Diffusion framework rescinded before it took effect.</title></circle>
+          <circle cx="294" cy="96" r="4.5" fill="#0a9d6b"><title>Jul 2025: The H20 license requirement is rolled back.</title></circle>
+          <circle cx="328" cy="64" r="4.5" fill="#FF6F59"><title>Jan 2026: The H200 moves to case-by-case licensing and a 25% tariff on imported chips takes effect.</title></circle>
+        </g>
+      </svg>
+      <p class="fig-legend"><span class="swatch" style="background:#FF6F59"></span>Control tightened &nbsp; <span class="swatch" style="background:#0a9d6b"></span>Rolled back</p>
       <p class="fig-src">Source: <a href="https://www.federalregister.gov/" target="_blank" rel="noopener">US Federal Register</a>; <a href="https://www.bis.doc.gov/" target="_blank" rel="noopener">BIS</a>; <a href="https://www.rand.org/pubs/perspectives/PEA3776-1.html" target="_blank" rel="noopener">RAND</a>.</p>
     </figure>
     <figure class="fig" style="--s:3">
       <p class="fig-title">The money, alone and pooled</p>
       <p class="fig-note">2024 private AI investment. No single member is close to the US; pooled, a coalition reaches about a sixth of US capital.</p>
       <div class="bars">
-        <div><div class="bar-head"><span class="bar-label">United States</span><span class="bar-val">$109B</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#cf5b43"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">United States</span><span class="bar-val">$109B</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#FF6F59"></div></div></div>
         <div><div class="bar-head"><span class="bar-label">EU <span class="bar-who">estimate</span></span><span class="bar-val">~$14B</span></div><div class="bar-track"><div class="bar-fill" style="width:13%;background:var(--blue)"></div></div></div>
         <div><div class="bar-head"><span class="bar-label">China</span><span class="bar-val">$9.3B</span></div><div class="bar-track"><div class="bar-fill" style="width:8.5%;background:#9aa4b2"></div></div></div>
         <div><div class="bar-head"><span class="bar-label">UK</span><span class="bar-val">$4.5B</span></div><div class="bar-track"><div class="bar-fill" style="width:4.1%;background:#9aa4b2"></div></div></div>
@@ -322,7 +347,7 @@
       <p class="fig-title">The compute gap</p>
       <p class="fig-note">What those commitments exist to close. All of EuroHPC's pooled capacity is smaller than a single US frontier cluster.</p>
       <div class="bars">
-        <div><div class="bar-head"><span class="bar-label">US frontier training cluster <span class="bar-who">single site</span></span><span class="bar-val">~5 EF</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#cf5b43"></div></div></div>
+        <div><div class="bar-head"><span class="bar-label">US frontier training cluster <span class="bar-who">single site</span></span><span class="bar-val">~5 EF</span></div><div class="bar-track"><div class="bar-fill" style="width:100%;background:#FF6F59"></div></div></div>
         <div><div class="bar-head"><span class="bar-label">EuroHPC, all systems pooled <span class="bar-who">9 supercomputers</span></span><span class="bar-val">~2 EF</span></div><div class="bar-track"><div class="bar-fill" style="width:40%;background:var(--blue)"></div></div></div>
       </div>
       <p class="fig-src">Source: <a href="https://www.eurohpc-ju.europa.eu/" target="_blank" rel="noopener">EuroHPC JU</a>; industry frontier-cluster benchmarks. EF = exaFLOPS.</p>
@@ -386,6 +411,20 @@
 
 <script>
 (function(){var dl=document.getElementById('dlSummary');if(dl){dl.addEventListener('click',function(){window.print();});}})();
+(function(){
+  var figs=[].slice.call(document.querySelectorAll('.dock .fig'));
+  if(!figs.length)return;
+  function eq(){
+    figs.forEach(function(f){f.style.minHeight='';});
+    if(window.innerWidth<=1040)return;
+    var max=0;
+    figs.forEach(function(f){if(f.offsetHeight>max)max=f.offsetHeight;});
+    figs.forEach(function(f){f.style.minHeight=max+'px';});
+  }
+  eq();
+  window.addEventListener('resize',eq);
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(eq);
+})();
 </script>
 
 </body>

@@ -215,5 +215,21 @@
   .sim-avatar.pull .sim-ava-wrap{box-shadow:0 0 0 3px #0a9d6b,0 0 12px rgba(10,157,107,.7);border-radius:50%;}
   .sim-avatar.push .sim-ava-wrap{box-shadow:0 0 0 3px #c0392b,0 0 12px rgba(192,57,43,.6);border-radius:50%;}
   .sim-avatar.pull,.sim-avatar.push{z-index:6;}
+  .sim-inspect{margin:1rem auto 0;max-width:480px;background:#fff;border:1px solid var(--hairline-strong);border-radius:12px;padding:.95rem 1.05rem;min-height:128px;}
+  .sim-inspect .si-empty{font-family:var(--font);font-size:.82rem;color:var(--text-soft);line-height:1.5;margin:0;text-align:center;}
+  .sim-inspect .si-head{display:flex;align-items:baseline;justify-content:space-between;gap:.6rem;margin:0 0 .35rem;}
+  .sim-inspect .si-name{font-family:var(--serif);font-weight:600;font-size:1.08rem;color:var(--text);}
+  .sim-inspect .si-tag{font-family:var(--mono);font-size:.62rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;}
+  .sim-inspect .si-lean{font-family:var(--mono);font-size:.6rem;letter-spacing:.06em;text-transform:uppercase;color:var(--text-soft);margin:0 0 .5rem;}
+  .sim-inspect .si-stance{font-family:var(--serif);font-size:.88rem;line-height:1.5;color:var(--text-muted);margin:0 0 .7rem;}
+  .sim-inspect .si-cats{display:flex;flex-direction:column;gap:.55rem;}
+  .sim-inspect .si-catname{font-family:var(--mono);font-size:.58rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--text-soft);margin:0 0 .2rem;}
+  .sim-inspect .si-eff{font-family:var(--font);font-size:.78rem;line-height:1.4;color:var(--text);padding:.05rem 0;}
+  .sim-inspect .si-eff .si-arrow{font-size:.7rem;font-weight:700;}
+  .sim-inspect .si-eff.pull .si-arrow{color:#0a9d6b;}
+  .sim-inspect .si-eff.push .si-arrow{color:#c0392b;}
+  .sim-inspect .si-eff .si-verb{font-family:var(--mono);font-size:.6rem;letter-spacing:.03em;text-transform:uppercase;color:var(--text-soft);}
+  .sim-inspect .si-eff.on{font-weight:600;}
+  .sim-inspect .si-eff.on .si-verb{color:var(--accent);}
   @media (max-width:1040px){.sim-wrap{grid-template-columns:1fr;}}
   @media (max-width:560px){.sim-arena{transform:scale(.66);transform-origin:top center;margin-bottom:-160px;}}

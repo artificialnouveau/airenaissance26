@@ -118,44 +118,18 @@
     readout.innerHTML='<b>'+core+'</b> of '+vis.length+' in the consortium core';
     updateGlobe();
   }
-  // globe: a country lights up when one of its players reaches the core
-  var COUNTRIES=[
-    {id:'us',name:'USA',x:95,y:135,ids:['huang','vance']},
-    {id:'eu',name:'EU',x:212,y:96,ids:['fursten','vdl','lagarde','calvino']},
-    {id:'uk',name:'UK',x:158,y:98,ids:['starmer']},
-    {id:'no',name:'Norway',x:188,y:72,ids:['tangen']},
-    {id:'nl',name:'Neth.',x:172,y:110,ids:['schoof','asml']},
-    {id:'de',name:'Germany',x:198,y:116,ids:['merz','andrulis']},
-    {id:'fr',name:'France',x:166,y:126,ids:['macron','mensch']},
-    {id:'es',name:'Spain',x:152,y:144,ids:['sanchez']},
-    {id:'it',name:'Italy',x:194,y:140,ids:['meloni']},
-    {id:'ae',name:'UAE',x:244,y:164,ids:['alolama']},
-    {id:'in',name:'India',x:274,y:168,ids:['modi']},
-    {id:'jp',name:'Japan',x:302,y:138,ids:['son']}
-  ];
-  var globe=document.getElementById('simGlobe'), globeCount=document.getElementById('simGlobeCount');
+  // globe: each player maps to a country (ISO numeric id); a country lights up
+  // when one of its players reaches the core
+  var ISO={huang:'840',vance:'840',fursten:'276',vdl:'56',lagarde:'276',calvino:'442',macron:'250',mensch:'250',merz:'276',andrulis:'276',meloni:'380',sanchez:'724',schoof:'528',asml:'528',starmer:'826',modi:'356',ek:'752',tangen:'578',son:'392',alolama:'784'};
+  var globeCount=document.getElementById('simGlobeCount'), simGlobeObj=null;
   function buildGlobe(){
-    if(!globe)return;
-    var marks=globe.querySelector('#globeMarks'); if(!marks)return;
-    var NS='http://www.w3.org/2000/svg';
-    COUNTRIES.forEach(function(c){
-      var dot=document.createElementNS(NS,'circle');
-      dot.setAttribute('cx',c.x);dot.setAttribute('cy',c.y);dot.setAttribute('r','5');dot.setAttribute('class','gl-dot');dot.id='gl-'+c.id;
-      var t=document.createElementNS(NS,'text');
-      t.setAttribute('x',c.x);t.setAttribute('y',c.y+14);t.setAttribute('class','gl-label');t.id='gll-'+c.id;t.textContent=c.name;
-      marks.appendChild(dot);marks.appendChild(t);
-    });
+    var svg=document.getElementById('simGlobe');
+    if(svg&&window.AIRGlobe)simGlobeObj=window.AIRGlobe(svg,{spin:true,speed:0.08,lng:-12,lat:32});
   }
   function updateGlobe(){
-    if(!globe)return;
-    var n=0;
-    COUNTRIES.forEach(function(c){
-      var on=c.ids.some(function(id){return committed[id];});
-      var dot=document.getElementById('gl-'+c.id), lab=document.getElementById('gll-'+c.id);
-      if(dot)dot.classList.toggle('on',on);
-      if(lab)lab.classList.toggle('on',on);
-      if(on)n++;
-    });
+    var set={},n=0;
+    for(var id in committed){if(committed[id]&&ISO[id]&&!set[ISO[id]]){set[ISO[id]]=true;n++;}}
+    if(simGlobeObj)simGlobeObj.highlight(Object.keys(set));
     if(globeCount)globeCount.textContent=n;
   }
   function refreshArgs(){

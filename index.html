@@ -57,30 +57,26 @@
 
   <section class="story-globe" aria-label="Where the consortium reaches">
     <div class="story-globe-head">Where the consortium reaches</div>
-    <svg viewBox="0 0 360 320" role="img" aria-label="Globe of the consortium's countries">
-      <defs><clipPath id="sgClip"><circle cx="180" cy="160" r="140"/></clipPath></defs>
-      <circle cx="180" cy="160" r="140" fill="rgba(0,87,255,0.04)" stroke="var(--hair-strong)" stroke-width="1"/>
-      <g clip-path="url(#sgClip)" stroke="var(--hair)" stroke-width="1" fill="none">
-        <line x1="40" y1="110" x2="320" y2="110"/>
-        <line x1="40" y1="160" x2="320" y2="160"/>
-        <line x1="40" y1="210" x2="320" y2="210"/>
+    <svg id="storyGlobe" viewBox="0 0 360 320" role="img" aria-label="Rotating globe of the consortium's countries">
+      <defs>
+        <clipPath id="sgClip"><circle cx="180" cy="160" r="140"/></clipPath>
+        <radialGradient id="sgGrad" cx="36%" cy="30%" r="72%">
+          <stop offset="0%" stop-color="#f4f7fd"/><stop offset="60%" stop-color="#d3def0"/><stop offset="100%" stop-color="#9fb2d0"/>
+        </radialGradient>
+        <radialGradient id="sgShade" cx="50%" cy="50%" r="50%">
+          <stop offset="66%" stop-color="#141e3c" stop-opacity="0"/><stop offset="100%" stop-color="#141e3c" stop-opacity="0.26"/>
+        </radialGradient>
+      </defs>
+      <circle cx="180" cy="160" r="140" fill="url(#sgGrad)" stroke="var(--hair-strong)" stroke-width="1.2"/>
+      <g clip-path="url(#sgClip)" stroke="rgba(40,60,100,0.16)" stroke-width="1" fill="none">
         <ellipse cx="180" cy="160" rx="46" ry="140"/>
         <ellipse cx="180" cy="160" rx="92" ry="140"/>
+        <ellipse cx="180" cy="160" rx="140" ry="15"/>
+        <ellipse cx="180" cy="108" rx="130" ry="12"/>
+        <ellipse cx="180" cy="212" rx="130" ry="12"/>
       </g>
-      <g>
-        <circle class="gl-dot on" cx="95" cy="135" r="7"/><text class="gl-label on" x="95" y="150">USA</text>
-        <circle class="gl-dot on" cx="158" cy="98" r="7"/><text class="gl-label on" x="158" y="92">UK</text>
-        <circle class="gl-dot on" cx="188" cy="72" r="7"/><text class="gl-label on" x="188" y="66">Norway</text>
-        <circle class="gl-dot on" cx="172" cy="110" r="7"/><text class="gl-label on" x="160" y="124">Neth.</text>
-        <circle class="gl-dot on" cx="198" cy="116" r="7"/><text class="gl-label on" x="210" y="116">Germany</text>
-        <circle class="gl-dot on" cx="166" cy="126" r="7"/><text class="gl-label on" x="150" y="134">France</text>
-        <circle class="gl-dot on" cx="152" cy="150" r="7"/><text class="gl-label on" x="152" y="165">Spain</text>
-        <circle class="gl-dot on" cx="196" cy="146" r="7"/><text class="gl-label on" x="200" y="160">Italy</text>
-        <circle class="gl-dot on" cx="214" cy="94" r="7"/><text class="gl-label on" x="226" y="92">EU</text>
-        <circle class="gl-dot" cx="244" cy="164" r="5"/><text class="gl-label" x="244" y="178">UAE</text>
-        <circle class="gl-dot" cx="274" cy="168" r="5"/><text class="gl-label" x="274" y="182">India</text>
-        <circle class="gl-dot" cx="302" cy="138" r="5"/><text class="gl-label" x="302" y="152">Japan</text>
-      </g>
+      <circle cx="180" cy="160" r="140" fill="url(#sgShade)"/>
+      <g class="cm-countries" clip-path="url(#sgClip)"></g>
     </svg>
     <p class="story-globe-note">The consortium's footprint: NVIDIA in the United States, with European states and their middle-power peers pooling behind a sovereign stack. The faint nodes are the powers watching from outside.</p>
   </section>
@@ -344,23 +340,32 @@
     </div>
   </div>
 
-  <div class="ps-timeline">
-    <h4>US chip-export controls, 2022&ndash;2026: tightened repeatedly, twice rolled back</h4>
-    <div class="ps-tl-row">
-      <span class="ps-tl-ev"><i class="up">&#9650;</i> Oct 2022 first rule</span>
-      <span class="ps-tl-ev"><i class="up">&#9650;</i> Oct 2023 loophole closed</span>
-      <span class="ps-tl-ev"><i class="up">&#9650;</i> Dec 2024 HBM limits</span>
-      <span class="ps-tl-ev"><i class="up">&#9650;</i> Jan 2025 AI Diffusion tiers</span>
-      <span class="ps-tl-ev"><i class="down">&#9660;</i> May 2025 rescinded</span>
-      <span class="ps-tl-ev"><i class="down">&#9660;</i> Jul 2025 H20 rollback</span>
-      <span class="ps-tl-ev"><i class="up">&#9650;</i> Jan 2026 H200 licensing + tariff</span>
-    </div>
+  <p class="ps-take">The order is fixed: control before product, product before money, the market last. Get the strategy right and every earlier commitment compounds; get it wrong and there is no second consortium to try again.</p>
+
+  <div class="ps-cta">
+    <span class="ps-cta-h">Get involved</span>
+    <span><b>Read the full story:</b> artificialnouveau.com/airenaissance26</span>
+    <span><b>Play the simulation:</b> artificialnouveau.com/airenaissance26/players.html</span>
+    <span><b>Sign on:</b> artificialnouveau.com/airenaissance26/#signon</span>
   </div>
 
-  <p class="ps-take">The order is fixed: control before product, product before money, the market last. Get the strategy right and every earlier commitment compounds; get it wrong and there is no second consortium to try again.</p>
-  <p class="ps-src">Sources: Synergy Research; NVIDIA 10-Q, Tom's Hardware, Motley Fool; US Federal Register, BIS, RAND; Stanford AI Index 2025; EuroHPC JU; Eurostat. Built out of AI Renaissance 2026 (airenaissance.org). artificialnouveau.com/airenaissance26</p>
+  <div class="ps-refs">
+    <span class="ps-refs-h">Sources &amp; references</span>
+    <ul>
+      <li>Stack control: <a href="https://www.srgresearch.com/">Synergy Research</a> (EU cloud, 2024); industry market estimates.</li>
+      <li>NVIDIA concentration: <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0001045810&amp;type=10-Q">NVIDIA 10-Q</a>; <a href="https://www.tomshardware.com/">Tom's Hardware</a>; <a href="https://www.fool.com/">Motley Fool</a> (Nov 2025).</li>
+      <li>Chip-export controls: <a href="https://www.federalregister.gov/">US Federal Register</a>; <a href="https://www.bis.doc.gov/">Bureau of Industry and Security</a>; <a href="https://www.rand.org/">RAND</a>.</li>
+      <li>Private AI investment: <a href="https://hai.stanford.edu/ai-index/2025-ai-index-report">Stanford AI Index 2025</a>.</li>
+      <li>Compute: <a href="https://www.eurohpc-ju.europa.eu/">EuroHPC Joint Undertaking</a>.</li>
+      <li>EU AI adoption: <a href="https://ec.europa.eu/eurostat/web/products-eurostat-news/w/ddn-20250123-3">Eurostat</a> (2024 data, 2025 release).</li>
+      <li>Nemotron Coalition: <a href="https://nvidianews.nvidia.com/news/nvidia-launches-nemotron-coalition-of-leading-global-ai-labs-to-advance-open-frontier-models">NVIDIA newsroom</a> (2026).</li>
+    </ul>
+  </div>
+
+  <p class="ps-src">Built out of AI Renaissance 2026 (airenaissance.org). artificialnouveau.com/airenaissance26</p>
 </div>
 
+<script src="js/globe.js"></script>
 <script src="js/story.js"></script>
 
 </body>

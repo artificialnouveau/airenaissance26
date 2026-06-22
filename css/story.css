@@ -75,11 +75,9 @@
   /* globe above the live data */
   .story-globe{max-width:660px;margin:2.4rem auto 2.8rem;text-align:center;}
   .story-globe-head{font-family:'JetBrains Mono',monospace;font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--soft);margin-bottom:1rem;}
-  .story-globe svg{width:100%;max-width:320px;height:auto;display:block;margin:0 auto;}
-  .story-globe .gl-dot{fill:var(--hair-strong);stroke:#fff;stroke-width:1.2;}
-  .story-globe .gl-dot.on{fill:var(--accent);}
-  .story-globe .gl-label{font-family:'JetBrains Mono',monospace;font-size:7.5px;fill:var(--soft);text-anchor:middle;text-transform:uppercase;letter-spacing:.03em;}
-  .story-globe .gl-label.on{fill:var(--ink);font-weight:700;}
+  .story-globe svg{width:100%;max-width:300px;height:auto;display:block;margin:0 auto;}
+  .story-globe .cm-country{fill:#bcc6d2;stroke:rgba(255,255,255,0.55);stroke-width:.3;}
+  .story-globe .cm-country.is-lit{fill:var(--accent);}
   .story-globe-note{font-family:'Spectral',Georgia,serif;font-style:italic;font-size:.98rem;color:var(--muted);line-height:1.5;max-width:520px;margin:1rem auto 0;}
 
   /* data figures */
@@ -184,7 +182,16 @@
     .ps-tl-ev i{font-style:normal;font-size:7px;margin-right:2px;}
     .ps-tl-ev .up{color:#FF6F59;}
     .ps-tl-ev .down{color:#0a9d6b;}
-    .ps-take{font-size:9px;color:#111;font-style:italic;margin:10px 0 0;}
+    .ps-take{font-size:9px;color:#111;font-style:italic;margin:11px 0 0;border-top:.5px solid #cfcabf;padding-top:8px;}
+    .ps-cta{display:flex;flex-wrap:wrap;gap:2px 16px;margin:9px 0 0;background:rgba(0,87,255,0.06);border:.5px solid rgba(0,87,255,0.25);border-radius:4px;padding:6px 8px;}
+    .ps-cta-h{flex-basis:100%;font-size:8px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#0057FF;margin-bottom:1px;}
+    .ps-cta span{font-size:8px;color:#222;}
+    .ps-cta b{color:#0057FF;}
+    .ps-refs{margin:9px 0 0;}
+    .ps-refs-h{font-size:8.5px;font-weight:700;text-transform:uppercase;letter-spacing:.05em;color:#333;}
+    .ps-refs ul{margin:3px 0 0;padding-left:12px;}
+    .ps-refs li{font-size:7.5px;color:#444;line-height:1.4;margin-bottom:1px;}
+    .ps-refs a{color:#0057FF;text-decoration:none;}
     .ps-src{font-size:7.5px;color:#666;margin-top:8px;}
     @page{margin:1cm;}
   }

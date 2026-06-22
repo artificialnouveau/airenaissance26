@@ -1,5 +1,13 @@
 (function(){var dl=document.getElementById('dlSummary');if(dl){dl.addEventListener('click',function(){window.print();});}})();
 
+// rotating globe above the live data: light the consortium's countries
+(function(){
+  var svg=document.getElementById('storyGlobe');
+  if(svg&&window.AIRGlobe){
+    window.AIRGlobe(svg,{spin:true,speed:0.07,lng:-12,lat:34,lit:['840','250','276','380','724','528','826','578','752','56']});
+  }
+})();
+
 // Dock cards stack as you scroll: each sticks just below the previous so its title
 // stays visible, and earlier cards collapse to a title strip once covered. The dock is
 // also height-matched to the story column so there is no empty gap before the summary.

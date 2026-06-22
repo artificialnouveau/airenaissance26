@@ -177,17 +177,17 @@
   .sim-eyebrow{font-family:var(--mono);font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin:0 0 .5rem;font-weight:700;text-align:center;}
   .sim h2{font-family:var(--serif);font-weight:600;font-size:1.6rem;margin:0 0 .6rem;text-align:center;}
   .sim-intro{color:var(--text-muted);max-width:62ch;margin:0 auto 1.9rem;text-align:center;font-size:.95rem;line-height:1.6;}
-  .sim-wrap{display:grid;grid-template-columns:500px 1fr;gap:2.6rem;align-items:start;max-width:1000px;margin:0 auto;}
-  .sim-arena{position:relative;width:480px;height:480px;margin:0 auto;}
+  .sim-wrap{display:grid;grid-template-columns:580px 1fr;gap:2.4rem;align-items:start;max-width:1080px;margin:0 auto;}
+  .sim-arena{position:relative;width:560px;height:560px;margin:0 auto;}
   .sim-ring{position:absolute;border-radius:50%;}
-  .sim-ring.outer{inset:30px;border:1px dashed var(--hairline-strong);}
-  .sim-ring.inner{width:250px;height:250px;left:115px;top:115px;border:1px solid rgba(0,87,255,.35);background:rgba(0,87,255,.06);}
+  .sim-ring.outer{inset:40px;border:1px dashed var(--hairline-strong);}
+  .sim-ring.inner{width:300px;height:300px;left:130px;top:130px;border:1px solid rgba(0,87,255,.35);background:rgba(0,87,255,.06);}
   .sim-core-label{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);text-align:center;line-height:1.3;pointer-events:none;opacity:.85;}
-  .sim-avatar{position:absolute;width:46px;left:240px;top:240px;transform:translate(-50%,-50%);transition:left .7s cubic-bezier(.4,0,.2,1),top .7s cubic-bezier(.4,0,.2,1);text-align:center;z-index:2;}
-  .sim-ava-wrap{position:relative;width:44px;height:44px;margin:0 auto;}
-  .sim-ava-ini{position:absolute;inset:0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:700;font-size:.82rem;color:#fff;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.28);}
-  .sim-ava-img{position:absolute;inset:0;width:44px;height:44px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.28);background:#dbe2ea;}
-  .sim-ava-name{font-family:var(--font);font-size:.57rem;font-weight:600;color:var(--text);margin-top:2px;line-height:1;white-space:nowrap;}
+  .sim-avatar{position:absolute;width:40px;left:280px;top:280px;transform:translate(-50%,-50%);transition:left .7s cubic-bezier(.4,0,.2,1),top .7s cubic-bezier(.4,0,.2,1);text-align:center;z-index:2;}
+  .sim-ava-wrap{position:relative;width:38px;height:38px;margin:0 auto;}
+  .sim-ava-ini{position:absolute;inset:0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--font);font-weight:700;font-size:.72rem;color:#fff;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.28);}
+  .sim-ava-img{position:absolute;inset:0;width:38px;height:38px;border-radius:50%;object-fit:cover;border:2px solid #fff;box-shadow:0 1px 5px rgba(0,0,0,.28);background:#dbe2ea;}
+  .sim-ava-name{font-family:var(--font);font-size:.5rem;font-weight:600;color:var(--text);margin-top:2px;line-height:1;white-space:nowrap;}
   .sim-args{display:flex;flex-direction:column;gap:.55rem;}
   .sim-arg{text-align:left;background:#fff;border:1px solid var(--hairline-strong);border-radius:10px;padding:.65rem .85rem;cursor:pointer;transition:border-color .15s,background .15s;}
   .sim-arg:hover{border-color:var(--accent);}
@@ -244,4 +244,4 @@
   .cm-country{fill:rgba(10,10,10,0.22);stroke:rgba(10,10,10,0.55);stroke-width:0.4;stroke-linejoin:round;transition:fill 0.5s ease,stroke 0.5s ease;}
   .cm-country.is-lit{fill:var(--accent);stroke:#001540;stroke-width:0.6;filter:drop-shadow(0 0 2px rgba(0,119,200,0.55));}
   @media (max-width:1040px){.sim-wrap{grid-template-columns:1fr;}}
-  @media (max-width:560px){.sim-arena{transform:scale(.66);transform-origin:top center;margin-bottom:-160px;}}
+  @media (max-width:620px){.sim-arena{transform:scale(.6);transform-origin:top center;margin-bottom:-205px;}}

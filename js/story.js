@@ -14,33 +14,34 @@
 (function(){
   var dock=document.querySelector('.dock'), story=document.querySelector('.story');
   if(!dock||!story)return;
+  var globeEl=dock.querySelector('.story-globe');
   var figs=[].slice.call(dock.querySelectorAll('.fig'));
   if(!figs.length)return;
+  // the globe is the first item in the stack (--s:0); data cards stack over it
+  var items=globeEl ? [globeEl].concat(figs) : figs;
   var NAV=82, OFF=48;
   function desktop(){return window.innerWidth>900;}
 
-  // space the cards so the dock column ends roughly where the story column does
+  // space the items so the dock column ends roughly where the story column does
   function layout(){
-    figs.forEach(function(f){f.style.marginBottom='';});
+    items.forEach(function(f){f.style.marginBottom='';});
     if(!desktop())return;
     var sum=0;
-    figs.forEach(function(f){sum+=f.offsetHeight;});
-    var globeEl=dock.querySelector('.story-globe');
-    var gh=globeEl?globeEl.offsetHeight:0;
+    items.forEach(function(f){sum+=f.offsetHeight;});
     var min=Math.round(window.innerHeight*0.05);
-    var gap=Math.round((story.offsetHeight-sum-gh)/figs.length);
+    var gap=Math.round((story.offsetHeight-sum)/items.length);
     if(gap<min)gap=min;
-    figs.forEach(function(f){f.style.marginBottom=gap+'px';});
+    items.forEach(function(f){f.style.marginBottom=gap+'px';});
   }
 
-  // collapse any card that a later card has already stacked on top of
+  // collapse any item that a later item has already stacked on top of
   function stack(){
-    if(!desktop()){figs.forEach(function(f){f.classList.remove('behind');});return;}
+    if(!desktop()){items.forEach(function(f){f.classList.remove('behind');});return;}
     var active=-1;
-    for(var i=0;i<figs.length;i++){
-      if(figs[i].getBoundingClientRect().top <= NAV + i*OFF + 1) active=i;
+    for(var i=0;i<items.length;i++){
+      if(items[i].getBoundingClientRect().top <= NAV + i*OFF + 1) active=i;
     }
-    figs.forEach(function(f,i){f.classList.toggle('behind', i<active);});
+    items.forEach(function(f,i){f.classList.toggle('behind', i<active);});
   }
 
   var ticking=false;

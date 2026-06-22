@@ -531,3 +531,108 @@ const PHOTOS = {
   xi: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Xi_Jinping_meets_Putin_May_2026.jpg/330px-Xi_Jinping_meets_Putin_May_2026.jpg',
   putin: 'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2808-03-2024%29_%28cropped%29_%28higher_res%29_2.jpg/330px-%D0%92%D0%BB%D0%B0%D0%B4%D0%B8%D0%BC%D0%B8%D1%80_%D0%9F%D1%83%D1%82%D0%B8%D0%BD_%2808-03-2024%29_%28cropped%29_%28higher_res%29_2.jpg'
 };
+
+// Per-section sources (real articles, transcripts, and interviews) for the
+// simulation players. Each entry: { org, stance, sov } with {label, url, quote}.
+const SRC = {
+  huang: {
+    org: {label:"NVIDIA Newsroom, sovereign AI in Korea", url:"https://nvidianews.nvidia.com/news/south-korea-ai-infrastructure", quote:"NVIDIA is working with South Korea to expand the nation's AI infrastructure with over a quarter-million GPUs across its sovereign clouds and AI factories."},
+    stance: {label:"NVIDIA, a new industrial revolution", url:"https://blogs.nvidia.com/blog/ai-summit-japan-huang-son/", quote:"Every industry, every company, every country must produce a new industrial revolution."},
+    sov: {label:"NVIDIA, World Governments Summit", url:"https://blogs.nvidia.com/blog/world-governments-summit/", quote:"Every country needs to own the production of their own intelligence."}
+  },
+  mensch: {
+    org: {label:"Fortune, doubling down on open source", url:"https://fortune.com/2025/03/20/mistral-ai-ceo-mensch-denies-ipo-rumors-doubles-down-on-open-source-strategy-european-champion/", quote:"Mistral, the Paris-based European champion, builds open-source models as an alternative to OpenAI, Anthropic and Meta."},
+    stance: {label:"Sifted, outside state control", url:"https://sifted.eu/articles/mistral-arthur-mensch-open-source-anthropic", quote:"Mensch frames Mistral as existing outside the centralized control exercised by states or corporations."},
+    sov: {label:"AOL, French National Assembly hearing", url:"https://www.aol.com/articles/mistral-ais-ceo-says-europe-223501000.html", quote:"Europe risks becoming 'a vassal state' if it keeps importing its digital services from the US."}
+  },
+  andrulis: {
+    org: {label:"Maginative, PhariaAI launch", url:"https://www.maginative.com/article/aleph-alpha-announces-phariaai-a-sovereign-enterprise-grade-ai-operating-system/", quote:"PhariaAI is for enterprises and governments seeking to leverage AI without compromising control or compliance."},
+    stance: {label:"The Register, on a European LLM", url:"https://www.theregister.com/2025/02/23/aleph_alpha_sovereign_ai/", quote:"Just having a European LLM is not sufficient as a business model. It doesn't justify the investment."},
+    sov: {label:"The Register, sovereign AI foundation", url:"https://www.theregister.com/2025/02/23/aleph_alpha_sovereign_ai/", quote:"We're trying to be the foundation for enterprises and governments to build their own sovereign AI strategy."}
+  },
+  asml: {
+    org: {label:"Fast Company, powering the AI boom", url:"https://www.fastcompany.com/91235182/asmls-christophe-fouquet-is-leading-the-company-quietly-powering-the-ai-boom", quote:"ASML makes the only machines capable of EUV lithography, printing the patterns that define the most advanced chips."},
+    stance: {label:"Yahoo Finance, on ASML's lead", url:"https://finance.yahoo.com/sectors/technology/articles/asml-ceo-christophe-fouquet-no-200640845.html", quote:"On ASML's lead in advanced lithography: 'no one is coming for us.'"},
+    sov: {label:"FourWeekMBA, ASML CEO at the G7", url:"https://fourweekmba.com/asml-ceo-g7-europe-behind-sovereignty-sequence/", quote:"Sovereignty requires innovation first, not regulation first: you have to start with demand, not manufacturing."}
+  },
+  vance: {
+    org: {label:"The American Presidency Project, VP remarks", url:"https://www.presidency.ucsb.edu/documents/remarks-the-vice-president-the-artificial-intelligence-action-summit-paris-france", quote:"This administration will ensure that American AI technology continues to be the gold standard worldwide."},
+    stance: {label:"CNN, Vance at the Paris summit", url:"https://www.cnn.com/2025/02/11/tech/jd-vance-ai-regulation-paris-intl/index.html", quote:"Excessive regulation of the AI sector could kill a transformative industry just as it's taking off."},
+    sov: {label:"NPR, Vance lays out an AI vision", url:"https://www.npr.org/2025/02/12/nx-s1-5290257/vice-president-vance-lays-out-ai-vision-very-different-from-biden-administrations", quote:"Vance pressed for US AI dominance, warning foreign governments against tightening rules on American tech."}
+  },
+  vonderleyen: {
+    org: {label:"European Commission, InvestAI", url:"https://digital-strategy.ec.europa.eu/en/news/eu-launches-investai-initiative-mobilise-eu200-billion-investment-artificial-intelligence", quote:"InvestAI will mobilise EUR 200 billion for AI, including a EUR 20 billion fund for AI gigafactories."},
+    stance: {label:"European Commission, AI Action Summit speech", url:"https://ec.europa.eu/commission/presscorner/detail/en/speech_25_471", quote:"We want Europe to be one of the leading AI continents."},
+    sov: {label:"European Commission, AI Action Summit speech", url:"https://ec.europa.eu/commission/presscorner/detail/en/speech_25_471", quote:"We should invest in what we can do best and build our own strengths here in Europe."}
+  },
+  macron: {
+    org: {label:"Euronews, AI Action Summit", url:"https://www.euronews.com/next/2025/02/11/heres-what-has-been-announced-at-the-ai-action-summit", quote:"Macron announced a 109 billion euro private-sector investment plan for AI in France."},
+    stance: {label:"Fox Business, 'plug, baby, plug'", url:"https://www.foxbusiness.com/politics/frances-macron-says-plug-baby-plug-amid-push-nuclear-powered-ai", quote:"A good friend across the ocean says 'drill, baby, drill.' Here there is no need to drill. It's 'plug, baby, plug.'"},
+    sov: {label:"Lombard Odier, Paris AI summit analysis", url:"https://www.lombardodier.com/insights/2025/february/ai-summit-in-paris.html", quote:"Macron framed France's AI push as a fight for sovereignty and strategic autonomy: Europe's own cloud, data centres and compute."}
+  },
+  modi: {
+    org: {label:"Press Information Bureau, IndiaAI Mission", url:"https://www.pib.gov.in/PressReleaseIframePage.aspx?PRID=2012355", quote:"The Cabinet approved the IndiaAI Mission with a Rs 10,371 crore outlay, including over 10,000 GPUs of compute."},
+    stance: {label:"Business Standard, Modi at the AI summit", url:"https://www.business-standard.com/technology/tech-news/pm-modi-address-ai-action-summit-paris-open-source-data-sets-bias-jobs-125021101117_1.html", quote:"Modi called for open-source AI, bias-free datasets, and democratising technology for AI for Good and for All."},
+    sov: {label:"Ministry of External Affairs, summit address", url:"https://www.mea.gov.in/Speeches-Statements.htm?dtl/39020/Opening_Address_by_Prime_Minister_Shri_Narendra_Modi_at_the_AI_Action_Summit_Paris_February_11_2025", quote:"Modi urged democratising technology and access for all, especially the Global South, and people-centric AI."}
+  },
+  meloni: {
+    org: {label:"Reuters via U.S. News, Italy AI fund", url:"https://www.usnews.com/news/technology/articles/2024-03-12/italy-to-set-up-ai-fund-of-1-billion-euros-pm-says", quote:"Meloni announced a 1 billion euro fund, backed by state lender CDP's venture arm, to promote AI projects."},
+    stance: {label:"governo.it, message on AI and Work", url:"https://www.governo.it/en/articolo/president-meloni-s-message-event-ai-and-work-managing-transformation-multiplying", quote:"AI can unleash its positive potential only if guided by ethical rules that keep people, their rights and needs at the centre."},
+    sov: {label:"Decode39, national AI strategy", url:"https://decode39.com/8676/ai-meloni-gates-national-strategy/", quote:"Italy's strategy aims to reduce dependence on third countries, emphasising technological sovereignty."}
+  },
+  merz: {
+    org: {label:"Bundesregierung, on AI and industry", url:"https://www.bundesregierung.de/breg-de/aktuelles/kanzler-kuenstliche-intelligenz-industrie-2422036", quote:"Merz argued Germany and the EU need sovereign access to the AI value chain to create industrial value and jobs."},
+    stance: {label:"France 24 / AFP, at the digital summit", url:"https://www.france24.com/en/live-news/20251118-merz-macron-to-push-for-european-digital-sovereignty", quote:"The questions of the future will be decided predominantly in the digital realm."},
+    sov: {label:"French MFA, Digital Sovereignty Summit", url:"https://uk.diplomatie.gouv.fr/en/summit-european-digital-sovereignty-delivers-landmark-commitments", quote:"A milestone towards a more sovereign, secure and competitive digital Europe."}
+  },
+  sanchez: {
+    org: {label:"Barcelona Supercomputing Center, ALIA", url:"https://www.bsc.es/news/bsc-news/alia-europes-first-public-open-and-multilingual-ai-infrastructure", quote:"ALIA is the first European public, open and multilingual AI infrastructure, to reinforce technological sovereignty."},
+    stance: {label:"La Moncloa, AI Impact Summit", url:"https://www.lamoncloa.gob.es/lang/en/presidente/news/paginas/2026/20260219-trip-to-india-second-day.aspx", quote:"Technologies like AI should expand human freedom, democracy and rights, not undermine them."},
+    sov: {label:"La Moncloa, AI Impact Summit speech", url:"https://www.lamoncloa.gob.es/lang/en/presidente/intervenciones/Paginas/2026/20260219-global-ai-impact-summit-speech.aspx", quote:"A clear strategy of sustained public investment, European cooperation, and a firm commitment to technological sovereignty."}
+  },
+  starmer: {
+    org: {label:"GOV.UK, AI Opportunities Action Plan", url:"https://www.gov.uk/government/news/prime-minister-sets-out-blueprint-to-turbocharge-ai", quote:"Starmer launched the AI Opportunities Action Plan, with AI Growth Zones and a major expansion of public compute."},
+    stance: {label:"Computer Weekly, on backing bets", url:"https://www.computerweekly.com/news/366643844/Starmer-announces-sovereign-compute-strategy-amid-11bn-chip-investment", quote:"Government is active here, supporting risk-taking and making its own bets, but also making sure we are sovereign."},
+    sov: {label:"Computer Weekly, sovereign compute", url:"https://www.computerweekly.com/news/366643844/Starmer-announces-sovereign-compute-strategy-amid-11bn-chip-investment", quote:"A sovereign compute strategy, aiming to make Britain an 'AI maker, not an AI taker'."}
+  },
+  schoof: {
+    org: {label:"Netherlands government, AI Impact Summit", url:"https://www.netherlandsandyou.nl/web/india/w/prime-minister-dick-schoof-visits-ai-impact-summit", quote:"Schoof attended the AI Impact Summit to strengthen partnerships on trade, investment, innovation and AI talent."},
+    stance: {label:"The Print, at the Delhi AI summit", url:"https://theprint.in/diplomacy/in-delhi-for-ai-summit-dutch-pm-schoof-calls-for-global-collaboration-on-ai-minus-us-china/2858962/", quote:"The US and China not being here shows other countries see rewards in working together on how to manage AI."},
+    sov: {label:"The Print, 'own our own AI'", url:"https://theprint.in/diplomacy/in-delhi-for-ai-summit-dutch-pm-schoof-calls-for-global-collaboration-on-ai-minus-us-china/2858962/", quote:"Other countries should work together to create our own AI, to own our own AI, and make our own bloc."}
+  },
+  ek: {
+    org: {label:"CNBC, Ek leads Helsing round", url:"https://www.cnbc.com/2025/06/17/spotifys-daniel-ek-leads-investment-in-defense-startup-helsing.html", quote:"Daniel Ek's Prima Materia led a 600 million euro round in defence-AI startup Helsing, valuing it at 12 billion euros."},
+    stance: {label:"CNBC, on the new battlefield", url:"https://www.cnbc.com/2025/06/17/spotifys-daniel-ek-leads-investment-in-defense-startup-helsing.html", quote:"There's an enormous realisation that it's now AI, mass and autonomy that is driving the new battlefield."},
+    sov: {label:"Helsing, European technological sovereignty", url:"https://helsing.ai/newsroom/helsing-raises-eur600m-to-invest-in-european-technological-sovereignty", quote:"An urgent need for investments in advanced technologies that ensure Europe's strategic autonomy and security."}
+  },
+  son: {
+    org: {label:"OpenAI, the Stargate Project", url:"https://openai.com/index/announcing-the-stargate-project/", quote:"SoftBank and OpenAI lead a 500 billion dollar AI infrastructure project, Stargate, with Son as chairman."},
+    stance: {label:"CNBC, the biggest revolution", url:"https://www.cnbc.com/2026/06/01/softbank-masayoshi-son-ai-revolution-investment.html", quote:"This is the biggest revolution of technology and realization that mankind ever experienced."},
+    sov: {label:"Fortune, born to create ASI", url:"https://fortune.com/2024/06/27/softbank-ceo-masayoshi-son-born-to-create-artificial-super-intelligence/", quote:"This is what I was born to do, to realize artificial superintelligence."}
+  },
+  tangen: {
+    org: {label:"Fortune, the fund and the Magnificent Seven", url:"https://fortune.com/europe/2025/01/22/ceo-nicolai-tangen-norway-wealth-fund-owns-173-billion-magnificent-7-tells-investors-sell-us-tech-stocks/", quote:"Norway's fund owns about 173 billion dollars of the Magnificent Seven, including roughly 1.3% of Nvidia."},
+    stance: {label:"Bloomberg, staff must use AI", url:"https://www.bloomberg.com/news/articles/2025-05-27/norway-wealth-fund-ceo-tells-staff-they-must-use-ai", quote:"Tangen called AI the most important thing happening in the world, and told staff they must use it."},
+    sov: {label:"CNBC, Europe must get its act together", url:"https://www.cnbc.com/2026/03/17/nbim-norway-norwegian-sovereign-wealth-fund-europe-iran-us-stocks-holdings-portfolio-nvidia-apple-microsoft.html", quote:"Because of the US companies' dominant position in AI we do not have strong companies in Europe in that field."}
+  },
+  furstenberg: {
+    org: {label:"Sifted, on Helsing and Mistral boards", url:"https://sifted.eu/articles/jeannette-zu-furstenberg-interview-podcast", quote:"General Catalyst president and La Famiglia co-founder; sits on the boards of Helsing and Mistral AI."},
+    stance: {label:"General Catalyst, profile", url:"https://www.generalcatalyst.com/team/jeannette-zu-furstenberg", quote:"Her investments are driven by a vision of a resilient, more prosperous Europe, with AI a key driver of transformation."},
+    sov: {label:"Wikipedia, on winning the AI race", url:"https://en.wikipedia.org/wiki/Jeannette_zu_F%C3%BCrstenberg", quote:"Germany and Europe should not just make progress in AI but win the global race, not intimidated by projects like Stargate."}
+  },
+  alolama: {
+    org: {label:"Atlantic Council, on the G42-Microsoft deal", url:"https://www.atlanticcouncil.org/blogs/new-atlanticist/uae-tech-minister-ai-will-be-the-new-lifeblood-for-governments-and-the-private-sector/", quote:"Al Olama described Microsoft's 1.5 billion dollar investment in Abu Dhabi's G42 as a 'marriage' of US tech and UAE talent."},
+    stance: {label:"Atlantic Council, AI as 'new lifeblood'", url:"https://www.atlanticcouncil.org/blogs/new-atlanticist/uae-tech-minister-ai-will-be-the-new-lifeblood-for-governments-and-the-private-sector/", quote:"AI is going to be the new lifeblood, the new foundation for most governments, and for the private sector."},
+    sov: {label:"Fortune, the UAE as a top AI power", url:"https://fortune.com/2023/12/21/uae-minister-future-ai-omar-al-olama-interview/", quote:"The future of AI is going to be determined by three countries: the US, China and the UAE."}
+  },
+  calvino: {
+    org: {label:"European Investment Bank, financing AI gigafactories", url:"https://www.eib.org/en/press/all/2025-491-eib-group-and-european-commission-join-forces-to-finance-ai-gigafactories", quote:"By supporting major AI gigafactories, we scale up computing capacity and create the conditions for innovation to thrive."},
+    stance: {label:"European Investment Bank, on Europe's strength", url:"https://www.eib.org/en/press/all/2025-491-eib-group-and-european-commission-join-forces-to-finance-ai-gigafactories", quote:"Europe is a technological powerhouse."},
+    sov: {label:"European Commission, EIB partnership", url:"https://digital-strategy.ec.europa.eu/en/news/commission-and-european-investment-bank-group-team-support-ai-gigafactories", quote:"The EIB Group and Commission joined forces to finance AI gigafactories and reinforce technological sovereignty."}
+  },
+  lagarde: {
+    org: {label:"BIS, 'The transformative power of AI'", url:"https://www.bis.org/review/r250407f.htm", quote:"We must act on the basis that we are facing an economic revolution."},
+    stance: {label:"BIS, on the risk of falling behind", url:"https://www.bis.org/review/r250407f.htm", quote:"The risks of underestimating AI, and falling behind again, are simply too great to be ignored."},
+    sov: {label:"BIS, on escalation dominance", url:"https://www.bis.org/review/r250916d.htm", quote:"A country that controls a critical technology can hold 'escalation dominance' even over partners with larger markets."}
+  }
+};

@@ -86,8 +86,10 @@ function renderCards(list){
 
 function buildModal(p){
   const idx = String(PEOPLE.indexOf(p)+1).padStart(2,'0');
-  const sov = SOV[p.id] ? `<p class="person-sov"><span class="rlabel">On AI sovereignty</span>${esc(SOV[p.id])}</p>` : '';
-  const org = ORG[p.id] ? `<p class="person-org"><span class="rlabel">Involvement in AI</span>${esc(ORG[p.id])}</p>` : '';
+  const S = (typeof SRC !== 'undefined' && SRC[p.id]) ? SRC[p.id] : {};
+  function srcTag(s){ return s && s.url ? ` <a class="person-srclink" href="${s.url}" target="_blank" rel="noopener"${s.quote ? ` title="${esc(s.quote)}"` : ''}>${esc(s.label || 'Source')} &rarr;</a>` : ''; }
+  const sov = SOV[p.id] ? `<p class="person-sov"><span class="rlabel">On AI sovereignty</span>${esc(SOV[p.id])}${srcTag(S.sov)}</p>` : '';
+  const org = ORG[p.id] ? `<p class="person-org"><span class="rlabel">Involvement in AI</span>${esc(ORG[p.id])}${srcTag(S.org)}</p>` : '';
   const reading = p.reading ? `<p class="person-reading"><span class="rlabel">Reading</span><a href="${p.reading.url}" target="_blank" rel="noopener">${esc(p.reading.label)} &rarr;</a></p>` : '';
   return `<div class="pm-head" style="--ax:${colorFor[p.id]}">
        <span class="pm-photo">${photoHtml(p)}</span>
@@ -99,7 +101,7 @@ function buildModal(p){
      </div>
      <div class="pm-content">
        ${org}
-       <p class="person-stance"><span class="rlabel">On AI</span>${esc(p.stance)}</p>
+       <p class="person-stance"><span class="rlabel">On AI</span>${esc(p.stance)}${srcTag(S.stance)}</p>
        ${sov}
        ${reading}
        <div class="videos">${videoHtml(p)}</div>

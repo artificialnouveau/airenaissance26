@@ -54,6 +54,17 @@
     arena.appendChild(el);
   });
   function score(p){var s=p.base;for(var k in active){if(!active[k])continue;var a=find(k);if(a&&typeof a.d[p.id]==='number')s+=a.d[p.id];}return Math.max(0.05,Math.min(1,s));}
+  // a plain-language reason for where each player sits: starting lean plus the active arguments moving it
+  function describe(p){
+    var lines=[p.name+' — '+p.tag];
+    lines.push(p.base>=0.55?'Starts leaning toward joining.':(p.base<=0.4?'Starts skeptical.':'Starts on the fence.'));
+    var pulls=[], pushes=[];
+    for(var k in active){if(!active[k])continue;var a=find(k);if(a&&typeof a.d[p.id]==='number'){if(a.d[p.id]>0)pulls.push(a.label);else if(a.d[p.id]<0)pushes.push(a.label);}}
+    if(pulls.length)lines.push('Pulled toward the core by: '+pulls.join('; '));
+    if(pushes.length)lines.push('Pushed out by: '+pushes.join('; '));
+    if(!pulls.length&&!pushes.length)lines.push('No active argument moves this player.');
+    return lines.join('\n');
+  }
   function place(){
     var vis=visible(), core=0;
     vis.forEach(function(p,i){p.angle=(-90+i*360/vis.length)*Math.PI/180;});
@@ -64,6 +75,8 @@
       var s=score(p),d=OUT-s*(OUT-INNER);
       el.style.left=(C+d*Math.cos(p.angle))+'px';
       el.style.top=(C+d*Math.sin(p.angle))+'px';
+      el.title=describe(p);
+      el.classList.toggle('committed', d<=CORE);
       if(d<=CORE)core++;
     });
     readout.innerHTML='<b>'+core+'</b> of '+vis.length+' in the consortium core';
@@ -77,6 +90,18 @@
     }
   }
   function toggle(id){var a=find(id);if(active[id]){active[id]=false;}else{active[id]=true;if(a.cancels&&active[a.cancels])active[a.cancels]=false;}refreshArgs();place();}
+  // hover an argument to preview who it would pull in (green) or push out (red)
+  function preview(a){for(var id in a.d){var el=document.getElementById('sav-'+id);if(el)el.classList.add(a.d[id]>0?'pull':'push');}}
+  function clearPreview(){var els=arena.querySelectorAll('.sim-avatar');for(var i=0;i<els.length;i++)els[i].classList.remove('pull','push');}
+  // controls: clear-all button and an explainer
+  var controls=document.createElement('div'); controls.className='sim-controls';
+  var clearBtn=document.createElement('button'); clearBtn.type='button'; clearBtn.className='sim-clear'; clearBtn.textContent='Clear all';
+  clearBtn.addEventListener('click',function(){active={};clearPreview();refreshArgs();place();});
+  controls.appendChild(clearBtn);
+  var hint=document.createElement('p'); hint.className='sim-hint';
+  hint.innerHTML='Hover an argument to preview who it pulls toward the core (<b class="pullc">green</b>) or pushes out (<b class="pushc">red</b>). Hover a player to see why it moves.';
+  controls.appendChild(hint);
+  argbox.appendChild(controls);
   G.forEach(function(g){
     var wrap=document.createElement('div'); wrap.className='sim-group';
     wrap.innerHTML='<div class="sim-group-head">'+g.cat+(g.ids.length>1?' <span class="gh-pick">pick one</span>':'')+'</div>';
@@ -86,6 +111,10 @@
       var b=document.createElement('button');b.type='button';b.className='sim-arg';b.setAttribute('data-id',a.id);
       b.innerHTML='<div class="sim-arg-label">'+a.label+'</div><div class="sim-arg-sub">'+a.sub+'</div>';
       b.addEventListener('click',function(){toggle(a.id);});
+      b.addEventListener('mouseenter',function(){preview(a);});
+      b.addEventListener('mouseleave',clearPreview);
+      b.addEventListener('focus',function(){preview(a);});
+      b.addEventListener('blur',clearPreview);
       body.appendChild(b);
       if(g.ids.length>1&&idx===0){var vs=document.createElement('span');vs.className='sim-vs';vs.textContent='vs';body.appendChild(vs);}
     });

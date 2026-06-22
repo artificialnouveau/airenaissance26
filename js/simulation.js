@@ -40,7 +40,7 @@
     {cat:'Openness',ids:['opensource']}
   ];
   var CATS=[{id:'all',label:'All'},{id:'company',label:'Companies'},{id:'gov',label:'Government Officials'},{id:'vc',label:'Venture Capitalists'}];
-  var active={}, cat='all', C=240, OUT=210, INNER=30, CORE=125;
+  var active={}, committed={}, cat='all', C=240, OUT=210, INNER=30, CORE=125;
   var arena=document.getElementById('simArena'), readout=document.getElementById('simReadout'), argbox=document.getElementById('simArgs'), filterbox=document.getElementById('simFilter'), inspect=document.getElementById('simInspect');
   if(!arena) return;
   function ini(n){var w=n.split(' ');return (w[0].charAt(0)+w[w.length-1].charAt(0)).toUpperCase();}
@@ -101,6 +101,7 @@
   }
   function place(){
     var vis=visible(), core=0;
+    committed={};
     vis.forEach(function(p,i){p.angle=(-90+i*360/vis.length)*Math.PI/180;});
     P.forEach(function(p){
       var el=document.getElementById('sav-'+p.id);
@@ -110,10 +111,52 @@
       el.style.left=(C+d*Math.cos(p.angle))+'px';
       el.style.top=(C+d*Math.sin(p.angle))+'px';
       el.title=describe(p);
-      el.classList.toggle('committed', d<=CORE);
-      if(d<=CORE)core++;
+      var inCore=d<=CORE; el.classList.toggle('committed', inCore);
+      committed[p.id]=inCore;
+      if(inCore)core++;
     });
     readout.innerHTML='<b>'+core+'</b> of '+vis.length+' in the consortium core';
+    updateGlobe();
+  }
+  // globe: a country lights up when one of its players reaches the core
+  var COUNTRIES=[
+    {id:'us',name:'USA',x:95,y:135,ids:['huang','vance']},
+    {id:'eu',name:'EU',x:212,y:96,ids:['fursten','vdl','lagarde','calvino']},
+    {id:'uk',name:'UK',x:158,y:98,ids:['starmer']},
+    {id:'no',name:'Norway',x:188,y:72,ids:['tangen']},
+    {id:'nl',name:'Neth.',x:172,y:110,ids:['schoof','asml']},
+    {id:'de',name:'Germany',x:198,y:116,ids:['merz','andrulis']},
+    {id:'fr',name:'France',x:166,y:126,ids:['macron','mensch']},
+    {id:'es',name:'Spain',x:152,y:144,ids:['sanchez']},
+    {id:'it',name:'Italy',x:194,y:140,ids:['meloni']},
+    {id:'ae',name:'UAE',x:244,y:164,ids:['alolama']},
+    {id:'in',name:'India',x:274,y:168,ids:['modi']},
+    {id:'jp',name:'Japan',x:302,y:138,ids:['son']}
+  ];
+  var globe=document.getElementById('simGlobe'), globeCount=document.getElementById('simGlobeCount');
+  function buildGlobe(){
+    if(!globe)return;
+    var marks=globe.querySelector('#globeMarks'); if(!marks)return;
+    var NS='http://www.w3.org/2000/svg';
+    COUNTRIES.forEach(function(c){
+      var dot=document.createElementNS(NS,'circle');
+      dot.setAttribute('cx',c.x);dot.setAttribute('cy',c.y);dot.setAttribute('r','5');dot.setAttribute('class','gl-dot');dot.id='gl-'+c.id;
+      var t=document.createElementNS(NS,'text');
+      t.setAttribute('x',c.x);t.setAttribute('y',c.y+14);t.setAttribute('class','gl-label');t.id='gll-'+c.id;t.textContent=c.name;
+      marks.appendChild(dot);marks.appendChild(t);
+    });
+  }
+  function updateGlobe(){
+    if(!globe)return;
+    var n=0;
+    COUNTRIES.forEach(function(c){
+      var on=c.ids.some(function(id){return committed[id];});
+      var dot=document.getElementById('gl-'+c.id), lab=document.getElementById('gll-'+c.id);
+      if(dot)dot.classList.toggle('on',on);
+      if(lab)lab.classList.toggle('on',on);
+      if(on)n++;
+    });
+    if(globeCount)globeCount.textContent=n;
   }
   function refreshArgs(){
     var btns=argbox.querySelectorAll('.sim-arg');
@@ -156,5 +199,6 @@
   });
   CATS.forEach(function(c){var b=document.createElement('button');b.type='button';b.textContent=c.label;if(c.id==='all')b.className='on';b.addEventListener('click',function(){cat=c.id;var fb=filterbox.querySelectorAll('button');for(var i=0;i<fb.length;i++)fb[i].classList.remove('on');b.classList.add('on');place();});filterbox.appendChild(b);});
   if(inspect)inspect.innerHTML='<p class="si-empty">Hover or tap a player to see their stance and, for each category, which choice pulls them toward the core or pushes them out.</p>';
+  buildGlobe();
   place();
 })();

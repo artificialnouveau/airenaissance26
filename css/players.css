@@ -231,5 +231,14 @@
   .sim-inspect .si-eff .si-verb{font-family:var(--mono);font-size:.6rem;letter-spacing:.03em;text-transform:uppercase;color:var(--text-soft);}
   .sim-inspect .si-eff.on{font-weight:600;}
   .sim-inspect .si-eff.on .si-verb{color:var(--accent);}
+  .sim-globe{margin:2.2rem auto 0;max-width:420px;text-align:center;}
+  .sim-globe-head{font-family:var(--mono);font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text-soft);margin-bottom:.7rem;}
+  #simGlobe{width:100%;max-width:360px;height:auto;display:block;margin:0 auto;}
+  .gl-dot{fill:var(--hairline-strong);stroke:#fff;stroke-width:1;transition:fill .35s ease,r .35s ease;}
+  .gl-dot.on{fill:var(--accent);r:7px;}
+  .gl-label{font-family:var(--mono);font-size:7.5px;fill:var(--text-soft);text-anchor:middle;text-transform:uppercase;letter-spacing:.03em;transition:fill .35s ease;}
+  .gl-label.on{fill:var(--text);font-weight:700;}
+  .sim-globe-note{font-family:var(--font);font-size:.78rem;color:var(--text-soft);line-height:1.5;margin:.8rem 0 0;}
+  .sim-globe-note b{color:var(--accent);font-family:var(--mono);font-size:1rem;}
   @media (max-width:1040px){.sim-wrap{grid-template-columns:1fr;}}
   @media (max-width:560px){.sim-arena{transform:scale(.66);transform-origin:top center;margin-bottom:-160px;}}

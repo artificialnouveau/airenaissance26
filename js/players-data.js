@@ -269,14 +269,6 @@ const PEOPLE = [
       {id:'NJpmMP5fZP0', title:'On India-Netherlands tech ties', desc:'As PM, Jetten discusses Netherlands-India relations, including cooperation on technology, AI, and semiconductors.', ts:'Approx.', channel:'DD News'},
       {id:'0jv9AEu4rV0', title:'On Dutch-India economic and chip ties', desc:'Jetten on Netherlands-India economic cooperation, including the semiconductors central to the AI supply chain.', ts:'Approx.', channel:'Republic World'}
     ]},
-  { id:'schoof', name:'Dick Schoof', short:'Dick Schoof', role:'Former Prime Minister of the Netherlands', cluster:'shared',
-    stance:'As Dutch PM, tied AI to security and to the chip supply chain, pressing for global rules while deepening AI and semiconductor ties abroad.',
-    quote:'We must be ready for AI warfare, and AI’s risks demand global rules.', verbatim:false,
-    videos:[
-      {id:'uxYAo7pAvUo', title:'Address at the India AI Impact Summit', desc:'Schoof on deepening Dutch-India cooperation across AI and semiconductors. New Delhi, 2026.', ts:'Approx.', channel:'The Hindu'},
-      {id:'9scd8kJWtys', title:'"We must be ready for AI warfare"', desc:'Speaking alongside Zelenskyy, Schoof warns of AI-driven and drone warfare.', ts:'Approx.', channel:'DRM News'},
-      {id:'vcArCe0Mr_A', title:'Warning to the UN on AI, peace, and security', desc:'Schoof argues AI risks to global security call for shared rules, not complacency.', ts:'Approx.', channel:'DRM News'}
-    ]},
   { id:'lee', name:'Lee Jae-myung', short:'Lee Jae-myung', role:'President of South Korea', cluster:'sovereignty',
     stance:'Declares AI the answer to Korea’s transformation and a national strategic priority.',
     quote:'AI is the answer to Korea’s transformation and the centre of its economic vision.', verbatim:false,
@@ -337,7 +329,7 @@ const SOVCLUSTER = {
   lee:'stack', takaichi:'stack', alolama:'stack', pengxiao:'stack', calvino:'stack', ek:'stack',
   furstenberg:'stack', asml:'stack', tangen:'stack', jetten:'stack', mensch:'stack', liang:'stack', gomez:'stack', andrulis:'stack',
   vance:'race', altman:'race', musk:'race', amodei:'race', son:'race', thiel:'race', xi:'race', putin:'race', rutte:'race',
-  suleyman:'shared', schoof:'shared', meloni:'shared', lagarde:'shared', sanchez:'shared', eupublic:'shared',
+  suleyman:'shared', meloni:'shared', lagarde:'shared', sanchez:'shared', eupublic:'shared',
   cook:'beyond', sanders:'beyond', burnham:'beyond', pichai:'beyond', nadella:'beyond', garman:'beyond', mattarella:'beyond', pope:'beyond'
 };
 
@@ -357,7 +349,7 @@ const CATS = [
 ];
 const ORDER_BY_CAT = {
   corp: ['mensch','liang','andrulis','gomez','ek','asml','huang','pengxiao','nadella','garman','pichai','suleyman','cook','amodei','altman','musk'],
-  pol:  ['eupublic','vonderleyen','macron','modi','lula','merz','sanchez','jetten','meloni','starmer','lee','schoof','takaichi','alolama','sanders','rutte','pope','mattarella','burnham','vance','xi','putin'],
+  pol:  ['eupublic','vonderleyen','macron','modi','lula','merz','sanchez','jetten','meloni','starmer','lee','takaichi','alolama','sanders','rutte','pope','mattarella','burnham','vance','xi','putin'],
   fin:  ['calvino','furstenberg','tangen','lagarde','son','thiel']
 };
 const CAT = {};
@@ -379,7 +371,7 @@ const TAGS = {
   vance:'US Vice President', son:'SoftBank', thiel:'Founders Fund', ek:'Spotify', tangen:'Norway fund', liang:'DeepSeek',
   furstenberg:'General Catalyst', asml:'ASML', cook:'Apple', alolama:'UAE AI Minister', pengxiao:'G42',
   calvino:'EIB President', lagarde:'ECB President', vonderleyen:'EU Commission Pres.', macron:'France President', merz:'Germany Chancellor',
-  modi:'India PM', lula:'Brazil President', sanchez:'Spain PM', starmer:'UK PM', burnham:'Makerfield MP', jetten:'Netherlands PM', schoof:'Netherlands ex-PM', meloni:'Italy PM', mattarella:'Italy President', lee:'Korea President',
+  modi:'India PM', lula:'Brazil President', sanchez:'Spain PM', starmer:'UK PM', burnham:'Makerfield MP', jetten:'Netherlands PM', meloni:'Italy PM', mattarella:'Italy President', lee:'Korea President',
   takaichi:'Japan PM', rutte:'NATO Sec-Gen', sanders:'US Senator', xi:'China President', putin:'Russia President', pope:'Vatican', eupublic:'EU citizens'
 };
 
@@ -421,7 +413,6 @@ const SOV = {
   starmer:'Ties opportunity to sovereign capability: build the UK’s own compute and AI infrastructure rather than rely entirely on US clouds.',
   burnham:'Comes at it from inclusion rather than statecraft: make sure the AI transition does not leave regions and workers behind.',
   jetten:'Approaches sovereignty as innovation capacity and partnership: invest in knowledge, AI, and chips, and deepen ties such as with India rather than go it alone.',
-  schoof:'Links Dutch sovereignty to chips and AI: deepens semiconductor and AI ties abroad while pressing for global rules and readiness for AI-enabled warfare.',
   meloni:'Frames AI sovereignty through G7-level governance and a human-centred, labour-aware lens, wary of Big Tech power and deepfakes.',
   mattarella:'Casts it less as state power than human dignity: AI is unstoppable but must remain human-centred, with care for its effects on work.',
   pope:'Locates the question beyond states and markets, in human dignity: AI must not be concentrated "in the hands of a few," and technical power does not by itself confer the right to rule.',
@@ -473,7 +464,6 @@ const ORG = {
   starmer:'The UK has the AI Safety Institute, DeepMind’s home base, and an AI plan for sovereign compute.',
   burnham:'Greater Manchester pitches itself as a UK tech and digital hub, with AI and skills investment.',
   jetten:'The Netherlands hosts ASML, the chip-tool linchpin, and is deepening AI and semiconductor ties abroad.',
-  schoof:'Dutch AI weight runs through ASML and the chip supply chain, paired with AI-security diplomacy.',
   meloni:'Italy used its 2024 G7 presidency to put AI risks, labour, and ethics on the global agenda.',
   mattarella:'As head of state, Mattarella repeatedly urges Italy and Europe to keep AI human-centred and weigh its impact on jobs.',
   pope:'The Holy See has made AI a central theme: the encyclical Magnifica Humanitas (2026) and Vatican messages call for ethical guardrails, protection of workers, and global governance.',
@@ -521,7 +511,6 @@ const PHOTOS = {
   starmer: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Prime_Minister_Keir_Starmer_Portrait_%28cropped%29.jpg/330px-Prime_Minister_Keir_Starmer_Portrait_%28cropped%29.jpg',
   burnham: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Andy_Burnham_on_13_August_2024_%28cropped_2%29.jpg/330px-Andy_Burnham_on_13_August_2024_%28cropped_2%29.jpg',
   jetten: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c2/Rob_Jetten%2C_March_2026_-_02.jpg/330px-Rob_Jetten%2C_March_2026_-_02.jpg',
-  schoof: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Dick_Schoof_in_2025.jpg/330px-Dick_Schoof_in_2025.jpg',
   meloni: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Giorgia_Meloni_Official_2024_%28cropped%29.jpg/330px-Giorgia_Meloni_Official_2024_%28cropped%29.jpg',
   mattarella: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Sergio_Mattarella_Presidente_della_Repubblica_Italiana.jpg/330px-Sergio_Mattarella_Presidente_della_Repubblica_Italiana.jpg',
   lee: 'https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/President_Lee_Jae_Myung_20260306.jpg/330px-President_Lee_Jae_Myung_20260306.jpg',
@@ -594,11 +583,6 @@ const SRC = {
     org: {label:"GOV.UK, AI Opportunities Action Plan", url:"https://www.gov.uk/government/news/prime-minister-sets-out-blueprint-to-turbocharge-ai", quote:"Starmer launched the AI Opportunities Action Plan, with AI Growth Zones and a major expansion of public compute."},
     stance: {label:"Computer Weekly, on backing bets", url:"https://www.computerweekly.com/news/366643844/Starmer-announces-sovereign-compute-strategy-amid-11bn-chip-investment", quote:"Government is active here, supporting risk-taking and making its own bets, but also making sure we are sovereign."},
     sov: {label:"Computer Weekly, sovereign compute", url:"https://www.computerweekly.com/news/366643844/Starmer-announces-sovereign-compute-strategy-amid-11bn-chip-investment", quote:"A sovereign compute strategy, aiming to make Britain an 'AI maker, not an AI taker'."}
-  },
-  schoof: {
-    org: {label:"Netherlands government, AI Impact Summit", url:"https://www.netherlandsandyou.nl/web/india/w/prime-minister-dick-schoof-visits-ai-impact-summit", quote:"Schoof attended the AI Impact Summit to strengthen partnerships on trade, investment, innovation and AI talent."},
-    stance: {label:"The Print, at the Delhi AI summit", url:"https://theprint.in/diplomacy/in-delhi-for-ai-summit-dutch-pm-schoof-calls-for-global-collaboration-on-ai-minus-us-china/2858962/", quote:"The US and China not being here shows other countries see rewards in working together on how to manage AI."},
-    sov: {label:"The Print, 'own our own AI'", url:"https://theprint.in/diplomacy/in-delhi-for-ai-summit-dutch-pm-schoof-calls-for-global-collaboration-on-ai-minus-us-china/2858962/", quote:"Other countries should work together to create our own AI, to own our own AI, and make our own bloc."}
   },
   ek: {
     org: {label:"CNBC, Ek leads Helsing round", url:"https://www.cnbc.com/2025/06/17/spotifys-daniel-ek-leads-investment-in-defense-startup-helsing.html", quote:"Daniel Ek's Prima Materia led a 600 million euro round in defence-AI startup Helsing, valuing it at 12 billion euros."},
